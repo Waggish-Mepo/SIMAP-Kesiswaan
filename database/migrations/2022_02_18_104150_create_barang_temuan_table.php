@@ -15,6 +15,7 @@ class CreateBarangTemuanTable extends Migration
     {
         Schema::create('r_barang_temuan', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_barang');
             $table->string('jenis');
             $table->string('merk');
             $table->string('warna');
