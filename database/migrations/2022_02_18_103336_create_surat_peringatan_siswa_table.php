@@ -17,9 +17,6 @@ class CreateSuratPeringatanSiswaTable extends Migration
             $table->id();
             $table->string('no_surat');
             $table->string('nis');
-            $table->string('nama');
-            $table->integer('rombel_id');
-            $table->integer('rayon_id');
             $table->integer('sp_ke');
             $table->string('jenis_sp');
             $table->string('jurusan');
