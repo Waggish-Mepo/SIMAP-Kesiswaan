@@ -15,11 +15,10 @@ class CreateBarangTemuanTable extends Migration
     {
         Schema::create('r_barang_temuan', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_barang');
-            $table->string('jenis');
-            $table->string('merk');
-            $table->string('warna');
-            $table->boolean('status');
+            $table->string('nis');
+            $table->date('tgl');
+            $table->varchar('foto_barang');
+            $table->text('ket');
             $table->timestamps();
         });
     }

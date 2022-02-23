@@ -15,12 +15,10 @@ class CreateBarangRaziaTable extends Migration
     {
         Schema::create('r_barang_razia', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_barang');
             $table->string('nis');
-            $table->string('jenis');
-            $table->string('merk');
-            $table->string('warna');
-            $table->boolean('status');
+            $table->date('tgl');
+            $table->varchar('foto_barang');
+            $table->text('ket');
             $table->timestamps();
         });
     }
