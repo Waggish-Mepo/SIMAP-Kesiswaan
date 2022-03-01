@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\RekapBarangController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,4 +23,12 @@ Route::get('/login', function(){
 
 Route::get('/dashboard', function(){
     return view('dashboard');
+});
+
+
+Route::get('/rekap-barang/razia', function(){
+    return view('rekap-barang.razia.index');
+});
+Route::get('/rekap-barang/temuan', function(){
+    return view('rekap-barang.temuan.index');
 });

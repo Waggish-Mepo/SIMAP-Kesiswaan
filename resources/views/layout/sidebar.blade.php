@@ -33,17 +33,16 @@
                             <span class="text nav-text">Absensi Siswa</span>
                         </a>
                     </li>
-
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="/rekap-barang/razia">
                             <i class='bx bx-bell icon'></i>
                             <span class="text nav-text">Rekap Barang</span>
                         </a>
                         <i class='bx bx-chevron-down drop-icon'></i>
-                        {{-- <ul class="dropdown">
-                            <li><a href=""></a></li>
-                            <li><a href=""></a></li>
-                        </ul> --}}
+                        <ul class="dropdown">
+                            <li><a href=""></a>ff</li>
+                            <li><a href=""></a>ff</li>
+                        </ul>
                     </li>
 
                     <li class="nav-link">
