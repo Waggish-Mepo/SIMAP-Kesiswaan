@@ -40,10 +40,10 @@
                             <span class="text nav-text">Rekap Barang</span>
                         </a>
                         <i class='bx bx-chevron-down drop-icon'></i>
-                        <ul class="dropdown">
+                        {{-- <ul class="dropdown">
                             <li><a href=""></a></li>
                             <li><a href=""></a></li>
-                        </ul>
+                        </ul> --}}
                     </li>
 
                     <li class="nav-link">

@@ -2,9 +2,9 @@
 <html lang="id">
 <head>
     @include('layout.head')
-    <title>SIMAP Kesiswaan
+    <title>SIMAP Kesiswaan |
         @hasSection('title')
-            - @yield('title')
+            @yield('title')
         @endif
     </title>
 </head>
