@@ -16,12 +16,10 @@ class CreateSuratPeringatanSiswaTable extends Migration
         Schema::create('r_surat_peringatan_siswa', function (Blueprint $table) {
             $table->id();
             $table->string('nis');
-            $table->string('jurusan');
             $table->integer('sp_ke');
             $table->integer('skor');
-            $table->int('status');
+            $table->integer('status');
             $table->text('ket');
-            $table->date('tgl_cetak');
             $table->timestamps();
         });
     }

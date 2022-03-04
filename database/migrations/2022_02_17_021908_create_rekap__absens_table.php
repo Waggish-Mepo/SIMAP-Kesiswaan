@@ -13,7 +13,7 @@ class CreateRekapAbsensTable extends Migration
      */
     public function up()
     {
-        Schema::create('r_absen_periode', function (Blueprint $table) {
+        Schema::create('r_absen_rekap', function (Blueprint $table) {
             $table->id();
             $table->string('nis');
             $table->date('tgl_absen');

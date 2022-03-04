@@ -11,11 +11,15 @@ class Barang_Razia extends Model
     protected $table = 'r_barang_razia';
     protected $fillable = [
         'nis',
-        'nama_barang',
-        'jenis',
-        'merk',
-        'warna',
+        'tgl',
+        'foto_barang',
+        'image_path',
+        'ket',
         'status'
-
     ];
+
+    public function Student()
+    {
+        return $this->hasOne('App\Models\Student', 'id', 'nis');
+    }
 }

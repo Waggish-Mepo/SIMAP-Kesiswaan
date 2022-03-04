@@ -8,12 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Barang_Temuan extends Model
 {
     use HasFactory;
-    protected $table = 'r_barang_razia';
+    protected $table = 'r_barang_temuan';
     protected $fillable = [
-        'nama_barang',
-        'jenis',
-        'merk',
-        'warna',
+        'nis',
+        'tgl',
+        'foto_barang',
+        'image_path',
+        'ket',
         'status'
     ];
+
+    public function Student(){
+        return $this->hasOne('App\Models\Student', 'id', 'nis');
+    }
 }

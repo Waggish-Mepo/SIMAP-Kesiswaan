@@ -12,4 +12,12 @@ class Student extends Model
     protected $fillable = [
         ''
     ];
+
+    public function Rayon(){
+        return $this->hasOne('App\Models\Rayon', 'id', 'rayon_id');
+    }
+
+    public function Rombel(){
+        return $this->hasOne('App\Models\Rombel', 'id', 'rombel_id');
+    }
 }

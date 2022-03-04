@@ -10,10 +10,16 @@ class Surat_Perigatan extends Model
     use HasFactory;
     protected $table = 'r_surat_peringatan_siswa';
     protected $fillable = [
-        'no_surat',
         'nis',
         'sp_ke',
-        'jenis_sp',
-        'jurusan',
+        'skor',
+        'tgl',
+        'status',
+        'ket',
     ];
+
+    public function Student()
+    {
+        return $this->hasOne('App\Models\Student', 'nis', 'nis');
+    }
 }

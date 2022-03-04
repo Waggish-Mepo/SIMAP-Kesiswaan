@@ -17,8 +17,10 @@ class CreateBarangTemuanTable extends Migration
             $table->id();
             $table->string('nis');
             $table->date('tgl');
-            $table->varchar('foto_barang');
+            $table->string('foto_barang');
+            // $table->string('foto_endpoint');
             $table->text('ket');
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }

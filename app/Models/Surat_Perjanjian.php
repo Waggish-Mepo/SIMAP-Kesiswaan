@@ -11,7 +11,15 @@ class Surat_Perjanjian extends Model
     protected $table = 'r_surat_perjanjian_siswa';
     protected $fillable = [
         'nis',
-        'jenis_sp',
-        'jurusan'
+        'jenis_perjanjian',
+        'tgl',
+        'skor',
+        'status',
+        'ket'
     ];
+
+    public function Student()
+    {
+        return $this->hasOne('App\Models\Student', 'nis', 'nis');
+    }
 }

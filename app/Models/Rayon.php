@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Rayon extends Model
 {
     use HasFactory;
+    protected $table = 'm_rayon';
+    protected $fillable = [
+
+    ];
 }
