@@ -5,19 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Rekap_Absen extends Model
+class Sim extends Model
 {
     use HasFactory;
-    protected $table = 'r_absen_rekap';
+    protected $table = 'r_surat_ijin_mengemudi_siswa';
     protected $fillable = [
         'nis',
-        'hadir',
-        'alpa',
-        'izin',
-        'sakit',
-        // 'keterangan',
-        'angkatan',
-        'semester',
+        'foto_selfie_sim',
+        'file_endpoint',
     ];
     public function Murid(){
         return $this->belongsTo('App\Models\Student','nis');
