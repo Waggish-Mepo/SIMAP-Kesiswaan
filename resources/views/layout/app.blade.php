@@ -11,9 +11,9 @@
 <body>
     <div class="relative min-h-screen flex">
         @include('layout.sidebar')
-        <div class="flex-1 bg-gray-200">
+        <div class="flex-1 bg-gray-200 h-full">
             @include('layout.navbar')
-            <main class="w-11/12 mx-auto mt-4">
+            <main class="pl-24 pr-4 py-20">
                 @yield('content')
             </main>
         </div>

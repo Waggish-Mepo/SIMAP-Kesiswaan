@@ -1,5 +1,5 @@
 <body>
-    <nav class="sidebar close">
+    <nav class="fixed h-full sidebar close">
         <header>
             <div class="image-text">
                 <span class="image">
@@ -40,10 +40,10 @@
                             <span class="text nav-text">Rekap Barang</span>
                         </a>
                         <i class='bx bx-chevron-down drop-icon'></i>
-                        {{-- <ul class="dropdown">
-                            <li><a href=""></a></li>
-                            <li><a href=""></a></li>
-                        </ul> --}}
+                        <ul class="dropdown">
+                            <li><a href="">Rekap Barang Razia</a></li>
+                            <li><a href="">Rekap Barang Temuan</a></li>
+                        </ul>
                     </li>
 
                     <li class="nav-link">
