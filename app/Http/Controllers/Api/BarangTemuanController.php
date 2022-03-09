@@ -19,7 +19,7 @@ class BarangTemuanController extends Controller
      */
     public function index()
     {
-        $res = Barang_Temuan::with('Student', 'Student.Rayon', 'Student.Rombel')->get();
+        $res = Barang_Temuan::with('Student', 'Penemu', 'Student.Rayon', 'Student.Rombel')->get();
 
         return $this->success(['barang_temuan' => $res], 'Barang Temuan');
     }
@@ -34,6 +34,7 @@ class BarangTemuanController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'nis' => 'required',
+            'penemu' => 'required',
             'tgl' => 'required',
             'foto_barang' => 'required|image:jpeg, png, jpg',
             'image_path',
@@ -56,6 +57,7 @@ class BarangTemuanController extends Controller
     
         $res = Barang_Temuan::create([
             'nis' => $request['nis'],
+            'penemu' => $request['penemu'],
             'tgl' => $request['tgl'],
             'foto_barang' => $imageName,
             'image_path' => $path,
@@ -93,6 +95,7 @@ class BarangTemuanController extends Controller
         
         $validator = Validator::make($request->all(), [
             'nis' => 'required',
+            'penemu' => 'required',
             'tgl' => 'required',
             'foto_barang' => 'sometimes|image:jpeg, png, jpg',
             'image_path',
@@ -118,6 +121,7 @@ class BarangTemuanController extends Controller
 
         $res->update([
             'nis' => $request['nis'],
+            'penemu' => $request['penemu'],
             'tgl' => $request['tgl'],
             // 'tgl' => $ldate,
             'foto_barang' => $imageName,

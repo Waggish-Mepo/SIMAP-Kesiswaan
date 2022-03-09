@@ -11,6 +11,7 @@ class Barang_Temuan extends Model
     protected $table = 'r_barang_temuan';
     protected $fillable = [
         'nis',
+        'penemu',
         'tgl',
         'foto_barang',
         'image_path',
@@ -20,5 +21,9 @@ class Barang_Temuan extends Model
 
     public function Student(){
         return $this->hasOne('App\Models\Student', 'id', 'nis');
+    }
+
+    public function Penemu(){
+        return $this->hasOne('App\Models\Student', 'id', 'penemu');
     }
 }
