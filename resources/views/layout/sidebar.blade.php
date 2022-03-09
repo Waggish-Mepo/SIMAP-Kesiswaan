@@ -55,16 +55,23 @@
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-heart icon'></i>
+                        <a href="/sim/input-sim">
+                            <i class='bx bx-card icon'></i>
                             <span class="text nav-text">Input SIM</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="/raport-karakter/input-raport">
                             <i class='bx bx-wallet icon'></i>
-                            <span class="text nav-text">Wallets</span>
+                            <span class="text nav-text">Raport Karakter</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-book icon'></i>
+                            <span class="text nav-text">Rekap BKP</span>
                         </a>
                     </li>
                 </ul>
