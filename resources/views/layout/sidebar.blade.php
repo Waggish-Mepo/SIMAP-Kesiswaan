@@ -13,7 +13,7 @@
                     </a>
                 </li>
                 <li class="nav-link px-4 py-2  relative hover:bg-[#192e7d] m-2">
-                    <a href="#">
+                    <a href="/dashboard">
                         <i class='bx bx-home-alt w-5'></i>
                         <span class="text nav-text">Dashboard</span>
                     </a>
@@ -53,20 +53,28 @@
                 </li>
 
                 <li class="nav-link px-4 py-2  relative hover:bg-[#192e7d] m-2">
-                    <a href="#">
+                    <a href="/sim/input-sim">
+                        <i class='bx bx-card icon w-5'></i>
+                        <span class="text nav-text">Input SIM</span>
+                    </a>
+                </li>
+
+                <li class="nav-link px-4 py-2  relative hover:bg-[#192e7d] m-2">
+                    <a href="/raport-karakter/input-raport">
                         <i class='bx bx-wallet icon w-5'></i>
-                        <span class="text nav-text">Wallets</span>
+                        <span class="text nav-text">Raport Karakter</span>
+                    </a>
+                </li>
+
+                <li class="nav-link px-4 py-2  relative hover:bg-[#192e7d] m-2">
+                    <a href="#">
+                        <i class='bx bx-book icon w-5'></i>
+                        <span class="text nav-text">Rekap BKP</span>
                     </a>
                 </li>
             </ul>
         </header>
     </nav>
-    <section class="menu">
-        <div class="contant">
-            <i class='bx bx-menu icon w-5'></i>
-            <span class="text nav-text">Menu</span>
-        </div>
-    </section>
 </body>
 
 <script>

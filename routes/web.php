@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\InputSIMController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +24,12 @@ Route::get('/login', function(){
 
 Route::get('/dashboard', function(){
     return view('dashboard');
+});
+
+Route::get('/sim/input-sim', function(){
+    return view('sim.input-sim');
+});
+
+Route::get('/raport-karakter/input-raport', function(){
+    return view('raport-karakter.input-raport');
 });
