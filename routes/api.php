@@ -3,10 +3,11 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
-use App\Http\Controllers\Api\BarangRaziaController;
-use App\Http\Controllers\Api\BarangTemuanController;
-use App\Http\Controllers\Api\SuratPeringatanController;
-use App\Http\Controllers\Api\SuratPerjanjianController;
+use App\Http\Controllers\Api\StudentController;
+use App\Http\Controllers\Api\RombelController;
+use App\Http\Controllers\Api\RayonController;
+use App\Http\Controllers\Api\BatchController;
+use App\Http\Controllers\Api\SimController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -23,12 +24,15 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('auth/logout', [AuthController::class, 'logout']);
-
-    Route::resource('/barang-temuan', BarangTemuanController::class);
-    Route::resource('/barang-razia', BarangRaziaController::class);
-    Route::resource('/surat-peringatan', SuratPeringatanController::class);
-    Route::resource('/surat-perjanjian', SuratPerjanjianController::class);
+    Route::resource('/murid',StudentController::class);
+    Route::resource('/rombel',RombelController::class);
+    Route::resource('/rayon',RayonController::class);
+    Route::resource('/angkatan',BatchController::class);
+    Route::resource('/sim',SimController::class);
+    Route::post('/import/murid',[StudentController::class,'importExcel']);
+    Route::post('/import/guru',[StudentController::class,'importExcel']);
 });
 
 Route::post('/register',[AuthController::class,'register']);
 Route::post('/login',[AuthController::class,'login']);
+Route::get('/sim/image/{nis}',[SimController::class,'getImage']);
