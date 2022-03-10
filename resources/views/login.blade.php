@@ -13,12 +13,12 @@
 
 <body class="bg-cover" style="background-image: url({{ asset('image/bg-wikrama.png') }})">
     <div class="h-screen grid font-custome">
-        <div class="m-auto">
+        <div class="m-auto ">
             <div class="flex h-96 bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                <div class="grid rounded-l-lg h-full w-52 md:w-80 " style="background-color: #223787">
+                <div class="grid rounded-l-lg h-full w-52 md:w-80 bg-[#223787]">
                     <img class="m-auto w-40" src="{{ asset('image/logo.png') }}" alt="">
                 </div>
-                <div class="sm:p-6 w-52 md:w-80">
+                <div class="sm:pt-10 sm:px-6 w-52 md:w-80">
                     <form class="space-y-6" action="#">
                         <h3 class="flex justify-center text-xl font-medium text-gray-900 dark:text-white">Login</h3>
                         <div>
@@ -34,7 +34,7 @@
                                 required>
                         </div>
                         <button type="submit"
-                            class="w-16 float-right text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><i class='bx bx-right-arrow-alt w-12'></i></button>
+                            class="w-12 justify-center float-right text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 rounded-full text-lg px-3 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><i class='bx bx-right-arrow-alt'></i></button>
                     </form>
                 </div>
             </div>
