@@ -25,16 +25,18 @@ Route::get('/dashboard', function(){
     return view('dashboard');
 });
 
-
 Route::get('/rekap-barang/razia', function(){
     return view('rekap-barang.razia.index');
 });
+
 Route::get('/rekap-barang/razia/edit', function(){
     return view('rekap-barang.modals.modal-razia.edit');
 });
+
 Route::get('/rekap-barang/temuan', function(){
     return view('rekap-barang.temuan.index');
 });
+
 Route::get('/rekap-barang/temuan/edit', function(){
     return view('rekap-barang.modals.modal-temuan.edit');
 });
