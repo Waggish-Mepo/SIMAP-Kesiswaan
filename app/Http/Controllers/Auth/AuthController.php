@@ -44,7 +44,7 @@ class AuthController extends Controller
     public function register(Request $request)
     {
       $request->validate([
-        'useralble_id'=>'required',
+        'userable_id'=>'required',
         'role' => 'required',
         'email' => 'required|email|unique:m_user',
         'password'=> 'required|confirmed',
@@ -58,6 +58,7 @@ class AuthController extends Controller
       // return response()->json();
       return $this->success(['user' => $user, 'token' => $user->createToken($user->name)->plainTextToken],'succesfully register new user');
     }
+
     public function login(Request $request)
     {
       $request->validate([

@@ -20,7 +20,6 @@ class Student extends Model
        'nisn',
        'nik',
     ];
-
     public function UserAccount(){
         return $this->belongsTo('App\Models\User','nis','userable_id')->where('role','murid');
     }

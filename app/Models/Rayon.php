@@ -17,5 +17,4 @@ class Rayon extends Model
     public function Teacher(){
         return $this->hasOne('App\Models\Teacher','id','teacher_id');
     }
-
 }

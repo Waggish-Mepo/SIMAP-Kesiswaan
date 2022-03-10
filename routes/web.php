@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\RekapBarangController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,5 +14,35 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layout.app');
+});
+
+Route::get('/login', function(){
+    return view('login');
+});
+
+Route::get('/dashboard', function(){
+    return view('dashboard');
+});
+
+
+Route::get('/rekap-barang/razia', function(){
+    return view('rekap-barang.razia.index');
+});
+Route::get('/rekap-barang/razia/edit', function(){
+    return view('rekap-barang.modals.modal-razia.edit');
+});
+Route::get('/rekap-barang/temuan', function(){
+    return view('rekap-barang.temuan.index');
+});
+Route::get('/rekap-barang/temuan/edit', function(){
+    return view('rekap-barang.modals.modal-temuan.edit');
+});
+
+Route::get('/sim/input-sim', function(){
+    return view('sim.input-sim');
+});
+
+Route::get('/raport-karakter/input-raport', function(){
+    return view('raport-karakter.input-raport');
 });

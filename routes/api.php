@@ -24,7 +24,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('auth/logout', [AuthController::class, 'logout']);
-
     Route::resource('/murid',StudentController::class);
     Route::resource('/rombel',RombelController::class);
     Route::resource('/rayon',RayonController::class);
