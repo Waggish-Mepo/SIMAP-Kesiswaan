@@ -13,7 +13,7 @@
         @include('layout.sidebar')
         <div class="flex-1 bg-gray-200 h-full">
             @include('layout.navbar')
-            <main class="pl-24 pr-4 py-20">
+            <main class="pl-20 pr-8 pt-20">
                 @yield('content')
             </main>
         </div>

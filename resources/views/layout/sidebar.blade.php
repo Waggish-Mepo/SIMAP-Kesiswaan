@@ -1,76 +1,72 @@
 <body>
-    <nav class="fixed h-full sidebar close">
+    <nav class="fixed close h-full sidebar z-50 w-60 bg-[#223787]">
         <header>
-            <div class="image-text">
-                <span class="image">
-                    <img src="{{ asset('image/logo.png') }}" alt="">
-                </span>
-
-                <div class="text logo-text">
-                    <span class="name">Kesiswaan</span>
-                </div>
+            <div class="flex items-center px-6 py-2 h-16 w-auto">
+                <img class="w-8 mr-2" src="{{ asset('image/logo.png') }}" alt="Logo">
+                <span class="text-white font-medium text-2xl">Kesiswaan</span>
             </div>
-            <div class="menu-bar pt-4">
+            <ul class="pt-4 menu-links text-white text-lg">
+                <li class="nav-link px-4 py-2 m-2 hover:bg-[#192e7d]">
+                    <a class="toggle" href="#">
+                        <i class='bx bx-menu w-5'></i>
+                        <span class="text nav-text">Menu</span>
+                    </a>
+                </li>
+                <li class="nav-link px-4 py-2  relative hover:bg-[#192e7d] m-2">
+                    <a href="#">
+                        <i class='bx bx-home-alt w-5'></i>
+                        <span class="text nav-text">Dashboard</span>
+                    </a>
+                </li>
 
-                <ul class="menu-links">
-                    <li class="nav-link">
-                        <a class="toggle" href="#">
-                            <i class='bx bx-menu icon'></i>
-                            <span class="text nav-text">Menu</span>
-                        </a>
-                    </li>
+                <li class="nav-link px-4 py-2  relative hover:bg-[#192e7d] m-2">
+                    <a href="#">
+                        <i class='bx bx-bar-chart-alt-2 w-5'></i>
+                        <span class="text nav-text">Absensi Siswa</span>
+                    </a>
+                </li>
 
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-home-alt icon'></i>
-                            <span class="text nav-text">Dashboard</span>
-                        </a>
-                    </li>
+                <li class="nav-link py-2  relative justify-center hover:bg-[#192e7d] m-2">
+                    <a href="#" class="pl-4">
+                        <i class='items-center bx bx-bell icon w-5'></i>
+                        <span class="ml-2 text nav-text">Rekap Barang</span>
+                    </a>
+                    {{-- <i class='bx bx-chevron-down drop-icon px-4 pt-1 justify-center float-right'></i> --}}
+                    <ul class="dropdown pl-12 hidden pt-2 bg-[#192e7d]">
+                        <li><a href="" class="pt-4 text-base">Rekap Barang Temuan</a></li>
+                        <li><a href="" class="pt-4 text-base">Rekap Barang Razia</a></li>
+                    </ul>
+                </li>
 
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-bar-chart-alt-2 icon'></i>
-                            <span class="text nav-text">Absensi Siswa</span>
-                        </a>
-                    </li>
+                <li class="nav-link px-4 py-2  relative hover:bg-[#192e7d] m-2">
+                    <a href="#">
+                        <i class='bx bx-pie-chart-alt w-5'></i>
+                        <span class="text nav-text">Kinerja Siswa</span>
+                    </a>
+                </li>
 
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-bell icon'></i>
-                            <span class="text nav-text">Rekap Barang</span>
-                        </a>
-                        <i class='bx bx-chevron-down drop-icon'></i>
-                        <ul class="dropdown">
-                            <li><a href="">Rekap Barang Razia</a></li>
-                            <li><a href="">Rekap Barang Temuan</a></li>
-                        </ul>
-                    </li>
+                <li class="nav-link px-4 py-2  relative hover:bg-[#192e7d] m-2">
+                    <a href="#">
+                        <i class='bx bx-id-card w-5'></i>
+                        <span class="text nav-text">Input SIM</span>
+                    </a>
+                </li>
 
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-pie-chart-alt icon'></i>
-                            <span class="text nav-text">Kinerja Siswa</span>
-                        </a>
-                        <i class='bx bx-chevron-down drop-icon'></i>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-heart icon'></i>
-                            <span class="text nav-text">Input SIM</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-wallet icon'></i>
-                            <span class="text nav-text">Wallets</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+                <li class="nav-link px-4 py-2  relative hover:bg-[#192e7d] m-2">
+                    <a href="#">
+                        <i class='bx bx-wallet icon w-5'></i>
+                        <span class="text nav-text">Wallets</span>
+                    </a>
+                </li>
+            </ul>
         </header>
     </nav>
+    <section class="menu">
+        <div class="contant">
+            <i class='bx bx-menu icon w-5'></i>
+            <span class="text nav-text">Menu</span>
+        </div>
+    </section>
 </body>
 
 <script>
