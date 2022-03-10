@@ -59,6 +59,7 @@ class AuthController extends Controller
       // return response()->json();
       return $this->success(['user' => $user, 'token' => $user->createToken($user->name)->plainTextToken],'succesfully register new user');
     }
+
     public function login(Request $request)
     {
       $request->validate([
