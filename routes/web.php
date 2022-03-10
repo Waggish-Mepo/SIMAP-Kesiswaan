@@ -37,6 +37,8 @@ Route::get('/rekap-barang/temuan', function(){
 });
 Route::get('/rekap-barang/temuan/edit', function(){
     return view('rekap-barang.modals.modal-temuan.edit');
+});
+
 Route::get('/sim/input-sim', function(){
     return view('sim.input-sim');
 });
