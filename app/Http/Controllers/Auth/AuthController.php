@@ -44,7 +44,7 @@ class AuthController extends Controller
     public function register(Request $request)
     {
       $request->validate([
-        'useralble_id'=>'required',
+        'userable_id'=>'required',
         'role' => 'required',
         'email' => 'required|email|unique:m_user',
         'password'=> 'required|confirmed',

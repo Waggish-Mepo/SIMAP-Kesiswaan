@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Rombel extends Model
 {
     use HasFactory;
+    protected $table = 'm_rombel';
+    protected $fillable = [
+
+    ];
 }
