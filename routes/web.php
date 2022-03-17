@@ -46,7 +46,7 @@ Route::get('/warning-letter', function(){
 });
 
 Route::get('/student-performance-report', function(){
-    return view('performance-report.student-performance-report');
+    return view('performance-report.student-performance');
 });
 
 Route::get('/raport-characters', function(){
