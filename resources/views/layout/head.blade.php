@@ -2,7 +2,7 @@
 <link href="{{ asset('css/sidebar.css') }}" rel="stylesheet">
 <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 <link rel="icon" type="image/x-icon" href="{{ asset('image/logo.png') }}">
-
+<link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.1/dist/flowbite.min.css" />
 <link href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" rel=" stylesheet">
 	<!--Replace with your tailwind.css once created-->
 
