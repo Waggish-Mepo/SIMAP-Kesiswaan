@@ -6,26 +6,25 @@
                 <span class="text-white font-medium text-2xl">Kesiswaan</span>
             </div>
             <ul class="pt-4 menu-links text-white text-lg">
-                <li class="nav-link px-4 py-2 m-2 hover:bg-[#192e7d]">
+                <li class="nav-link pl-6 pr-4 py-2 m-2 btn-menu hover:bg-[#192e7d]">
                     <a class="toggle" href="#">
                         <i class='bx bx-menu w-5'></i>
                         <span class="text nav-text">Menu</span>
                     </a>
                 </li>
-                <li class="nav-link px-4 py-2  relative hover:bg-[#192e7d] m-2">
+                <li class="nav-link pl-6 pr-4 py-2  relative hover:bg-[#192e7d] m-2">
                     <a href="/dashboard">
                         <i class='bx bx-home-alt w-5'></i>
                         <span class="text nav-text">Dashboard</span>
                     </a>
                 </li>
 
-                <li class="nav-link px-4 py-2  relative hover:bg-[#192e7d] m-2">
+                <li class="nav-link pl-6 pr-4 py-2  relative hover:bg-[#192e7d] m-2">
                     <a href="#">
                         <i class='bx bx-bar-chart-alt-2 w-5'></i>
                         <span class="text nav-text">Absensi Siswa</span>
                     </a>
                 </li>
-
                 <li>
                     <button type="button" class="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
                           <i class="text-white bx bx-bell w-5"></i>
@@ -81,22 +80,21 @@
                         <span class="text nav-text">Kinerja Siswa</span>
                     </a>
                 </li>
-
                 <li class="nav-link px-4 py-2  relative hover:bg-[#192e7d] m-2">
                     <a href="/sim/input-sim">
-                        <i class='bx bx-card icon w-5'></i>
+                        <i class='bx bx-id-card w-5'></i>
                         <span class="text nav-text">Input SIM</span>
                     </a>
                 </li>
 
-                <li class="nav-link px-4 py-2  relative hover:bg-[#192e7d] m-2">
+                <li class="nav-link pl-6 pr-4 py-2  relative hover:bg-[#192e7d] m-2">
                     <a href="/raport-karakter/input-raport">
                         <i class='bx bx-wallet icon w-5'></i>
                         <span class="text nav-text">Raport Karakter</span>
                     </a>
                 </li>
 
-                <li class="nav-link px-4 py-2  relative hover:bg-[#192e7d] m-2">
+                <li class="nav-link pl-6 pr-4 py-2  relative hover:bg-[#192e7d] m-2">
                     <a href="#">
                         <i class='bx bx-book icon w-5'></i>
                         <span class="text nav-text">Rekap BKP</span>
@@ -108,15 +106,22 @@
 </body>
 
 <script>
-    const body = document.querySelector('body'),
-        sidebar = body.querySelector('nav'),
-        toggle = body.querySelector(".toggle")
+    window.onclick = function(event) {
+        if (!event.target.matches('.arrow')) {
+            var dropdowns = document.getElementsByClassName("dropdown");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
 
-    toggle.addEventListener("click", () => {
+    let sidebar = document.querySelector(".sidebar");
+    let sidebarBtn = document.querySelector(".bx-menu");
+    sidebarBtn.addEventListener("click", () => {
         sidebar.classList.toggle("close");
-    })
-
-    searchBtn.addEventListener("click", () => {
-        sidebar.classList.remove("close");
     })
 </script>

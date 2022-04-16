@@ -1,58 +1,58 @@
 @extends('layout.app')
-@section('title', 'I')
+@section('title', 'Rapot Karakter')
 
 @section('content')
     <div class="content">
-        <div class="mr-4 ml-24 w-58 bg-white rounded-lg border shadow-md sm:p-2 dark:bg-gray-800 dark:border-gray-700">
+        <div class="w-58 bg-white rounded-lg border shadow-md sm:p-2 dark:bg-gray-800 dark:border-gray-700">
             <p class="pl-2 text-base text-gray-900 sm:text-base">Raport Karakter</p>
         </div>
-        <div
-            class="pb-10 mr-4 ml-24 w-58 bg-white rounded-lg border shadow-md sm:p-2 dark:bg-gray-800 dark:border-gray-700">
-            <div class="float-right p-2" data-modal-toggle="input-raport-modal">
-                <button type="button"
-                    class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-2xl px-4 py-1 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">+</button></a>
-            </div>
+        <div class="mt-8 pb-8 w-58 bg-white rounded-lg border shadow-md dark:bg-gray-800 dark:border-gray-700">
 
             <!-- FILTER -->
-            <form class="px-4 py-2 space-y-6 sm:pb-6 xl:pb-8" action="#">
-                <div class="flex">
-                    <label for="nis" class="block mt-2 mr-2 text-sm font-medium text-gray-900 dark:text-gray-300">Rombel :
-                    </label>
-                    <select id="rombel"
-                        class="bg-zinc-100 border border-indigo-800 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-28 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option selected=" " disabled>Pilih Rombel</option>
-                        <option>PPLG</option>
-                        <option>TKJT</option>
-                        <option>MPLB</option>
-                    </select>
+            <form class="flex px-4 pt-4 space-y-6" action="#">
+                <div class="flex place-content-between">
+                    <div class="flex">
+                        <label for="nis" class="block mt-2 mr-2 text-sm font-medium text-gray-900 dark:text-gray-300">Rombel :
+                        </label>
+                        <select id="rombel"
+                            class="bg-zinc-100 border border-indigo-800 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-28 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option selected=" " disabled>Pilih Rombel</option>
+                            <option>PPLG</option>
+                            <option>TKJT</option>
+                            <option>MPLB</option>
+                        </select>
 
-                    <select id="tingkat"
-                        class="ml-2 bg-zinc-100 border border-indigo-800 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-28 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option selected=" " disabled>Pilih Tingkat</option>
-                        <option>X</option>
-                        <option>XI</option>
-                        <option>XII</option>
-                    </select>
+                        <select id="tingkat"
+                            class="ml-2 bg-zinc-100 border border-indigo-800 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-28 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option selected=" " disabled>Pilih Tingkat</option>
+                            <option>X</option>
+                            <option>XI</option>
+                            <option>XII</option>
+                        </select>
 
-                    <select id="rombel"
-                        class="ml-2 bg-zinc-100 border border-indigo-800 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-28 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option selected=" " disabled>Pilih Kelas</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
-
-                    <button type="button"
-                        class="ml-2 text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-2 py-2.5s text-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Tampilkan</button>
+                        <select id="rombel"
+                            class="ml-2 bg-zinc-100 border border-indigo-800 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-28 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option selected=" " disabled>Pilih Kelas</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                        <button type="button" class="ml-2 text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-2 py-2.5s text-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Tampilkan</button>
+                    </div>
+                    <div class="items-center flex float-right" data-modal-toggle="input-raport-modal">
+                        <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-2xl px-4 py-1 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                            <i class='bx bx-plus text-white' ></i>
+                        </button>
+                    </div>
                 </div>
 
             </form>
 
             <!-- LIST DATA RAPORT -->
             <div
-                class="mt-2 w-58 bg-blue-800 rounded-t-xl border shadow-inner sm:p-2 dark:bg-gray-800 dark:border-gray-700">
+                class="w-58 bg-blue-800 rounded-md border shadow-inner sm:p-2 dark:bg-gray-800 dark:border-gray-700">
                 <p class="pl-2 text-sm text-white sm:text-sm">Input Raport Karakter Rombel RPL XII-2</p>
             </div>
             <div class="flex flex-col">
@@ -187,8 +187,6 @@
                     </ul>
                 </nav>
             </div>
-
-            <!--PAGINATION -->
         </div>
     </div>
 @endsection

@@ -11,9 +11,14 @@ class RekapBarangController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function indexRazia()
     {
-        return view('rekap-barang.index');
+        return view('rekap-barang.razia.index');
+    }
+
+    public function indexTemuan()
+    {
+        return view('rekap-barang.temuan.index');
     }
 
     /**
