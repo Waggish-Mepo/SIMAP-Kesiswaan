@@ -22,8 +22,15 @@ class User extends Authenticatable
         'userable_id',
         'role',
         'email',
+        'password',
         'email_verified_at',
     ];
+    public function TeachersAccount(){
+        return $this->hasOne('App\Models\Teacher','nip','userable_id');
+    }
+    public function StudentsAccount(){
+        return $this->hasOne('App\Models\Student','nis','userable_id');
+    }
 
     /**
      * The attributes that should be hidden for serialization.

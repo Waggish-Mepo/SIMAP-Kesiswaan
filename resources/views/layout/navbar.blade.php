@@ -1,7 +1,7 @@
 <nav class="fixed w-full bg-white border-gray-200 sm:px-3 py-3 dark:bg-gray-800">
     <div class="container items-center ">
         <div class="items-center">
-            <div class="inline-flex float-right">
+            <div class="inline-flex float-right pr-6">
                 <span class="px-2 pt-1">Muhammad Wildan Firdaus</span>
                 <button type="button"
                     class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"

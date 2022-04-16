@@ -44,11 +44,10 @@ class AuthController extends Controller
     public function register(Request $request)
     {
       $request->validate([
-        'useralble_id'=>'required',
+        'userable_id'=>'required',
         'role' => 'required',
         'email' => 'required|email|unique:m_user',
         'password'=> 'required|confirmed',
-        'profile_picture' => 'nullable',
       ]);
       $user = new User();
       $user->userable_id = $request->userable_id;

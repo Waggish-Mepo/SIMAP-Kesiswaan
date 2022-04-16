@@ -13,20 +13,17 @@ class CreateRekapAbsensTable extends Migration
      */
     public function up()
     {
-        Schema::create('r_absen_periode', function (Blueprint $table) {
+        Schema::create('r_absen_rekap', function (Blueprint $table) {
             $table->id();
             $table->string('nis');
-            $table->string('nama');
-            $table->string('rombel_id');
-            $table->string('rayon_id');
-            $table->date('tgl_absen');
-            $table->boolean('hadir');
-            $table->boolean('alpa');
-            $table->boolean('izin');
-            $table->boolean('sakit');
-            $table->boolean('tugas');
-            $table->text('keterangan');
-            $table->string('tahun_pelajaran');
+            // $table->date('tgl_absen');
+            $table->integer('hadir');
+            $table->integer('alpa');
+            $table->integer('izin');
+            $table->integer('sakit');
+            // $table->integer('tugas');
+            // $table->text('keterangan');
+            $table->string('angkatan');
             $table->string('semester');
             $table->timestamps();
         });
@@ -39,6 +36,6 @@ class CreateRekapAbsensTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('r_absen_periode');
+        Schema::dropIfExists('r_absen_rekap');
     }
 }
