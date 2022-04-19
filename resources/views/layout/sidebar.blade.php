@@ -20,7 +20,7 @@
                 </li>
 
                 <li class="nav-link pl-6 pr-4 py-2  relative hover:bg-[#192e7d] m-2">
-                    <a href="#">
+                    <a href="/absensi/index">
                         <i class='bx bx-bar-chart-alt-2 w-5'></i>
                         <span class="text nav-text">Absensi Siswa</span>
                     </a>
@@ -64,7 +64,7 @@
                 </li>
 
                 <li class="nav-link pl-6 pr-4 py-2  relative hover:bg-[#192e7d] m-2">
-                    <a href="#">
+                    <a href="/rekap-bkp/index">
                         <i class='bx bx-book icon w-5'></i>
                         <span class="text nav-text">Rekap BKP</span>
                     </a>

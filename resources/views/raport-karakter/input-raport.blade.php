@@ -133,23 +133,23 @@
                                             P
                                         </td>
                                         <td
-                                            class="py-4 px-6 text-sm text-center text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                            class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
                                             Baik
                                         </td>
                                         <td
-                                            class="py-4 px-6 text-sm text-center text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                            class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
                                             Baik
                                         </td>
                                         <td
-                                            class="py-4 px-6 text-sm text-center text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                            class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
                                             Baik
                                         </td>
                                         <td
-                                            class="py-4 px-6 text-sm text-center text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                            class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
                                             Baik
                                         </td>
                                         <td
-                                            class="py-4 px-6 text-sm text-center text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                            class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
                                             Baik
                                         </td>
                                         <td class="float-right py-4 px-4">

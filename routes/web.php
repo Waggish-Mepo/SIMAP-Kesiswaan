@@ -25,6 +25,15 @@ Route::get('/dashboard', function(){
     return view('dashboard');
 });
 
+Route::get('/absensi/index', function(){
+    return view('absensi.index');
+});
+
+Route::get('/rekap-bkp/index', function(){
+    return view('rekap-bkp.index');
+});
+
+
 Route::get('/rekap-barang/razia', function(){
     return view('rekap-barang.razia.index');
 });
