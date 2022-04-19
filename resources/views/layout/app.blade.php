@@ -14,7 +14,7 @@
         @include('layout.sidebar')
         <div class="flex-1 bg-gray-200 h-screen">
             @include('layout.navbar')
-            <main class="ml-24 mt-16">
+            <main class="ml-24 mr-4 mt-16">
                 @yield('content')
             </main>
         </div>

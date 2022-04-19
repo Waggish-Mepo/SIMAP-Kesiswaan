@@ -66,9 +66,10 @@
                     <button type="button" href="#" id="btnBarang" aria-controls="barangDropdown" data-collapse-toggle="barangDropdown">
                         <i class='items-center bx bx-bell icon w-5'></i>
                         <span class="text nav-text">Rekap Barang</span>
+                        <i class='bx bx-chevron-down ml-3'></i>
                     </button>
                     {{-- <i class='bx bx-chevron-down drop-icon px-4 pt-1 justify-center float-right'></i> --}}
-                    <ul id="barangDropdown" class="dropdown hidden mt-5 pl-5 bg-[#192e7d]">
+                    <ul id="barangDropdown" class="dropdown hidden mt-5 pl-5">
                         <li><a href="" class="text-base">Rekap Barang Temuan</a></li>
                         <li><a href="" class="text-base">Rekap Barang Razia</a></li>
                     </ul>
@@ -78,11 +79,12 @@
                     <button type="button" href="#" id="btnBarang" aria-controls="dataMasterDropdown" data-collapse-toggle="dataMasterDropdown">
                         <i class='items-center bx bx-bell icon w-5'></i>
                         <span class="text nav-text">Data Sekolah</span>
+                        <i class='bx bx-chevron-down ml-4'></i>
                     </button>
                     {{-- <i class='bx bx-chevron-down drop-icon px-4 pt-1 justify-center float-right'></i> --}}
-                    <ul id="dataMasterDropdown" class="dropdown hidden mt-5 pl-5 bg-[#192e7d]">
-                        <li><a href="/murid" class="text-base">Murid</a></li>
-                        <li><a href="/guru" class="text-base">Guru</a></li>
+                    <ul id="dataMasterDropdown" class="dropdown hidden ml-6">
+                        <li><a href="/murid" class="text-base py-2 hover:bg-blue-500">Murid</a></li>
+                        <li><a href="/guru" class="text-base py-2 hover:bg-blue-500 mt-2">Guru</a></li>
                         {{-- <li><a href="" class="text-base">Rayon</a></li>
                         <li><a href="" class="text-base">Rombel</a></li>
                         <li><a href="" class="text-base">Angkatan</a></li> --}}
