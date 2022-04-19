@@ -44,9 +44,9 @@
                                         </td>
                                         <td>{{ $d->ket }}</td>
                                         <td>@if ($d->status == 0)
-                                                <span class="bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-red-200 dark:text-red-900">Belum ditemukan</span>
+                                                <span class="bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-red-200 dark:text-red-900">Belum diambil</span>
                                             @else
-                                                <span class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-900">Sudah ditemukan</span>
+                                                <span class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-900">Sudah diambil</span>
                                             @endif
                                         </td>
                                         <td class="grid grid-cols-2">
@@ -54,7 +54,13 @@
                                                 @include('rekap-barang.temuan.modal.edit')
                                             <button type="button" data-modal-toggle="modal-delete-temuan-{{ $d->id }}" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"><i class="fa-solid fa-trash-can"></i></button>
                                                 @include('rekap-barang.temuan.modal.delete')
-                                            
+                                            @if ($d->status == 0)
+                                                <form action="{{ route('temuan.ambil', $d->id) }}" method="POST" class="col-span-2">
+                                                    @csrf
+                                                    @method('PUT')
+                                                    <button type="submit" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Ambil</button>
+                                                </form>
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach

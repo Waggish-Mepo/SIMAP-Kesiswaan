@@ -40,6 +40,7 @@ Route::prefix('/rekap-barang')->group(function(){
     Route::post('/temuan', [BarangTemuanController::class, 'store'])->name('temuan.store');
     Route::put('/temuan/{id}', [BarangTemuanController::class, 'update'])->name('temuan.update');
     Route::delete('/temuan/{id}', [BarangTemuanController::class, 'destroy'])->name('temuan.destroy');
+    Route::put('/temuan/{id}/ambil', [BarangTemuanController::class, 'ambil'])->name('temuan.ambil');
 });
 
 Route::get('/warning-letter', function(){

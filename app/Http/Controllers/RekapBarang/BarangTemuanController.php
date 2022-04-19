@@ -99,4 +99,14 @@ class BarangTemuanController extends Controller
         alert()->success('Berhasil','Data Berhasil Dihapus');
         return redirect()->route('temuan.index');
     }
+    public function ambil($id)
+    {
+        $data = Barang_Temuan::find($id);
+        $data->update([
+            'status' => 1
+        ]);
+
+        alert()->success('Berhasil','Data Berhasil Diupdate');
+        return redirect()->route('temuan.index');
+    }
 }
