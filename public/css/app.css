@@ -836,6 +836,9 @@ input:checked + .toggle-bg {
 .z-40 {
   z-index: 40;
 }
+.z-0 {
+  z-index: 0;
+}
 .col-span-2 {
   grid-column: span 2 / span 2;
 }
@@ -965,6 +968,9 @@ input:checked + .toggle-bg {
 .ml-14 {
   margin-left: 3.5rem;
 }
+.mr-4 {
+  margin-right: 1rem;
+}
 .block {
   display: block;
 }
@@ -1087,6 +1093,9 @@ input:checked + .toggle-bg {
 }
 .w-1\/2 {
   width: 50%;
+}
+.w-screen {
+  width: 100vw;
 }
 .min-w-full {
   min-width: 100%;
@@ -1685,6 +1694,9 @@ input:checked + .toggle-bg {
 }
 .opacity-100 {
   opacity: 1;
+}
+.opacity-75 {
+  opacity: 0.75;
 }
 .shadow-md {
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
