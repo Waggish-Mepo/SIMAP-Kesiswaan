@@ -18,7 +18,7 @@ class TeacherController extends Controller
 
     public function index(){
         $res = Teacher::with('Rayon')->get();
-        return $this->success(['guru'=>$res],'Data Guru');
+        return view('master-data.guru')->with('guru',$res);
     }
     public function show($id){
         $res = Student::where('id',$id)->orWhere('no_induk_yayasan',$id)->orWhere('nama',$id)->orWhere('nik')->with('Rayon')->first();
@@ -27,29 +27,27 @@ class TeacherController extends Controller
     public function store(Request $request){
         $request->validate([
             'nama'=>'required',
-            'rayon'=>'required|exists:m_rayon,rayon',
             'email'=>'required',
             'no_hp'=>'required',
-            'nuptk'=>'required',
-            'nik'=>'required',
             'no_induk_yayasan'=>'required',
-            'no_ukg'=>'required',
             'jk'=>'required',
             'mata_pelajaran'=>'required',
         ]);
-        $rayon = Rayon::where('rayon',$request->rayon)->where('angkatan_id',$angkatan['id'])->first();
-        $res = Teacher::create([
-            'nama'=>$request->nama,
-            'email'=>$request->email,
-            'no_hp'=>$request->no_hp,
-            'nuptk'=>$request->nuptk,
-            'nik'=>$request->nik,
-            'no_induk_yayasan'=>$request->no_induk_yayasan,
-            'no_ukg'=>$request->no_ukg,
-            'jk'=>$request->jk,
-            'mata_pelajaran'=>$request->mata_pelajaran,
-        ]);
-        return $this->success(['guru'=>$res],'Data Guru Berhasil Di Simpan');
+        try {
+            $res = Teacher::create([
+                'nama'=>$request->nama,
+                'email'=>$request->email,
+                'no_hp'=>$request->no_hp,
+                'no_induk_yayasan'=>$request->no_induk_yayasan,
+                'jk'=>$request->jk,
+                'mata_pelajaran'=>$request->mata_pelajaran,
+            ]);
+        } catch (\Throwable $th) {
+            alert()->error('gagal','data gagal disimpanan');
+        }
+        alert()->success('berhasil','data berhasil disimpanan');
+
+        return redirect('/guru');
     }
     public function update(Request $request,$id){
         $request->validate([

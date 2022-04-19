@@ -15,6 +15,6 @@ class Sim extends Model
         'file_endpoint',
     ];
     public function Murid(){
-        return $this->belongsTo('App\Models\Student','nis');
+        return $this->belongsTo('App\Models\Student','nis','nis');
     }
 }

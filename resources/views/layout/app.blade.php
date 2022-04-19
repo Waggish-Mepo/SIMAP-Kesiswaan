@@ -9,6 +9,7 @@
     </title>
 </head>
 <body>
+    @include('sweetalert::alert')
     <div class="relative min-h-screen flex">
         @include('layout.sidebar')
         <div class="flex-1 bg-gray-200 h-screen">
