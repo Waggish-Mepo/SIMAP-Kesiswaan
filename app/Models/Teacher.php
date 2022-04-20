@@ -14,10 +14,7 @@ class Teacher extends Model
         'nama',
         'email',
         'no_hp',
-        'nuptk',
-        'nik',
         'no_induk_yayasan',
-        'no_ukg',
         'jk',
         'mata_pelajaran',
     ];
