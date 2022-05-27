@@ -16,14 +16,15 @@ class Barang_Temuan extends Model
         'foto_barang',
         'image_path',
         'ket',
+        'pemilik',
         'status'
     ];
 
-    public function Student(){
-        return $this->hasOne('App\Models\Student', 'id', 'nis');
+    public function Pemilik(){
+        return $this->hasOne('App\Models\Student', 'nis', 'pemilik');
     }
 
     public function Penemu(){
-        return $this->hasOne('App\Models\Student', 'id', 'penemu');
+        return $this->hasOne('App\Models\Student', 'nis', 'penemu');
     }
 }

@@ -18,10 +18,7 @@ class CreateTeachersTable extends Migration
             $table->string('nama');
             $table->string('email');
             $table->string('no_hp');
-            $table->bigInteger('nuptk');
-            $table->bigInteger('nik');
             $table->bigInteger('no_induk_yayasan');
-            $table->bigInteger('no_ukg');
             $table->string('jk');
             $table->string('mata_pelajaran');
             $table->timestamps();

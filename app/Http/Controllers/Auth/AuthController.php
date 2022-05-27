@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\VerificationEmail as VerificationEmail;
 use App\Mail\PasswordResetEmail as PasswordResetEmail;
 use Carbon\Carbon;
-
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -61,49 +61,29 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-      $request->validate([
-        'email' => 'required|email',
-        'password' => 'required',
-        // 'device_name' => 'required'
-      ]);
+        $input = $request->all();
 
-      $user = User::where('email', $request->email)->first();
-      if (! $user || ! Hash::check($request->password, $user->password)) {
-          throw ValidationException::withMessages([
-              'message' => ['The provided credentials are incorrect. Try checking your email, password, and role again!'],
-          ]);
-      }
-      $token = $user->createToken($request->email)->plainTextToken;
-      // $permission = $user->getPermissionsViaRoles()->pluck('name');
-      // $menu = Menu::select('s_menus.id','s_menus.name','s_menus.type','s_menus.path','s_menus.icon')
-      //             ->where('type', 'Parent')
-      //             ->get();
-      // foreach ($menu as $key) {
-      //     $child = Menu::select('s_menus.id','s_menus.name','s_menus.type','s_menus.path')
-      //                 ->where('type', 'Child')
-      //                 ->where('parent_id', $key->id)
-      //                 ->get();
-      //     $key->child = $child;
-      // }
+        $this->validate($request, [
+            'username' => 'required',
+            'password' => 'required',
+        ]);
+        if(auth()->attempt(array('username' => $input['username'], 'password' => $input['password'])))
+        {
+            return redirect('/dashboard')->with('success','berhasil Login, Selamat Datang admin '.auth()->user()->nama);
+        }else{
+            // dd(auth()->attempt(array('username' => $input['username'], 'password' => $input['password'])));
+            return redirect('/login')->with('errors','gagal login');
+        }
 
-      $response = [
-          'user' => $user,
-          'token' => $token,
-          // 'permission' => $permission,
-          // 'menu' => $menu
-      ];
-      return $this->success(['user' => $response], "login succesfully");
     }
-    public function refresh(Request $request)
+    public function logout(Request $request)
     {
-        $user = $request->user();
-        $user->tokens()->delete();
-        // return response()->json(['token' => $user->createToken($user->name)->plainTextToken]);
-        return $this->success(['data' => ['user' => $user, 'token' => $user->createToken($user->name)->plainTextToken] ]);
-    }
-    public function logout(Request $request){
-        $request->user()->tokens()->delete();
-        // return response('logged out', 200);
-        return $this->success(null,'Logout Out success');
+        Auth::logout();
+        alert()->success('Berhasil', 'Berhasil Logout');
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/login')->with('success','berhasil Logout');
     }
 }

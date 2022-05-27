@@ -20,6 +20,6 @@ class Barang_Razia extends Model
 
     public function Student()
     {
-        return $this->hasOne('App\Models\Student', 'id', 'nis');
+        return $this->hasOne('App\Models\Student', 'nis', 'nis');
     }
 }

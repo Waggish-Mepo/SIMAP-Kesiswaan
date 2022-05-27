@@ -19,13 +19,13 @@
                     </a>
                 </li>
 
-                <li class="nav-link pl-6 pr-4 py-2  relative hover:bg-[#192e7d] m-2">
+                {{-- <li class="nav-link pl-6 pr-4 py-2  relative hover:bg-[#192e7d] m-2">
                     <a href="#">
                         <i class='bx bx-bar-chart-alt-2 w-5'></i>
                         <span class="text nav-text">Absensi Siswa</span>
                     </a>
-                </li>
-                <li>
+                </li> --}}
+                {{-- <li>
                     <button type="button" class="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
                           <i class="text-white bx bx-bell w-5"></i>
                           <span class="flex-1 ml-3 text-left whitespace-nowrap" sidebar-toggle-item>E-commerce</span>
@@ -60,27 +60,27 @@
                              <a href="#" class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Invoice</a>
                           </li>
                     </ul>
-                 </li>
+                 </li> --}}
 
-                <li class="nav-link py-2  relative justify-center hover:bg-[#192e7d] m-2">
-                    <a href="#" class="pl-4">
+                <li class="nav-link pl-6 pr-4 py-2  relative hover:bg-[#192e7d] m-2">
+                    <button type="button" href="#" id="btnBarang" aria-controls="barangDropdown" data-collapse-toggle="barangDropdown">
                         <i class='items-center bx bx-bell icon w-5'></i>
-                        <span class="ml-2 text nav-text">Rekap Barang</span>
-                    </a>
+                        <span class="text nav-text">Rekap Barang</span>
+                        <i class='bx bx-chevron-down ml-3'></i>
+                    </button>
                     {{-- <i class='bx bx-chevron-down drop-icon px-4 pt-1 justify-center float-right'></i> --}}
-                    <ul class="dropdown pl-12 hidden pt-2 bg-[#192e7d]">
-                        <li><a href="" class="pt-4 text-base">Rekap Barang Temuan</a></li>
-                        <li><a href="" class="pt-4 text-base">Rekap Barang Razia</a></li>
+                    <ul id="barangDropdown" class="dropdown hidden ml-2 pl-5">
+                        <li><a href="{{ route('temuan.index') }}" class="text-base">Rekap Barang Temuan</a></li>
+                        <li><a href="{{ route('razia.index') }}" class="text-base">Rekap Barang Razia</a></li>
                     </ul>
                 </li>
-
-                <li class="nav-link px-4 py-2  relative hover:bg-[#192e7d] m-2" >
+                {{-- <li class="nnav-link pl-6 pr-4 py-2  relative hover:bg-[#192e7d] m-2" >
                     <a href="#">
                         <i class='bx bx-pie-chart-alt w-5'></i>
                         <span class="text nav-text">Kinerja Siswa</span>
                     </a>
-                </li>
-                <li class="nav-link px-4 py-2  relative hover:bg-[#192e7d] m-2">
+                </li> --}}
+                <li class="nav-link pl-6 pr-4 py-2  relative hover:bg-[#192e7d] m-2">
                     <a href="/sim/input-sim">
                         <i class='bx bx-id-card w-5'></i>
                         <span class="text nav-text">Input SIM</span>
@@ -88,40 +88,62 @@
                 </li>
 
                 <li class="nav-link pl-6 pr-4 py-2  relative hover:bg-[#192e7d] m-2">
+                    <button type="button" href="#" id="btnBarang" aria-controls="dataMasterDropdown" data-collapse-toggle="dataMasterDropdown">
+                        <i class='items-center bx bxs-school icon w-5'></i>
+                        <span class="text nav-text">Data Sekolah</span>
+                        <i class='bx bx-chevron-down ml-4'></i>
+                    </button>
+                    {{-- <i class='bx bx-chevron-down drop-icon px-4 pt-1 justify-center float-right'></i> --}}
+                    <ul id="dataMasterDropdown" class="dropdown hidden ml-6">
+                        <li><a href="/murid" class="text-base py-2 ">Murid</a></li>
+                        <li><a href="/guru" class="text-base py-2 mt-2">Guru</a></li>
+                        {{-- <li><a href="" class="text-base">Rayon</a></li>
+                        <li><a href="" class="text-base">Rombel</a></li>
+                        <li><a href="" class="text-base">Angkatan</a></li> --}}
+                    </ul>
+                </li>
+
+                {{-- <li class="nav-link pl-6 pr-4 py-2  relative hover:bg-[#192e7d] m-2">
+                    <a href="/sim/input-sim">
+                        <i class='bx bx-envelope w-5'></i>
+                        <span class="text nav-text">Surat Perjanjian</span>
+                    </a>
+                </li> --}}
+
+                {{-- <li class="nav-link pl-6 pr-4 py-2  relative hover:bg-[#192e7d] m-2">
                     <a href="/raport-karakter/input-raport">
                         <i class='bx bx-wallet icon w-5'></i>
                         <span class="text nav-text">Raport Karakter</span>
                     </a>
-                </li>
+                </li> --}}
 
-                <li class="nav-link pl-6 pr-4 py-2  relative hover:bg-[#192e7d] m-2">
+                {{-- <li class="nav-link pl-6 pr-4 py-2  relative hover:bg-[#192e7d] m-2">
                     <a href="#">
                         <i class='bx bx-book icon w-5'></i>
                         <span class="text nav-text">Rekap BKP</span>
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </header>
     </nav>
 </body>
 
 <script>
-    window.onclick = function(event) {
-        if (!event.target.matches('.arrow')) {
-            var dropdowns = document.getElementsByClassName("dropdown");
-            var i;
-            for (i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                }
-            }
-        }
-    }
-
     let sidebar = document.querySelector(".sidebar");
-    let sidebarBtn = document.querySelector(".bx-menu");
+    let sidebarBtn = document.querySelector(".btn-menu");
+
     sidebarBtn.addEventListener("click", () => {
         sidebar.classList.toggle("close");
-    })
+    });
+    // window.onclick = function(event) {
+    //     console.log(event.target.matches('.btn-menu'));
+    //     if((!event.target.matches(".btn-menu") || !event.target.matches(".bx-menu")) ){
+    //         if (!sidebar.classList.contains('close')) {
+    //             // sidebar.classList.add('close');
+    //             console.log('tes');
+    //         }
+    //     }
+    // }
+
+
 </script>
