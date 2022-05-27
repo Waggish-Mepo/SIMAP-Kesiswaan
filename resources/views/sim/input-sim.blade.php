@@ -2,7 +2,7 @@
 @section('title', 'Input Sim')
 
 @section('content')
-    <div>
+    <div class="mx-8">
         <div class="w-58 bg-white rounded-lg border shadow-md sm:p-2 dark:bg-gray-800 dark:border-gray-700">
             <p class="pl-2 text-base text-gray-900 sm:text-base">Data Siswa yang Memiliki SIM</p>
         </div>
@@ -34,8 +34,8 @@
             <div class="flex flex-col mt-16">
                 <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="inline-block py-2 min-w-full sm:px-6 lg:px-8">
-                        <div class="overflow-hidden shadow-md sm:rounded-lg">
-                            <table class="min-w-full">
+                        <div class="overflow-hidden px-8 sm:rounded-lg">
+                            <table class="min-w-full" id='example'>
                                 <thead class="bg-gray-50 dark:bg-gray-700">
                                     <tr>
                                         <th scope="col"
@@ -393,15 +393,20 @@
                     </svg>
                 </button>
             </div>
-            <form class="pb-4 space-y-6 lg:px-8 sm:p-6 xl:pb-8" action="/sim/submit" enctype="multipart/form-data" method="POST">
+            <form class="pb-4 space-y-6 lg:px-8 sm:p-6 xl:pb-8" action="/sim/submit" enctype="multipart/form-data" method="POST" autocomplete="off">
                 @csrf
                 <h3 class="text-xl font-medium text-gray-900 dark:text-white">Tambah Data SIM</h3>
                 <div class="flex">
                     <label for="nis"
                         class="block mt-2 mr-2 text-sm font-medium text-gray-900 dark:text-gray-300">NIS</label>
-                    <input type="nis" name="nis" id="nis"
+                    <input type="number" name="nis" id="nis" list="NIS"
                         class="ml-16 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-500 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                         placeholder="" required="">
+                        <datalist id="NIS">
+                            @foreach ($student_nis as $sn)
+                                <option value="{{$sn->nis}}">{{$sn->nis }}</option>
+                            @endforeach
+                        </datalist>
                 </div>
                 {{-- <div class="flex">
                     <label for="date"

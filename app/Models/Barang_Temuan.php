@@ -21,10 +21,10 @@ class Barang_Temuan extends Model
     ];
 
     public function Pemilik(){
-        return $this->hasOne('App\Models\Student', 'id', 'pemilik');
+        return $this->hasOne('App\Models\Student', 'nis', 'pemilik');
     }
 
     public function Penemu(){
-        return $this->hasOne('App\Models\Student', 'id', 'penemu');
+        return $this->hasOne('App\Models\Student', 'nis', 'penemu');
     }
 }

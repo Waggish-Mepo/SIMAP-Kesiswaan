@@ -8,7 +8,7 @@
     <link href="/css/app.css" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" type="image/x-icon" href="{{ asset('image/logo.png') }}">
-    <title>Document</title>
+    <title>Kesiswaan Login</title>
 </head>
 
 <body class="bg-cover" style="background-image: url({{ asset('image/bg-wikrama.png') }})">
@@ -27,7 +27,7 @@
                             <label for="text" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Username</label>
                             <input type="text" name="username" id="text"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                placeholder="name@company.com" required>
+                                placeholder="Username" required>
                         </div>
                         <div>
                             <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Password</label>

@@ -31,7 +31,7 @@ class BarangRaziaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nis' => 'required',
+            'nis' => 'required|exists:m_student,nis',
             'tgl',
             // 'foto_barang',
             'foto_barang' => 'required|image:jpeg,png,jpg',

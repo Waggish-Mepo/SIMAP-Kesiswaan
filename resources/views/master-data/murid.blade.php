@@ -2,13 +2,13 @@
 @section('title', 'Murid')
 
 @section('content')
-    <div>
+    <div class="mx-4">
         <div class="w-58 bg-white rounded-lg border shadow-md sm:p-2 dark:bg-gray-800 dark:border-gray-700">
             <p class="pl-2 text-base text-gray-900 sm:text-base">Data Siswa</p>
         </div>
         <div
             class="pt-4 mt-4 pb-8 w-58 bg-white rounded-lg border shadow-md dark:bg-gray-800 dark:border-gray-700">
-            <div class="items-center flex p-4 float-right" data-modal-toggle="input-raport-modal">
+            <div class="items-center flex mr-6 p-4 float-right" data-modal-toggle="input-raport-modal">
                 <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-2xl px-4 py-1 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" >
                     <i class='bx bx-plus text-white' ></i>
                 </button>
@@ -34,8 +34,8 @@
             <div class="flex flex-col mt-16">
                 <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="inline-block py-2 min-w-full sm:px-6 lg:px-8">
-                        <div class="overflow-hidden shadow-md sm:rounded-lg">
-                            <table class="min-w-full">
+                        <div class="overflow-hidden sm:rounded-lg px-8">
+                            <table class="w-auto" id='example'>
                                 <thead class="bg-gray-50 dark:bg-gray-700">
                                     <tr>
                                         <th scope="col"
@@ -241,7 +241,7 @@
 @endsection
 <!-- MODAL INPUT RAPOT -->
 <div id="input-raport-modal" aria-hidden="true"
-    class="hidden overflow-y-auto overflow-x-hidden fixed right-0 left-0 top-2 z-50 pt-2 pb-4 justify-center items-center h-modal md:h-full md:inset-0">
+    class="hidden overflow-y-auto overflow-x-hidden fixed top-2 z-50 pt-2 pb-4 justify-center items-center h-auto md:inset-0">
     <div class="relative px-4 w-full max-w-lg h-full md:h-auto overflow-x-hidden">
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
             <div class="flex justify-end p-2">
@@ -259,73 +259,79 @@
             <form class="pb-4 space-y-6 lg:px-8 sm:p-6 xl:pb-8" action="/murid" enctype="multipart/form-data" method="POST">
                 @csrf
                 <h3 class="text-xl font-medium text-gray-900 dark:text-white">Tambah Data Murid</h3>
-                <div class="flex">
-                    <label for="nis"
-                        class="block mt-2 mr-2 text-sm font-medium text-gray-900 dark:text-gray-300">NIS</label>
-                    <input type="number" name="nis" id="nis"
-                        class="ml-16 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-500 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                        placeholder="" required="">
-                </div>
-                <div class="flex">
-                    <label for="nama"
-                        class="block mt-2 mr-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nama</label>
-                    <input type="text" name="nama" id="nama"
-                        class="ml-16 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-500 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                        placeholder="" required="">
-                </div>
-                <div class="flex">
-                    <label for="email"
-                        class="block mt-2 mr-2 text-sm font-medium text-gray-900 dark:text-gray-300">Email</label>
-                    <input type="email" name="email" id="email"
-                        class="ml-16 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-500 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                        placeholder="" required="">
-                </div>
-                <div class="flex">
-                    <label for="no_hp"
-                        class="block mt-2 mr-2 text-sm font-medium text-gray-900 dark:text-gray-300">No Telephon</label>
-                    <input type="number" name="no_hp" id="no_hp"
-                        class="ml-16 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-500 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                        placeholder="" required="">
-                </div>
-                <div class="flex">
-                    <label for="nik"
-                        class="block mt-2 mr-2 text-sm font-medium text-gray-900 dark:text-gray-300">NIK</label>
-                    <input type="number" name="nik" id="nik"
-                        class="ml-16 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-500 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                        placeholder="" required="">
-                </div>
-                <div class="flex">
-                    <label for="nisn"
-                        class="block mt-2 mr-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nisn</label>
-                    <input type="number" name="nisn" id="nisn"
-                        class="ml-16 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-500 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                        placeholder="" required="">
-                </div>
-                <div class="flex">
-                    <label for="jenis_kelamin" class="block text-sm font-medium text-gray-900 dark:text-gray-300">Jenis Kelamin</label>
-                    <select id="jenis_kelamin" class="form-select appearance-none transition ease-in-out ml-14 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-500 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" aria-label="Default select example" name="jenis_kelamin">
-                        <option selected disabled>Open this select menu</option>
-                        <option value="p">perempuan</option>
-                        <option value="l">laki - laki</option>
-                    </select>
-                </div>
-                <div class="flex">
-                    <label for="rayon" class="block text-sm font-medium text-gray-900 dark:text-gray-300">Rayon</label>
-                    <select id="rayon" class="form-select appearance-none transition ease-in-out ml-14 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-500 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" aria-label="Default select example" name="rayon">
-                        <option selected disabled>Open this select menu</option>
-                        @foreach ($rayon as $item => $value)
-                            <option value="{{$value->id}}">{{$value->rayon}}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="flex">
-                    <label for="rombel" class="block text-sm font-medium text-gray-900 dark:text-gray-300">Rombel</label>
-                    <select id="rombel" class="form-select appearance-none transition ease-in-out ml-14 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-500 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" aria-label="Default select example" name="rombel">
-                        <option selected disabled>Open this select menu</option>
-                        @foreach ($rombel as $item => $value)
-                            <option value="{{$value->id}}">{{$value->rombel}} | {{$value->Batch->angkatan}}</option>
-                        @endforeach
-                    </select>
+                <div class="grid grid-cols-2">
+                    <div class="gap-2">
+                        <div class="flex">
+                            <label for="nis"
+                                class="block mt-2 mr-2 text-sm font-medium text-gray-900 dark:text-gray-300">NIS</label>
+                            <input type="number" name="nis" id="nis"
+                                class="ml-16 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-500 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                placeholder="" required="">
+                        </div>
+                        <div class="flex">
+                            <label for="nama"
+                                class="block mt-2 mr-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nama</label>
+                            <input type="text" name="nama" id="nama"
+                                class="ml-16 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-500 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                placeholder="" required="">
+                        </div>
+                        <div class="flex">
+                            <label for="email"
+                                class="block mt-2 mr-2 text-sm font-medium text-gray-900 dark:text-gray-300">Email</label>
+                            <input type="email" name="email" id="email"
+                                class="ml-16 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-500 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                placeholder="" required="">
+                        </div>
+                        <div class="flex">
+                            <label for="no_hp"
+                                class="block mt-2 mr-2 text-sm font-medium text-gray-900 dark:text-gray-300">No Telephon</label>
+                            <input type="number" name="no_hp" id="no_hp"
+                                class="ml-16 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-500 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                placeholder="" required="">
+                        </div>
+                    </div>
+                    <div class="gap-2">
+                        <div class="flex">
+                            <label for="nik"
+                                class="block mt-2 mr-2 text-sm font-medium text-gray-900 dark:text-gray-300">NIK</label>
+                            <input type="number" name="nik" id="nik"
+                                class="ml-16 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-500 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                placeholder="" required="">
+                        </div>
+                        <div class="flex">
+                            <label for="nisn"
+                                class="block mt-2 mr-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nisn</label>
+                            <input type="number" name="nisn" id="nisn"
+                                class="ml-16 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-500 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                placeholder="" required="">
+                        </div>
+                        <div class="flex">
+                            <label for="jenis_kelamin" class="block text-sm font-medium text-gray-900 dark:text-gray-300">Jenis Kelamin</label>
+                            <select id="jenis_kelamin" class="form-select appearance-none transition ease-in-out ml-14 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-500 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" aria-label="Default select example" name="jenis_kelamin">
+                                <option selected disabled>Open this select menu</option>
+                                <option value="p">perempuan</option>
+                                <option value="l">laki - laki</option>
+                            </select>
+                        </div>
+                        <div class="flex">
+                            <label for="rayon" class="block text-sm font-medium text-gray-900 dark:text-gray-300">Rayon</label>
+                            <select id="rayon" class="form-select appearance-none transition ease-in-out ml-14 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-500 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" aria-label="Default select example" name="rayon">
+                                <option selected disabled>Open this select menu</option>
+                                @foreach ($rayon as $item => $value)
+                                    <option value="{{$value->id}}">{{$value->rayon}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="flex">
+                            <label for="rombel" class="block text-sm font-medium text-gray-900 dark:text-gray-300">Rombel</label>
+                            <select id="rombel" class="form-select appearance-none transition ease-in-out ml-14 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-500 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" aria-label="Default select example" name="rombel">
+                                <option selected disabled>Open this select menu</option>
+                                @foreach ($rombel as $item => $value)
+                                    <option value="{{$value->id}}">{{$value->rombel}} | {{$value->Batch->angkatan}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
                 </div>
                 <button type="submit"
                     class="text-white bg-blue-400 hover:bg-blue-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-2.5 text-center mr-2 mb-2 dark:focus:ring-blue-900">Tambah</button>

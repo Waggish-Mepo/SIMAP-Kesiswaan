@@ -16,8 +16,9 @@ class SimController extends Controller
 
     public function index(){
         $data = Sim::with('Murid.Rombel')->with('Murid.Rayon')->get();
+        $student_nis = Student::all();
         // dd($data);
-        return view('sim.input-sim')->with('sim',$data);
+        return view('sim.input-sim')->with('sim',$data)->with('student_nis', $student_nis);
     }
     public function show($id){
         $data = Sim::find($id);
@@ -42,9 +43,9 @@ class SimController extends Controller
             ]);
             $request->file('foto_selfie_sim')->move(public_path('image/sim'),$selfie_sim);
         } catch (\Throwable $th) {
-            Alert::error('Gagal', 'Laporan Sim Gagal Disimpan');
+            alert()->error('Gagal', 'Laporan Sim Gagal Disimpan');
         }
-        Alert::success('Success', 'Laporan Sim Berhasil Disimpan');
+        alert()->success('Success', 'Laporan Sim Berhasil Disimpan');
         return redirect('sim/input-sim')->with('sim',$res)->with('msg','sim berhasil tersimpan');
     }
     public function update(Request $request,$id){
@@ -70,7 +71,7 @@ class SimController extends Controller
     }
     public function delete(Request $request,$id){
         $data = Sim::where('id',$id)->delete();
-        Alert::success('Success', 'Laporan Sim Berhasil Dihapus');
+        alert()->success('Success', 'Laporan Sim Berhasil Dihapus');
         return redirect('sim/input-sim')->with('sim',$data);
     }
     public function getImage($nis){

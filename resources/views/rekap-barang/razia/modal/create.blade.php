@@ -17,12 +17,12 @@
                     @csrf
                     <div class="mb-3">
                         <label for="nis" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nis</label>
-                        <input type="text" name="nis" id="nis" list="NIS" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                        <input type="number" name="nis" id="nis" list="NIS" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
                         <datalist id="NIS">
                             @foreach ($student_nis as $sn)
                                 <option value="{{$sn->nis}}">{{$sn->nis }}</option>
                             @endforeach
-                          </datalist>
+                        </datalist>
                     </div>
 
                     <div class="grid grid-cols-2 gap-2 mb-3">

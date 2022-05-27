@@ -69,28 +69,11 @@
                         <i class='bx bx-chevron-down ml-3'></i>
                     </button>
                     {{-- <i class='bx bx-chevron-down drop-icon px-4 pt-1 justify-center float-right'></i> --}}
-                    <ul id="barangDropdown" class="dropdown hidden mt-5 pl-5">
-                        <li><a href="" class="text-base">Rekap Barang Temuan</a></li>
-                        <li><a href="" class="text-base">Rekap Barang Razia</a></li>
+                    <ul id="barangDropdown" class="dropdown hidden ml-2 pl-5">
+                        <li><a href="{{ route('temuan.index') }}" class="text-base">Rekap Barang Temuan</a></li>
+                        <li><a href="{{ route('razia.index') }}" class="text-base">Rekap Barang Razia</a></li>
                     </ul>
                 </li>
-
-                <li class="nav-link pl-6 pr-4 py-2  relative hover:bg-[#192e7d] m-2">
-                    <button type="button" href="#" id="btnBarang" aria-controls="dataMasterDropdown" data-collapse-toggle="dataMasterDropdown">
-                        <i class='items-center bx bx-bell icon w-5'></i>
-                        <span class="text nav-text">Data Sekolah</span>
-                        <i class='bx bx-chevron-down ml-4'></i>
-                    </button>
-                    {{-- <i class='bx bx-chevron-down drop-icon px-4 pt-1 justify-center float-right'></i> --}}
-                    <ul id="dataMasterDropdown" class="dropdown hidden ml-6">
-                        <li><a href="/murid" class="text-base py-2 hover:bg-blue-500">Murid</a></li>
-                        <li><a href="/guru" class="text-base py-2 hover:bg-blue-500 mt-2">Guru</a></li>
-                        {{-- <li><a href="" class="text-base">Rayon</a></li>
-                        <li><a href="" class="text-base">Rombel</a></li>
-                        <li><a href="" class="text-base">Angkatan</a></li> --}}
-                    </ul>
-                </li>
-
                 {{-- <li class="nnav-link pl-6 pr-4 py-2  relative hover:bg-[#192e7d] m-2" >
                     <a href="#">
                         <i class='bx bx-pie-chart-alt w-5'></i>
@@ -102,6 +85,22 @@
                         <i class='bx bx-id-card w-5'></i>
                         <span class="text nav-text">Input SIM</span>
                     </a>
+                </li>
+
+                <li class="nav-link pl-6 pr-4 py-2  relative hover:bg-[#192e7d] m-2">
+                    <button type="button" href="#" id="btnBarang" aria-controls="dataMasterDropdown" data-collapse-toggle="dataMasterDropdown">
+                        <i class='items-center bx bxs-school icon w-5'></i>
+                        <span class="text nav-text">Data Sekolah</span>
+                        <i class='bx bx-chevron-down ml-4'></i>
+                    </button>
+                    {{-- <i class='bx bx-chevron-down drop-icon px-4 pt-1 justify-center float-right'></i> --}}
+                    <ul id="dataMasterDropdown" class="dropdown hidden ml-6">
+                        <li><a href="/murid" class="text-base py-2 ">Murid</a></li>
+                        <li><a href="/guru" class="text-base py-2 mt-2">Guru</a></li>
+                        {{-- <li><a href="" class="text-base">Rayon</a></li>
+                        <li><a href="" class="text-base">Rombel</a></li>
+                        <li><a href="" class="text-base">Angkatan</a></li> --}}
+                    </ul>
                 </li>
 
                 {{-- <li class="nav-link pl-6 pr-4 py-2  relative hover:bg-[#192e7d] m-2">
