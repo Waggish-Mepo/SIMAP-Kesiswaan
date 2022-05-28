@@ -12,7 +12,7 @@
     @include('sweetalert::alert')
     <div class="relative min-h-screen flex">
         @include('layout.sidebar')
-        <div class="flex-1 bg-gray-200 h-screen pb-8">
+        <div class="flex-1 bg-gray-200 h-full pb-8">
             @include('layout.navbar')
             <main class="ml-20 mr-4 mt-16">
                 @yield('content')

@@ -63,37 +63,32 @@ Route::middleware('authguard')->group(function () {
         Route::put('/temuan/{id}/ambil', [BarangTemuanController::class, 'ambil'])->name('temuan.ambil');
     });
 
-    Route::get('/warning-letter', function(){
-        return view('performance-report.warning-letter');
+    Route::prefix('/kinerja')->group(function(){
+        Route::get('/rekap-laporan-sp', function(){
+            return view('performance-report.warning-letter');
+        });
+        Route::get('/rekap-reward', function(){
+            return view('performance-report.student-performance');
+        });
+        Route::get('/laporan-kehadiraan', function(){
+            return view('performance-report.rombel-month');
+        });
+
+        // Route::get('/performance-report', function(){
+        //     return view('performance-report.performance-report');
+        // });
     });
 
-    Route::get('/student-performance-report', function(){
-        return view('performance-report.student-performance');
-    });
 
-    Route::get('/raport-characters', function(){
-        return view('raport-characters.raport-characters');
-    });
-
-    Route::get('/rombel-month', function(){
-        return view('performance-report.rombel-month');
-    });
-
-    Route::get('/performance-report', function(){
-        return view('performance-report.performance-report');
-    });
-
-    Route::get('/rombel-month', function(){
-        return view('performance-report.rombel-month');
+    Route::prefix('/sim')->group(function(){
+        Route::get('/input-sim', [SimController::class , 'index']);
+        Route::post('/submit', [SimController::class , 'store']);
+        Route::delete('/delete/{id}', [SimController::class , 'delete']);
+        Route::patch('/edit/{id}', [SimController::class , 'update']);
     });
 
     Route::resource('/murid', StudentController::class);
     Route::resource('/guru', TeacherController::class);
-
-    Route::get('/sim/input-sim', [SimController::class , 'index']);
-    Route::post('/sim/submit', [SimController::class , 'store']);
-    Route::delete('/sim/delete/{id}', [SimController::class , 'delete']);
-    Route::patch('/sim/edit/{id}', [SimController::class , 'update']);
 
     Route::get('/raport-karakter/input-raport', function(){
         return view('raport-karakter.input-raport');

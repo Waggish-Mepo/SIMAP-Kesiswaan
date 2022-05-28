@@ -1,4 +1,4 @@
-<nav class="fixed w-full bg-white border-gray-200 sm:px-3 py-3 dark:bg-gray-800">
+<nav class="z-40 fixed w-full bg-white border-gray-200 sm:px-3 py-3 dark:bg-gray-800">
     <div class="container items-center ">
         <div class="items-center">
             <div class="inline-flex float-right pr-6">

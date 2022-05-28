@@ -10,11 +10,54 @@
                 <div class="inline-block min-w-full align-middle dark:bg-gray-800">
                     <!--Card-->
 
-                    <div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
+                    <div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white px-10">
                         <button  class="block mb-6 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                                 type="button" data-modal-toggle="create-modal"><i class="fa-solid fa-plus"></i> Tambah</button>
-                        <table id="example" class="stripe hover text-sm"
-                            style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
+                        <table id="example" class="stripe hover text-sm w-full rounded-3xl py-4">
+                            {{-- <thead class="bg-gray-300">
+                                <tr>
+                                    <th data-priority="1" scope="col"
+                                        class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                        No
+                                    </th>
+                                    <th data-priority="2" scope="col"
+                                        class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                        Nama
+                                    </th>
+                                    <th data-priority="3" scope="col"
+                                        class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                        Nis
+                                    </th>
+                                    <th data-priority="4" scope="col"
+                                        class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                        Rombel
+                                    </th>
+                                    <th data-priority="5" scope="col"
+                                        class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                        Rayon
+                                    </th>
+                                    <th data-priority="6" scope="col"
+                                        class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                        Tanggal
+                                    </th>
+                                    <th data-priority="7" scope="col"
+                                        class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                        Foto Barang
+                                    </th>
+                                    <th data-priority="8" scope="col"
+                                        class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                        Keterangan
+                                    </th>
+                                    <th data-priority="9" scope="col"
+                                        class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                        Status
+                                    </th>
+                                    <th data-priority="10" scope="col"
+                                        class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                        Aksi
+                                    </th>
+                                </tr>
+                            </thead> --}}
                             <thead>
                                 <tr>
                                     <th data-priority="1">No</th>
