@@ -89,8 +89,8 @@
                 dataType: 'json',
                 success: function(response) {
                     if (response != null) {
-                        $('#nama').val(response.student.nama);
-                        $('#rombel').val(response.student.rombel.rombel);
+                        $('#nama').val(response.nama);
+                        $('#rombel').val(response.rombel.rombel);
                     }
                 }
             });

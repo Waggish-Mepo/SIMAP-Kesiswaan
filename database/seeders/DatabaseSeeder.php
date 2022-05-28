@@ -17,11 +17,36 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         DB::table('m_user')->insert([
-            'username' => 'admin',
-            'email'=>'admin@wikrama.com',
-            'password' => Hash::make('admin'),
+            [
+                'username' => 'admin',
+                'role' => 'admin',
+                'sub_role' => null,
+                'email'=>'admin@wikrama.com',
+                'password' => Hash::make('admin'),
+            ],
+            [
+                'username' => 'Budiono',
+                'role' => 'guru',
+                'sub_role' => 'pemray',
+                'email'=>'budiono@wikrama.com',
+                'password' => Hash::make('budiono123'),
+            ],
+            [
+                'username' => 'laboran',
+                'role' => 'guru',
+                'sub_role' => null,
+                'email'=>'laboran@wikrama.com',
+                'password' => Hash::make('laboran'),
+            ]
         ]);
-        
+
+        DB::table('m_teacher')->insert([
+            [
+                'nama' => 'Budiono',
+                'email'=>'budiono@wikrama.com',
+            ]
+        ]);
+
         DB::table('m_rombel')->insert([
             [
                 'rombel' => 'RPL XII',
