@@ -30,20 +30,20 @@
                             <tbody>
                                 @foreach ($data as $d)
                                     <tr>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $d->Penemu->nama }}</td>
-                                        <td>{{ $d->tgl }}</td>
-                                        <td>
+                                        <td class="text-center">{{ $loop->iteration }}</td>
+                                        <td class="text-center">{{ $d->Penemu->nama }}</td>
+                                        <td class="text-center">{{ $d->tgl }}</td>
+                                        <td class="text-center">
                                             <img style="width: 100px" src="{{ asset('images/barangTemuan/'.$d->foto_barang) }}" alt="">
-                                        </td>
+                                        </td class="text-center">
                                         <td>@if ($d->pemilik == null)
                                                 <span class="bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-red-200 dark:text-red-900">Belum ditemukan</span>
                                             @else
                                                 {{ $d->Pemilik->nama }}
                                             @endif
                                         </td>
-                                        <td>{{ $d->ket }}</td>
-                                        <td>@if ($d->status == 0)
+                                        <td class="text-center">{{ $d->ket }}</td>
+                                        <td class="text-center">@if ($d->status == 0)
                                                 <span class="bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-red-200 dark:text-red-900">Belum diambil</span>
                                             @else
                                                 <span class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-900">Sudah diambil</span>

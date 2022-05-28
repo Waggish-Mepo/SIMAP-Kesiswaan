@@ -3,10 +3,10 @@
 
 @section('content')
     <div class="content">
-        <div class="w-58 bg-white rounded-lg border shadow-md sm:p-2 dark:bg-gray-800 dark:border-gray-700">
+        <div class="ml-10 mr-4 bg-white rounded-lg border shadow-md sm:p-2 dark:bg-gray-800 dark:border-gray-700">
             <p class="pl-2 text-base text-gray-900 sm:text-base">Raport Karakter</p>
         </div>
-        <div class="mt-8 pb-8 w-58 bg-white rounded-lg border shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div class="mt-4 pb-8 ml-10 mr-4 bg-white rounded-lg border shadow-md dark:bg-gray-800 dark:border-gray-700">
 
             <!-- FILTER -->
             <form class="flex px-4 pt-4 space-y-6" action="#">

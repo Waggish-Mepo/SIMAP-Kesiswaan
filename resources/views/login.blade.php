@@ -36,7 +36,7 @@
                                 required>
                         </div>
                         <button type="submit"
-                            class="w-12 justify-center float-right text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 rounded-full text-lg px-3 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><i class='bx bx-right-arrow-alt'></i></button>
+                            class="w-10 h-10 justify-center float-right text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 rounded-full text-lg px-3 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><i class='bx bx-right-arrow-alt'></i></button>
                     </form>
                 </div>
             </div>

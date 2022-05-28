@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
-        <ul class="flex hidden rounded-lg divide-x divide-gray-200 shadow sm:flex dark:divide-gray-700" id="myTab"
+        <ul class="flex rounded-lg divide-x divide-gray-200 shadow sm:flex dark:divide-gray-700" id="myTab"
             data-tabs-toggle="#myTabContent" role="tablist">
             <li class="w-full" role="presentation">
                 <button
