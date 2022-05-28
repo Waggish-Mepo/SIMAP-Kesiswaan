@@ -158,7 +158,7 @@ class BarangRaziaController extends Controller
 
     public function getDetails($nis)
     {
-        $data = Barang_Razia::with('Student', 'Student.Rayon', 'Student.Rombel')->where('nis', $nis)->first();
+        $data = Student::with('Rayon', 'Rombel')->where('nis', $nis)->first();
         // $data = Barang_Razia::where('nis', $nis)->first();
         return response()->json($data);
     }

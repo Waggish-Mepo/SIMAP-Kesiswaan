@@ -17,10 +17,10 @@ class CreateTeachersTable extends Migration
             $table->id();
             $table->string('nama');
             $table->string('email');
-            $table->string('no_hp');
-            $table->bigInteger('no_induk_yayasan');
-            $table->string('jk');
-            $table->string('mata_pelajaran');
+            $table->string('no_hp')->nullable();
+            $table->bigInteger('no_induk_yayasan')->nullable();
+            $table->string('jk')->nullable();
+            $table->string('mata_pelajaran')->nullable();
             $table->timestamps();
         });
     }
