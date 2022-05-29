@@ -9,10 +9,6 @@
     left: 100%;
     top: 0;
 } */
-
-.sidebar.close .nav-link:hover{
-    border-right-width: 3px;
-}
 .sidebar.close .nav-link{
     position: relative;
     display: inline-block;
