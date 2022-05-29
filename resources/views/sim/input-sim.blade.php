@@ -115,7 +115,7 @@
                                                             </div>
                                                             <form class="pb-4 space-y-6 lg:px-8 sm:p-6 xl:pb-8"
                                                                 action="/sim/edit/{{ $v->id }}"
-                                                                enctype="multipart/form-data" method="POST">
+                                                                enctype="multipart/form-data" method="POST" autocomplete="off">
                                                                 @method('PATCH');
                                                                 @csrf
                                                                 <h3
@@ -124,10 +124,18 @@
                                                                 <div class="flex">
                                                                     <label for="nis"
                                                                         class="block mt-2 mr-2 text-sm font-medium text-gray-900 dark:text-gray-300">NIS</label>
-                                                                    <input type="nis" name="nis" id="nis"
+                                                                    {{-- <input type="nis" name="nis" id="nis"
                                                                         class="ml-16 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-500 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                                                                         placeholder="" required=""
-                                                                        value="{{ $v->nis }}">
+                                                                        value="{{ $v->nis }}"> --}}
+                                                                        <input type="number" name="nis" id="nis" list="NIS"
+                                                                            class="ml-16 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-500 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                                                            placeholder="" required="" value="{{ $v->nis }}">
+                                                                        <datalist id="NIS">
+                                                                            @foreach ($student_nis as $sn)
+                                                                                <option value="{{ $sn->nis }}">{{ $sn->nis }}</option>
+                                                                            @endforeach
+                                                                        </datalist>
                                                                 </div>
                                                                 <div class="flex">
                                                                     <label for="foto_selfie_sim"
@@ -137,7 +145,7 @@
                                                                     <input type="file" name="foto_selfie_sim"
                                                                         id="foto_selfie_sim"
                                                                         class="ml-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full dark:bg-gray-500 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                                                        placeholder="{{ $v->filename }}" required="">
+                                                                        placeholder="{{ $v->filename }}">
                                                                 </div>
                                                                 <button type="submit"
                                                                     class="text-white bg-blue-400 hover:bg-blue-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-2.5 text-center mr-2 mb-2 dark:focus:ring-blue-900">Edit</button>

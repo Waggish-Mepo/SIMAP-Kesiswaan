@@ -62,19 +62,26 @@
                                         <button type="button" data-modal-toggle="modal-edit-temuan-{{ $d->id }}"
                                             class="focus:outline-none bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-4 py-2 mr-2 mb-2 dark:focus:ring-yellow-900"><i
                                                 class="fa-solid fa-pen-to-square"></i></button>
+                                        {{-- <button type="button" data-modal-toggle="modal-edit-temuan-{{ $d->id }}"
+                                            class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                                            Ambil</button> --}}
                                         @include('rekap-barang.temuan.modal.edit')
                                         <button type="button" data-modal-toggle="modal-delete-temuan-{{ $d->id }}"
                                             class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"><i
                                                 class="fa-solid fa-trash-can"></i></button>
                                         @include('rekap-barang.temuan.modal.delete')
                                         @if ($d->status == 0)
-                                            <form action="{{ route('temuan.ambil', $d->id) }}" method="POST"
+                                        <button type="button" data-modal-toggle="modal-ambil-temuan-{{ $d->id }}"
+                                            class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                                            Ambil</button>
+                                            @include('rekap-barang.temuan.modal.ambil')
+                                            {{-- <form action="{{ route('temuan.ambil', $d->id) }}" method="POST"
                                                 class="col-span-2">
                                                 @csrf
                                                 @method('PUT')
                                                 <button type="submit"
                                                     class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Ambil</button>
-                                            </form>
+                                            </form> --}}
                                         @endif
                                     </td>
                                 </tr>
@@ -94,8 +101,9 @@
     <script>
         $('#nis').change(function() {
             var nis = $(this).val();
-            var url = '{{ route('razia.getDetails', ':nis') }}';
+            var url = '{{ route('temuan.getDetails', ':nis') }}';
             url = url.replace(':nis', nis);
+            
             $.ajax({
                 url: url,
                 type: 'get',
@@ -105,7 +113,10 @@
                         $('#nama').val(response.nama);
                         $('#rombel').val(response.rombel.rombel);
                     }
-                }
+                },
+                error: function (error) {
+                console.log(error);
+            }
             });
         });
     </script>
