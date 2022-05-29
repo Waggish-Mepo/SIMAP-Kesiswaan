@@ -28,7 +28,7 @@ class SimController extends Controller
         // dd($request->user()->userable_id);
         // dd($request);
         $request->validate([
-            'foto_selfie_sim'=>'required',
+            'foto_selfie_sim'=>'required|image:jpeg,png,jpg',
             'nis'=>'required|exists:m_student,nis',
         ]);
         $image = $request->file('foto_selfie_sim');
@@ -50,7 +50,7 @@ class SimController extends Controller
     }
     public function update(Request $request,$id){
         $request->validate([
-            'foto_selfie_sim'=>'required',
+            'foto_selfie_sim'=>'image:jpeg,png,jpg',
             'nis'=>'required|exists:m_student,nis',
         ]);
         $sim = Sim::find($id);
@@ -67,7 +67,9 @@ class SimController extends Controller
             'file_endpoint'=>$file_endpoint,
         ]);
         $request->file('foto_selfie_sim')->move(public_path('image/sim'),$selfie_sim);
-        return $this->success(['sim'=>$res],'Data Sim Berhasil Di Update');
+        // return $this->success(['sim'=>$res],'Data Sim Berhasil Di Update');
+        alert()->success('Success', 'Laporan Sim Berhasil Disimpan');
+        return redirect('sim/input-sim')->with('sim',$res)->with('msg','sim berhasil tersimpan');
     }
     public function delete(Request $request,$id){
         $data = Sim::where('id',$id)->delete();

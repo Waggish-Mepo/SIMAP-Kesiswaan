@@ -18,7 +18,7 @@
                         <thead>
                             <tr>
                                 <th data-priority="1">No</th>
-                                <th data-priority="2">Nama</th>
+                                <th data-priority="2">Pemilik</th>
                                 <th data-priority="3">Nis</th>
                                 <th data-priority="4">Rombel</th>
                                 <th data-priority="5">Rayon</th>

@@ -91,6 +91,44 @@ class BarangTemuanController extends Controller
         return redirect()->route('temuan.index');
     }
 
+    public function ambil(Request $request, $id)
+    {
+        $data = Barang_Temuan::find($id);
+        $request->validate([
+            'penemu' => 'required',
+            'pemilik',
+            'tgl' => 'required',
+            'foto_barang' => 'image:jpeg,png,jpg',
+            'image_path',
+            'ket',
+        ]);
+
+        //upload image
+        $path = public_path('/images/barangTemuan');
+        if($request->hasFile('foto_barang') && $request->foto_barang != ''){
+            $uploadedImage = $request->foto_barang;
+            $imageName = $request->penemu.'-'.Str::random(15). '.' . $uploadedImage->getClientOriginalExtension();
+            $uploadedImage->move($path, $imageName);
+            // $uploadedImage->foto_barang = $imageName;
+        } else{
+            $imageName = $data['foto_barang'];
+        }
+
+        $data->update([
+            'penemu' => $request['penemu'],
+            'pemilik' => $request['pemilik'],
+            'tgl' => $request['tgl'],
+            'foto_barang' => $imageName,
+            'image_path' => $path,
+            'ket' => $request['ket'],
+            'status' => 1
+        ]);
+
+        alert()->success('Berhasil', 'Data Berhasil Diupdate');
+
+        return redirect()->route('temuan.index');
+    }
+
     public function destroy($id)
     {
         $data = Barang_Temuan::find($id);
@@ -99,14 +137,21 @@ class BarangTemuanController extends Controller
         alert()->success('Berhasil','Data Berhasil Dihapus');
         return redirect()->route('temuan.index');
     }
-    public function ambil($id)
-    {
-        $data = Barang_Temuan::find($id);
-        $data->update([
-            'status' => 1
-        ]);
 
-        alert()->success('Berhasil','Data Berhasil Diupdate');
-        return redirect()->route('temuan.index');
+    public function getDetails($nis)
+    {
+        $data = Student::with('Rayon', 'Rombel')->where('nis', $nis)->first();
+        // $data = Barang_Razia::where('nis', $nis)->first();
+        return response()->json($data);
     }
+    // public function ambil($id)
+    // {
+    //     $data = Barang_Temuan::find($id);
+    //     $data->update([
+    //         'status' => 1
+    //     ]);
+
+    //     alert()->success('Berhasil','Data Berhasil Diupdate');
+    //     return redirect()->route('temuan.index');
+    // }
 }

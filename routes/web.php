@@ -61,6 +61,7 @@ Route::middleware('authguard')->group(function () {
         Route::put('/temuan/{id}', [BarangTemuanController::class, 'update'])->name('temuan.update');
         Route::delete('/temuan/{id}', [BarangTemuanController::class, 'destroy'])->name('temuan.destroy');
         Route::put('/temuan/{id}/ambil', [BarangTemuanController::class, 'ambil'])->name('temuan.ambil');
+        Route::get('/temuan/details/{nis}', [BarangRaziaController::class, 'getDetails'])->name('temuan.getDetails');
     });
 
     Route::prefix('/kinerja')->group(function(){
