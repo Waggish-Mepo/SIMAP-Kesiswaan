@@ -70,14 +70,12 @@
                         <li><a href="" class="text-base">Angkatan</a></li>
                     </ul>
                 </li>
-
                 <li class="nav-link pl-6 pr-4 py-2 relative hover:bg-black hover:pl-4 hover:border-l-blue-400 hover:border-l-4  m-2">
                     <a href="/sim/input-sim">
                         <i class='bx bx-envelope w-5 text-red-500'></i>
                         <span class="text text-base opacity-70 hover:opacity-100">Surat Perjanjian</span>
                     </a>
                 </li>
-
                 <li class="nav-link pl-6 pr-4 py-2 relative hover:bg-black hover:pl-4 hover:border-l-blue-400 hover:border-l-4  m-2">
                     <a href="/raport-karakter/input-raport">
                         <i class='bx bx-wallet icon w-5 text-blue-500'></i>
