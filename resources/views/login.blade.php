@@ -17,12 +17,13 @@
         <div class="m-auto ">
             <div class="flex h-96 bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
                 <div class="grid rounded-l-lg h-full w-52 md:w-80 bg-[#223787]">
-                    <img class="m-auto w-40" src="{{ asset('image/logo.png') }}" alt="">
+                    <img class="m-auto pt-4 w-40" src="{{ asset('image/logo.png') }}" alt="">
+                    <p class="text-white text-center mx-16">A P L I K A S I &nbsp; S I M A P &nbsp; K E S I S W A A N</p>
                 </div>
                 <div class="sm:pt-10 sm:px-6 w-52 md:w-80">
                     <form class="space-y-6" action="/login/submit" method="POST">
                         @csrf
-                        <h3 class="flex justify-center text-xl font-medium text-gray-900 dark:text-white">Login</h3>
+                        <h3 class="flex justify-center text-xl font-medium text-gray-900 dark:text-white">FORM LOGIN</h3>
                         <div>
                             <label for="text" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Username</label>
                             <input type="text" name="username" id="text"

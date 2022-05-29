@@ -11,6 +11,7 @@ class Barang_Temuan extends Model
     protected $table = 'r_barang_temuan';
     protected $fillable = [
         'nis',
+        'nama',
         'penemu',
         'tgl',
         'foto_barang',
