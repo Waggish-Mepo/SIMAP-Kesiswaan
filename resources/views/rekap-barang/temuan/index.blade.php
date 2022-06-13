@@ -3,9 +3,10 @@
 @section('title', 'Barang Temuan')
 
 @Section('content')
+@include('rekap-barang.temuan.modal.create')
     <div class="flex flex-col ml-10 mr-6">
         <div class="w-58 bg-white rounded-lg border shadow-md sm:p-2 dark:bg-gray-800 dark:border-gray-700">
-            <p class="pl-2 text-base text-gray-900 sm:text-base">Laporan Barang Temuan</p>
+            <b class="pl-2 text-base text-gray-900 sm:text-base">Data Barang Temuan</b>
         </div>
         <div class="overflow-x-auto shadow-md sm:rounded-lg mt-4">
             <div class="inline-block min-w-full align-middle dark:bg-gray-800">
@@ -94,16 +95,17 @@
             </div>
         </div>
     </div>
-    @include('rekap-barang.temuan.modal.create')
+    
 @endsection
 
 @section('script')
     <script>
-        $('#nis').change(function() {
-            var nis = $(this).val();
-            var url = '{{ route('temuan.getDetails', ':nis') }}';
-            url = url.replace(':nis', nis);
-            
+        $(document).ready(function(){
+            $('#nis').change(function() {
+                var nis = $(this).val();
+                var url = '{{ route('temuan.getDetails', ':nis') }}';
+                url = url.replace(':nis', nis);
+
             $.ajax({
                 url: url,
                 type: 'get',
@@ -113,11 +115,14 @@
                         $('#nama').val(response.nama);
                         $('#rombel').val(response.rombel.rombel);
                     }
+                    
                 },
                 error: function (error) {
                 console.log(error);
             }
             });
         });
+        });
+        
     </script>
 @endsection

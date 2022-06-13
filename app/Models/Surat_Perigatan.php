@@ -12,7 +12,6 @@ class Surat_Perigatan extends Model
     protected $fillable = [
         'nis',
         'sp_ke',
-        'skor',
         'tgl',
         'status',
         'ket',

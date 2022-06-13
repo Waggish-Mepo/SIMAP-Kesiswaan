@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Http\Traits\ApiResponse;
+use Alert;
 use App\Models\Sim;
 use App\Models\Student;
+use Nette\Utils\Random;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use App\Http\Traits\ApiResponse;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
-use Alert;
 
 class SimController extends Controller
 {
@@ -29,11 +31,11 @@ class SimController extends Controller
         // dd($request);
         $request->validate([
             'foto_selfie_sim'=>'required|image:jpeg,png,jpg',
-            'nis'=>'required|exists:m_student,nis',
+            'nis'=>'required|exists:m_student,nis|unique:r_surat_ijin_mengemudi_siswa,nis',
         ]);
         $image = $request->file('foto_selfie_sim');
         $type = $image->extension();
-        $selfie_sim = $request->nis.'_selfie_sim.'.$type;
+        $selfie_sim = $request->nis.Str::Random(5).'_selfie_sim.'.$type;
         $file_endpoint = url('/api/sim/image/'.$request->nis);
         try {
             $res = Sim::create([

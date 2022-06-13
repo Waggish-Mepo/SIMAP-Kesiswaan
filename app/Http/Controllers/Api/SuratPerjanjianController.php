@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\Student;
 use Illuminate\Http\Request;
 use App\Http\Traits\ApiResponse;
 use App\Models\Surat_Perjanjian;
@@ -18,9 +19,9 @@ class SuratPerjanjianController extends Controller
      */
     public function index()
     {
+        $student_nis = Student::all();
         $res = Surat_Perjanjian::with('Student', 'Student.Rayon', 'Student.Rombel')->get();
-
-        return $this->success(['surat_perjanjian' => $res], 'Surat perjanjian');
+        return view('surat.perjanjian.index')->with('data',$res)->with('student_nis',$student_nis);
     }
 
     /**
@@ -33,27 +34,29 @@ class SuratPerjanjianController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'nis' => 'required',
-            'jenis_perjanjian' => 'required',
             'tgl' => 'required',
-            'skor',
-            'status',
+            'status' => 'required',
             'ket' => 'required'
         ]);
 
         if($validator->fails()){
-            return $this->error('Validation Error', 300, $validator->errors());
+            // return $this->error('Validation Error', 300, $validator->errors());
+            alert()->error('Gagal','Data Gagal Disimpan');
         }
 
-        $res = Surat_Perjanjian::create([
-            'nis' => $request['nis'],
-            'jenis_perjanjian' => $request['jenis_perjanjian'],
-            'tgl' => $request['tgl'],
-            'skor' => $request['skor'],
-            'status' => $request['status'],
-            'ket' => $request['ket']
-        ]);
+        try {
+            $res = Surat_Perjanjian::create([
+                'nis' => $request['nis'],
+                'tgl' => $request['tgl'],
+                'status' => 0,
+                'ket' => $request['ket']
+            ]);
+        } catch (\Throwable $th) {
+            alert()->error('Gagal','Data Gagal Disimpan');
+        }
+        alert()->success('Berhasil','Data Berhasil Disimpan');
 
-        return $this->success(['surat_perjanjian' => $res], 'Surat perjanjian created successfully');
+        return redirect('/surat/perjanjian');
     }
 
     /**
@@ -82,27 +85,23 @@ class SuratPerjanjianController extends Controller
 
         $validator = Validator::make($request->all(), [
             'nis' => 'required',
-            'jenis_perjanjian' => 'required',
             'tgl' => 'required',
-            'skor',
-            'status',
             'ket' => 'required'
         ]);
 
         if($validator->fails()){
-            return $this->error('Validation Error', 300, $validator->errors());
+            alert()->error('Gagal','Data Gagal Disimpan');
         }
 
         $res->update([
             'nis' => $request['nis'],
-            'jenis_perjanjian' => $request['jenis_perjanjian'],
             'tgl' => $request['tgl'],
-            'skor' => $request['skor'],
-            'status' => $request['status'],
             'ket' => $request['ket']
         ]);
 
-        return $this->success(['surat_perjanjian' => $res], 'Surat perjanjian updated successfully');
+        alert()->success('Berhasil','Data Berhasil Disimpan');
+
+        return redirect('/surat/perjanjian');
     }
 
     /**
@@ -113,10 +112,29 @@ class SuratPerjanjianController extends Controller
      */
     public function destroy($id)
     {
-        $res = Surat_Perjanjian::find($id);
+        try {
+            $res = Surat_Perjanjian::find($id);
 
-        $res->delete();
+            $res->delete();
+        } catch (\Throwable $th) {
+            alert()->error('Gagal','Data Gagal DiHapus');
+        }
+        alert()->success('Berhasil','Data Berhasil Dihapus');
 
-        return $this->success(null, 'Surat perjanjian deleted successfully');
+        return redirect('/surat/perjanjian');
+    }
+
+    public function proses($id)
+    {
+        $data = Surat_Perjanjian::find($id);
+        
+        $data->update([
+            'status'=> 1,
+        ]);
+
+        alert()->success('Berhasil','Data Berhasil Diproses');
+
+        return redirect('/surat/perjanjian');
+
     }
 }

@@ -4,7 +4,7 @@
 @section('content')
     <div class="ml-8 mr-4">
         <div class="w-58 bg-white rounded-lg border shadow-md sm:p-2 dark:bg-gray-800 dark:border-gray-700">
-            <p class="pl-2 text-base text-gray-900 sm:text-base">Data Siswa Yang Memiliki SIM</p>
+            <b class="pl-2 text-gray-900">Data Siswa Yang Memiliki SIM</b>
         </div>
         <div class="pt-4 mt-4 pb-8 w-58 bg-white rounded-lg border shadow-md dark:bg-gray-800 dark:border-gray-700">
             <div class="items-center flex p-4 float-right mr-4" data-modal-toggle="input-raport-modal">
@@ -133,7 +133,7 @@
                                                                             placeholder="" required="" value="{{ $v->nis }}">
                                                                         <datalist id="NIS">
                                                                             @foreach ($student_nis as $sn)
-                                                                                <option value="{{ $sn->nis }}">{{ $sn->nis }}</option>
+                                                                                <option value="{{ $sn->nis }}">{{ $sn->nama }}</option>
                                                                             @endforeach
                                                                         </datalist>
                                                                 </div>
@@ -227,7 +227,7 @@
                         placeholder="" required="">
                     <datalist id="NIS">
                         @foreach ($student_nis as $sn)
-                            <option value="{{ $sn->nis }}">{{ $sn->nis }}</option>
+                            <option value="{{ $sn->nis }}">{{ $sn->nama }}</option>
                         @endforeach
                     </datalist>
                 </div>

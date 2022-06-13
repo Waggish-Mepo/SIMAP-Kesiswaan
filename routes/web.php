@@ -1,18 +1,22 @@
 <?php
 
+use App\Models\Sim;
+use App\Models\Student;
+use App\Models\Teacher;
+use App\Models\Barang_Razia;
+use App\Models\Barang_Temuan;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\SimController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Api\StudentController;
 use App\Http\Controllers\Api\TeacherController;
 use App\Http\Controllers\RekapBarangController;
+use App\Http\Controllers\Api\SuratPeringatanController;
+use App\Http\Controllers\Api\SuratPerjanjianController;
 use App\Http\Controllers\RekapBarang\BarangRaziaController;
 use App\Http\Controllers\RekapBarang\BarangTemuanController;
-use App\Models\Teacher;
-use App\Models\Student;
-use App\Models\Sim;
-use App\Models\Barang_Razia;
-use App\Models\Barang_Temuan;
+use App\Models\Surat_Perigatan;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -88,6 +92,13 @@ Route::middleware('authguard')->group(function () {
         Route::patch('/edit/{id}', [SimController::class , 'update']);
     });
 
+    Route::prefix('surat')->group(function(){
+        Route::resource('peringatan', SuratPeringatanController::class);
+        Route::put('/peringatan/proses/{id}', [SuratPeringatanController::class, 'proses'])->name('peringatan.proses');
+        Route::resource('perjanjian', SuratPerjanjianController::class);
+        Route::put('/perjanjian/proses/{id}', [SuratPerjanjianController::class, 'proses'])->name('perjanjian.proses');
+    });
+    
     Route::resource('/murid', StudentController::class);
     Route::resource('/guru', TeacherController::class);
 

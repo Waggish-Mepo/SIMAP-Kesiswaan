@@ -19,7 +19,7 @@ class TeacherController extends Controller
 
     public function index(){
         $res = Teacher::with('Rayon')->get();
-        return view('master-data.guru')->with('guru',$res);
+        return view('master-data.guru.guru')->with('data',$res);
     }
     public function show($id){
         $res = Student::where('id',$id)->orWhere('no_induk_yayasan',$id)->orWhere('nama',$id)->orWhere('nik')->with('Rayon')->first();
@@ -44,9 +44,9 @@ class TeacherController extends Controller
                 'mata_pelajaran'=>$request->mata_pelajaran,
             ]);
         } catch (\Throwable $th) {
-            alert()->error('gagal','data gagal disimpan');
+            alert()->error('Gagal','Data Gagal Disimpan');
         }
-        alert()->success('berhasil','data berhasil disimpan');
+        alert()->success('Berhasil','Data Berhasil Disimpan');
 
         return redirect('/guru');
     }
@@ -70,9 +70,9 @@ class TeacherController extends Controller
                 'mata_pelajaran'=>$request->mata_pelajaran,
             ]);
         } catch (\Throwable $th) {
-            alert()->error('gagal','data gagal disimpan');
+            alert()->error('Gagal','Data Gagal Disimpan');
         }
-        alert()->success('berhasil','data berhasil disimpan');
+        alert()->success('Berhasil','Data Berhasil Disimpan');
 
         return redirect('/guru');
     }
@@ -81,12 +81,11 @@ class TeacherController extends Controller
             $data = Teacher::find($id);
             $data->delete();
         } catch (\Throwable $th) {
-            alert()->error('gagal','data gagal dihapus');
+            alert()->error('Gagal','Data Gagal Dihapus');
         }
-        alert()->success('berhasil','data berhasil dihapus');
+        alert()->success('Berhasil','Data Berhasil Dihapus');
 
         return redirect('/guru');
-        return $this->success(['guru'=>$data],'Data Guru Berhasil Di Delete');
     }
     // public function importExcel(Request $request){
     //     $request->validate([

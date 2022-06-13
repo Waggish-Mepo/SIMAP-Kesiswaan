@@ -70,10 +70,10 @@ class AuthController extends Controller
         if(auth()->attempt(array('username' => $input['username'], 'password' => $input['password'])))
         {
             if(auth()->user()->role == "admin"){
-                return redirect('/dashboard')->with('success','berhasil Login, Selamat Datang '. auth()->user()->role . ' ' . auth()->user()->nama);
+                return redirect('/dashboard')->with('success','Berhasil Login, Selamat Datang '. auth()->user()->role . ' ' . auth()->user()->nama);
             }
             elseif (auth()->user()->role == "guru") {
-                return redirect('/dashboard')->with('success','berhasil Login, Selamat Datang '. auth()->user()->role . ' ' . auth()->user()->nama);
+                return redirect('/dashboard')->with('success','Berhasil Login, Selamat Datang '. auth()->user()->role . ' ' . auth()->user()->nama);
             }
         }else{
             return redirect('/login')->with('errors','gagal login');
@@ -88,6 +88,6 @@ class AuthController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/login')->with('success','berhasil Logout');
+        return redirect('/login')->with('success','Berhasil Logout');
     }
 }

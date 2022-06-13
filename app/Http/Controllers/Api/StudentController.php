@@ -22,7 +22,7 @@ class StudentController extends Controller
         $murid = Student::with('Rombel.Batch')->with('Rayon')->get();
         $rayon = Rayon::all();
         $rombel = Rombel::with('Batch')->get();
-        return view('master-data.murid')->with('murid',$murid)->with('rayon',$rayon)->with('rombel',$rombel);
+        return view('master-data.murid.murid')->with('murid',$murid)->with('rayon',$rayon)->with('rombel',$rombel);
     }
     public function show($id){
         $res = Student::where('id',$id)->orWhere('nis',$id)->orWhere('nisn',$id)->orWhere('nama',$id)->orWhere('nik')->with('Rombel.Batch')->with('Rayon')->first();
@@ -53,10 +53,10 @@ class StudentController extends Controller
                 'rombel_id'=>$request->rombel,
             ]);
         } catch (\Throwable $th) {
-            alert()->error('gagal','data gagal disimpan');
+            alert()->error('Gagal','Data Gagal Disimpan');
         }
 
-        alert()->success('berhasil','data berhasil disimpan');
+        alert()->success('Berhasil','Data Berhasil Disimpan');
         return redirect('/murid');
     }
     public function update(Request $request,$id){
@@ -71,9 +71,9 @@ class StudentController extends Controller
             'nisn'=>'required',
             'nik'=>'required',
         ]);
-        $rombel = Rombel::where('rombel',$request->rombel)->first();
-        $angkatan = Batch::where('angkatan',$request->angkatan)->first();
-        $rayon = Rayon::where('rayon',$request->rayon)->where('angkatan_id',$angkatan['id'])->first();
+        // $rombel = Rombel::where('rombel',$request->rombel)->first();
+        // $angkatan = Batch::where('angkatan',$request->angkatan)->first();
+        // $rayon = Rayon::where('rayon',$request->rayon)->where('angkatan_id',$angkatan->id)->first();
         $student = Student::find($id);
         try {
             $res = $student->update([
@@ -88,9 +88,9 @@ class StudentController extends Controller
                 'rombel_id'=>$request->rombel,
             ]);
         } catch (\Throwable $th) {
-            alert()->error('gagal','data gagal diupdate');
+            alert()->error('Gagal','Data Gagal Diupdate');
         }
-        alert()->success('berhasil','data berhasil diupdate');
+        alert()->success('Berhasil','Data Berhasil Diupdate');
         return redirect('/murid');
     }
     public function destroy($id){
@@ -98,9 +98,9 @@ class StudentController extends Controller
             $data = Student::find($id);
             $data->delete();
         } catch (\Throwable $th) {
-            alert()->error('gagal','data gagal dihapus');
+            alert()->error('Gagal','Data Gagal Dihapus');
         }
-        alert()->success('berhasil','data berhasil dihapus');
+        alert()->success('Berhasil','Data Berhasil Dihapus');
         return redirect('/murid');
     }
     public function importExcel(Request $request){
@@ -110,9 +110,9 @@ class StudentController extends Controller
             ]);
             $res = Excel::import(new StudentProfileImport(), request()->file('file'));
         } catch (\Throwable $th) {
-            alert()->error('gagal','data gagal dihapus');
+            alert()->error('Gagal','Data Gagal Dihapus');
         }
-        alert()->success('berhasil','data berhasil dihapus');
+        alert()->success('Berhasil','Data Berhasil Dihapus');
         return redirect('/murid');
     }
 }

@@ -11,7 +11,6 @@ class Surat_Perjanjian extends Model
     protected $table = 'r_surat_perjanjian_siswa';
     protected $fillable = [
         'nis',
-        'jenis_perjanjian',
         'tgl',
         'skor',
         'status',

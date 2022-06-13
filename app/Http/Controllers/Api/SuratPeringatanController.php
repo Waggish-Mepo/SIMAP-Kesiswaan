@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\Student;
 use Illuminate\Http\Request;
 use App\Models\Surat_Perigatan;
 use App\Http\Traits\ApiResponse;
@@ -18,9 +19,9 @@ class SuratPeringatanController extends Controller
      */
     public function index()
     {
+        $student_nis = Student::all();
         $res = Surat_Perigatan::with('Student', 'Student.Rayon', 'Student.Rombel')->get();
-
-        return $this->success(['surat_peringatan' => $res], 'Surat Peringatan');
+        return view('surat.peringatan.index')->with('data',$res)->with('student_nis',$student_nis);
     }
 
     /**
@@ -35,25 +36,25 @@ class SuratPeringatanController extends Controller
             'nis' => 'required',
             'sp_ke' => 'required',
             'tgl' => 'required',
-            'skor' => 'required',
-            'status' => 'required',
             'ket' => 'required'
         ]);
 
         if($validator->fails()){
-            return $this->error('Validation Error', 300, $validator->errors());
+            // return $this->error('Validation Error', 300, $validator->errors());
+            alert()->error('Gagal','Data Gagal Disimpan');
         }
 
-        $res = Surat_Perigatan::create([
+        Surat_Perigatan::create([
             'nis' => $request['nis'],
             'sp_ke' => $request['sp_ke'],
             'tgl' => $request['tgl'],
-            'skor' => $request['skor'],
-            'status' => $request['status'],
+            'status' => 0,
             'ket' => $request['ket']
         ]);
 
-        return $this->success(['surat_peringatan' => $res], 'Surat peringatan created successfully');
+        alert()->success('Berhasil','Data Berhasil Disimpan');
+
+        return redirect('/surat/peringatan');
     }
 
     /**
@@ -85,24 +86,23 @@ class SuratPeringatanController extends Controller
             'sp_ke' => 'required',
             'tgl' => 'required',
             'skor' => 'required',
-            'status' => 'required',
             'ket' => 'required'
         ]);
 
         if($validator->fails()){
-            return $this->error('Validation Error', 300, $validator->errors());
+            alert()->error('Gagal','Data Gagal disimpan');
         }
 
         $res->update([
             'nis' => $request['nis'],
             'sp_ke' => $request['sp_ke'],
             'tgl' => $request['tgl'],
-            'skor' => $request['skor'],
-            'status' => $request['status'],
             'ket' => $request['ket']
         ]);
 
-        return $this->success(['surat_peringatan' => $res], 'Surat peringatan updated successfully');
+        alert()->success('Berhasil','Data Berhasil Diupdate');
+
+        return redirect('/surat/peringatan');
     }
 
     /**
@@ -113,10 +113,29 @@ class SuratPeringatanController extends Controller
      */
     public function destroy($id)
     {
-        $res = Surat_Perigatan::find($id);
+        try {
+            $res = Surat_Perigatan::find($id);
 
-        $res->delete();
+            $res->delete();
+        } catch (\Throwable $th) {
+            alert()->error('Gagal','Data Gagal Dihapus');
+        }
+        alert()->success('Berhasil','Data Berhasil Dihapus');
 
-        return $this->success(null, 'Surat perjanjian deleted successfully');
+        return redirect('/surat/peringatan');
+    }
+
+    public function proses($id)
+    {
+        $data = Surat_Perigatan::find($id);
+        
+        $data->update([
+            'status'=> 1,
+        ]);
+
+        alert()->success('Berhasil','Data Berhasil Diproses');
+
+        return redirect('/surat/peringatan');
+
     }
 }

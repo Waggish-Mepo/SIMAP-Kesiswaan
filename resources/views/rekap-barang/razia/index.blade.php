@@ -3,9 +3,10 @@
 @section('title', 'Barang Razia')
 
 @Section('content')
+@include('rekap-barang.razia.modal.create')
     <div class="flex flex-col ml-10 mr-12">
         <div class="w-58 bg-white rounded-lg border shadow-md sm:p-2 dark:bg-gray-800 dark:border-gray-700">
-            <p class="pl-2 text-base text-gray-900 sm:text-base">Data Barang Razia Siswa</p>
+            <b class="pl-2 text-base text-gray-900 sm:text-base">Data Barang Razia</b>
         </div>
         <div class="overflow-x-auto shadow-md sm:rounded-lg mt-4">
             <div class="inline-block min-w-full align-middle dark:bg-gray-800">
@@ -92,26 +93,34 @@
         </div>
     </div>
     {{-- @include('rekap-barang.razia.modal.edit') --}}
-    @include('rekap-barang.razia.modal.create')
+    
 @endsection
 
 @section('script')
     <script>
-        $('#nis').change(function() {
-            var nis = $(this).val();
-            var url = '{{ route('razia.getDetails', ':nis') }}';
-            url = url.replace(':nis', nis);
+        $(document).ready(function(){
+            $('#nis').change(function() {
+                var nis = $(this).val();
+                var url = '{{ route('razia.getDetails', ':nis') }}';
+                url = url.replace(':nis', nis);
+
             $.ajax({
                 url: url,
                 type: 'get',
                 dataType: 'json',
                 success: function(response) {
                     if (response != null) {
-                        $('#nama').val(response.student.nama);
-                        $('#rombel').val(response.student.rombel.rombel);
+                        $('#nama').val(response.nama);
+                        $('#rombel').val(response.rombel.rombel);
                     }
-                }
+                    
+                },
+                error: function (error) {
+                console.log(error);
+            }
             });
         });
+        });
+        
     </script>
 @endsection

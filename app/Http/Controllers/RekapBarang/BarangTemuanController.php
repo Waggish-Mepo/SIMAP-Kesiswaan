@@ -59,7 +59,7 @@ class BarangTemuanController extends Controller
         $data = Barang_Temuan::find($id);
         $request->validate([
             'penemu' => 'required',
-            'pemilik',
+            'pemilik' => 'required|exists:m_student,nis',
             'tgl' => 'required',
             'foto_barang' => 'image:jpeg,png,jpg',
             'image_path',
