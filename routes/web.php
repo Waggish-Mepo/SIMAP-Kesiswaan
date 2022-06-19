@@ -1,11 +1,16 @@
 <?php
 
+use Carbon\Carbon;
 use App\Models\Sim;
 use App\Models\Student;
 use App\Models\Teacher;
 use App\Models\Barang_Razia;
 use App\Models\Barang_Temuan;
+use App\Models\Periode_Absen;
+use App\Models\Surat_Perigatan;
+use App\Models\Rayon;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AbsensiController;
 use App\Http\Controllers\Api\SimController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Api\StudentController;
@@ -15,7 +20,7 @@ use App\Http\Controllers\Api\SuratPeringatanController;
 use App\Http\Controllers\Api\SuratPerjanjianController;
 use App\Http\Controllers\RekapBarang\BarangRaziaController;
 use App\Http\Controllers\RekapBarang\BarangTemuanController;
-use App\Models\Surat_Perigatan;
+use App\Http\Controllers\Api\RayonController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,7 +53,10 @@ Route::middleware('authguard')->group(function () {
         $temuan = Barang_Temuan::count();
         $sim = Sim::count();
         $murid = Student::count();
-        return view('dashboard',compact(['guru','murid','sim','razia','temuan']));
+        $murid_izin = Periode_Absen::where('tanggal_absen', Carbon::now()->format('Y-m-d'))->where('ket', 'izin')->count();
+        $murid_sakit = Periode_Absen::where('tanggal_absen', Carbon::now()->format('Y-m-d'))->where('ket', 'sakit')->count();
+        // $murid_izin = Periode_Absen::where(Carbon::now()->format('Y-m-d')->count();
+        return view('dashboard',compact(['guru','murid','sim','razia','temuan', 'murid_izin', 'murid_sakit']));
     });
 
     Route::prefix('/rekap-barang')->group(function(){
@@ -92,19 +100,37 @@ Route::middleware('authguard')->group(function () {
         Route::patch('/edit/{id}', [SimController::class , 'update']);
     });
 
+    Route::prefix('/absen')->group(function(){
+        Route::get('/kehadiran',[AbsensiController::class , 'index']);
+        Route::post('/kehadiran/input',[AbsensiController::class , 'importExcel']);
+        Route::post('/kehadiran/rekap',[AbsensiController::class , 'rekap']);
+        Route::delete('kehadiran/delete/{id}', [AbsensiController::class , 'delete'])->name('kehadiran.destroy');
+
+        // Route::post('/submit', [SimController::class , 'store']);
+        // Route::delete('/delete/{id}', [SimController::class , 'delete']);
+        // Route::patch('/edit/{id}', [SimController::class , 'update']);
+    });
+
     Route::prefix('surat')->group(function(){
         Route::resource('peringatan', SuratPeringatanController::class);
         Route::put('/peringatan/proses/{id}', [SuratPeringatanController::class, 'proses'])->name('peringatan.proses');
         Route::resource('perjanjian', SuratPerjanjianController::class);
         Route::put('/perjanjian/proses/{id}', [SuratPerjanjianController::class, 'proses'])->name('perjanjian.proses');
     });
-    
+
     Route::resource('/murid', StudentController::class);
     Route::resource('/guru', TeacherController::class);
+    Route::get('/data-sekolah', function(){
+        $guru = Teacher::all();
+        $rayon = Rayon::with('Teacher')->get();
+        return view('master-data.data-sekolah',compact(['guru','rayon']));
+    });
+
+    Route::prefix('/data-sekolah')->group(function(){
+        Route::resource('/rayon', RayonController::class);
+    });
 
     Route::get('/raport-karakter/input-raport', function(){
         return view('raport-karakter.input-raport');
     });
 });
-
-

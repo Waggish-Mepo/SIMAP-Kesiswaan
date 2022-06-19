@@ -25,18 +25,18 @@ class DatabaseSeeder extends Seeder
                 'password' => Hash::make('admin'),
             ],
             [
-                'username' => 'Budiono',
-                'role' => 'guru',
-                'sub_role' => 'pemray',
-                'email'=>'budiono@wikrama.com',
-                'password' => Hash::make('budiono123'),
-            ],
-            [
-                'username' => 'laboran',
+                'username' => 'guru',
                 'role' => 'guru',
                 'sub_role' => null,
-                'email'=>'laboran@wikrama.com',
-                'password' => Hash::make('laboran'),
+                'email'=>'guru@wikrama.com',
+                'password' => Hash::make('guru'),
+            ],
+            [
+                'username' => 'pemray',
+                'role' => 'guru',
+                'sub_role' => 'pemray',
+                'email'=>'kesiswaan@wikrama.com',
+                'password' => Hash::make('pemray'),
             ]
         ]);
 

@@ -26,25 +26,32 @@ class RayonController extends Controller
         ]);
         $pembimbing_rayon = Teacher::where('no_induk_yayasan',$request->no_induk_yayasan)->FirstOrFail();
         $data = Rayon::create([
-            'rayon'=>$request->Rayon,
+            'rayon'=>$request->rayon,
             'teacher_id'=>$pembimbing_rayon['id'],
         ]);
-        return $this->success(['rayon'=>$data],'Data Rayon');
+        alert()->success('Berhasil','Data Berhasil Disimipan');
+
+        return redirect()->back();
     }
     public function update(Request $request,$id){
         $request->validate([
             'rayon'=>'required|unique:m_rayon,rayon',
             'no_induk_yayasan'=>'required',
         ]);
+        // dd($request->all());
         $pembimbing_rayon = Teacher::where('no_induk_yayasan',$request->no_induk_yayasan)->FirstOrFail();
         $data = Rayon::find($id)->update([
-            'rayon'=>$request->Rayon,
+            'rayon'=>$request->rayon,
             'teacher_id'=>$pembimbing_rayon['id'],
         ]);
-        return $this->success(['rayon'=>$data],'Data Rayon');
+        alert()->success('Berhasil','Data Berhasil Diupdate');
+
+        return redirect()->back();
     }
-    public function delete(Request $request,$id){
+    public function destroy(Request $request,$id){
         $data = Rayon::where('id',$id)->delete();
-        return $this->success(['Rayon'=>$data],'Data Rayon');
+        alert()->success('Berhasil','Data Berhasil Dihapus');
+
+        return redirect()->back();
     }
 }

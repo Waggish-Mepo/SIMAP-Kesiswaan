@@ -19,12 +19,12 @@
                     </a>
                 </li>
 
-                {{-- <li class="nav-link pl-6 pr-4 py-2  relative hover:bg-black hover:pl-4 hover:border-l-blue-400 hover:border-l-4  m-2">
-                    <a href="#">
+                <li class="nav-link pl-6 pr-4 py-2  relative hover:bg-black hover:pl-4 hover:border-l-blue-400 hover:border-l-4  m-2">
+                    <a href="/absen/kehadiran">
                         <i class='bx bx-bar-chart-alt-2 text-yellow-300 w-5'></i>
                         <span class="text text-base opacity-70 hover:opacity-100">Absensi Siswa</span>
                     </a>
-                </li> --}}
+                </li>
 
                 <li class="nav-link pl-6 pr-4 py-2 relative hover:bg-black hover:pl-4 hover:border-l-blue-400 hover:border-l-4  m-2">
                     <button type="button" href="#" id="btnBarang" aria-controls="barangDropdown" data-collapse-toggle="barangDropdown">
@@ -65,17 +65,10 @@
                     <ul id="dataMasterDropdown" class="dropdown hidden ml-6">
                         <li><a href="/murid" class="text-sm py-2 opacity-70 hover:opacity-100"><i class='bx bx-radio-circle'></i> Murid</a></li>
                         <li><a href="/guru" class="text-sm py-2 mt-2 opacity-70 hover:opacity-100"><i class='bx bx-radio-circle'></i> Guru</a></li>
-                        {{-- <li><a href="" class="text-base">Rayon</a></li>
-                        <li><a href="" class="text-base">Rombel</a></li>
-                        <li><a href="" class="text-base">Angkatan</a></li> --}}
+                        <li><a href="/data-sekolah" class="text-sm py-2 mt-2 opacity-70 hover:opacity-100"><i class='bx bx-radio-circle'></i> Data</a></li>
                     </ul>
                 </li>
-                {{-- <li class="nav-link pl-6 pr-4 py-2 relative hover:bg-black hover:pl-4 hover:border-l-blue-400 hover:border-l-4  m-2">
-                    <a href="{{ route('peringatan.index') }}">
-                        <i class='bx bx-envelope w-5 text-red-500'></i>
-                        <span class="text text-base opacity-70 hover:opacity-100">Surat Perjanjian</span>
-                    </a>
-                </li> --}}
+
                 <li class="nav-link pl-6 pr-4 py-2 relative hover:bg-black hover:pl-4 hover:border-l-blue-400 hover:border-l-4  m-2">
                     <button type="button" href="#" id="btnSurat" aria-controls="suratDropdown" data-collapse-toggle="suratDropdown">
                         <i class='items-center bx bx-envelope text-red-500 icon w-5'></i>
@@ -87,19 +80,20 @@
                         <li><a href="{{ route('perjanjian.index') }}" class="text-sm opacity-70 hover:opacity-100"><i class='bx bx-radio-circle'></i>Surat Perjanjian</a></li>
                     </ul>
                 </li>
-                {{-- <li class="nav-link pl-6 pr-4 py-2 relative hover:bg-black hover:pl-4 hover:border-l-blue-400 hover:border-l-4  m-2">
-                    <a href="/raport-karakter/input-raport">
-                        <i class='bx bx-wallet icon w-5 text-blue-500'></i>
-                        <span class="text text-base opacity-70 hover:opacity-100">Raport Karakter</span>
-                    </a>
-                </li> --}}
 
-                {{-- <li class="nav-link pl-6 pr-4 py-2  relative hover:bg-[#192e7d] m-2">
+                <li class="nav-link pl-6 pr-4 py-2 relative hover:bg-black hover:pl-4 hover:border-l-blue-400 hover:border-l-4  m-2">
                     <a href="#">
-                        <i class='bx bx-book icon w-5'></i>
-                        <span class="text nav-text">Rekap BKP</span>
+                        <i class='bx bx-book icon w-5 text-green-500'></i>
+                        <span class="text text-base opacity-70 hover:opacity-100">Rekap BKP</span>
                     </a>
-                </li> --}}
+                </li>
+
+                <li class="nav-link pl-6 pr-4 py-2 relative hover:bg-black hover:pl-4 hover:border-l-blue-400 hover:border-l-4  m-2">
+                    <a href="/raport-karakter/input-raport">
+                        <i class='bx bxs-user-account text-yellow-300'></i>
+                        <span class="text text-base opacity-70 hover:opacity-100">Buat Akun</span>
+                    </a>
+                </li>
             </ul>
         </header>
     </nav>

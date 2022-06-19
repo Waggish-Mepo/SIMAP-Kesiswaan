@@ -17,7 +17,8 @@ class CreatePeriodeAbsensTable extends Migration
             $table->id();
             $table->date('tanggal_absen');
             $table->string('nis');
-            $table->datetime('tanggal');
+            $table->string('mapel');
+            $table->string('ket');
             $table->timestamps();
         });
     }

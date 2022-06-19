@@ -7,7 +7,8 @@ use App\Http\Traits\ApiResponse;
 use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\Periode_Absen;
-
+use App\Imports\AbsenImport;
+use Maatwebsite\Excel\Facades\Excel;
 class AbsenPeriodeController extends Controller
 {
     use ApiResponse;
@@ -54,5 +55,17 @@ class AbsenPeriodeController extends Controller
     public function delete(Request $request,$id){
         $data = Periode_Absen::where('id',$id)->delete();
         return $this->success(['periode_absen'=>$data],'Data Absen');
+    }
+    public function importExcel(Request $request){
+        try {
+            $request->validate([
+                'file'=>'required|mimes:csv,xlsx,xls'
+            ]);
+            $res = Excel::import(new AbsenImport(), request()->file('file'));
+        } catch (\Throwable $th) {
+            alert()->error('Gagal','Data Gagal Dihapus');
+        }
+        alert()->success('Berhasil','Data Berhasil Dihapus');
+        return redirect('/absen/kehadiran');
     }
 }

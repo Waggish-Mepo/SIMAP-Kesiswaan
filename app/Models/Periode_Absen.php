@@ -12,9 +12,10 @@ class Periode_Absen extends Model
     protected $fillable = [
         'tanggal_absen',
         'nis',
-        'tanggal',
+        'mapel',
+        'ket',
     ];
     public function Murid(){
-        return $this->belongsTo('App\Models\Student','nis');
+        return $this->belongsTo('App\Models\Student','nis','nis');
     }
 }

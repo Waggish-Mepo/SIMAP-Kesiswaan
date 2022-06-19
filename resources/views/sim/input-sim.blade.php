@@ -7,7 +7,7 @@
             <b class="pl-2 text-gray-900">Data Siswa Yang Memiliki SIM</b>
         </div>
         <div class="pt-4 mt-4 pb-8 w-58 bg-white rounded-lg border shadow-md dark:bg-gray-800 dark:border-gray-700">
-            <div class="items-center flex p-4 float-right mr-4" data-modal-toggle="input-raport-modal">
+            <div class="items-center flex p-4  mr-4" data-modal-toggle="input-raport-modal">
                 <button type="button"
                     class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-2xl px-4 py-1 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                     <i class='bx bx-plus text-white'></i>
@@ -16,7 +16,7 @@
 
             <!-- TABLE -->
             <div class="flex flex-col mt-16">
-                <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                <div class="overflow-x-auto">
                     <div class="inline-block py-2 min-w-full sm:px-6 lg:px-8">
                         <div class="overflow-hidden px-8 sm:rounded-lg">
                             <table class="table table-striped min-w-full" id='example'>
@@ -101,6 +101,8 @@
                                                         class="relative px-4 w-full max-w-lg h-full md:h-auto overflow-x-hidden">
                                                         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                                                             <div class="flex justify-end p-2">
+                                                                <h3 class="text-xl p-2 font-medium text-gray-900 dark:text-white">
+                                                                    Edit Data SIM</h3>
                                                                 <button type="button"
                                                                     class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
                                                                     data-modal-toggle="edit-sim-{{ $v->id }}">
@@ -113,14 +115,11 @@
                                                                     </svg>
                                                                 </button>
                                                             </div>
-                                                            <form class="pb-4 space-y-6 lg:px-8 sm:p-6 xl:pb-8"
+                                                            <form class="pb-4 space-y-6 px-6 "
                                                                 action="/sim/edit/{{ $v->id }}"
                                                                 enctype="multipart/form-data" method="POST" autocomplete="off">
-                                                                @method('PATCH');
+                                                                @method('PATCH')
                                                                 @csrf
-                                                                <h3
-                                                                    class="text-xl font-medium text-gray-900 dark:text-white">
-                                                                    Edit Data SIM</h3>
                                                                 <div class="flex">
                                                                     <label for="nis"
                                                                         class="block mt-2 mr-2 text-sm font-medium text-gray-900 dark:text-gray-300">NIS</label>

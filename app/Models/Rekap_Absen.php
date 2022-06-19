@@ -20,6 +20,6 @@ class Rekap_Absen extends Model
         'semester',
     ];
     public function Murid(){
-        return $this->belongsTo('App\Models\Student','nis');
+        return $this->belongsTo('App\Models\Student','nis', 'nis');
     }
 }

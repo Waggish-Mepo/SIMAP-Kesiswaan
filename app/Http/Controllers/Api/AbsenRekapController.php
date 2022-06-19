@@ -7,6 +7,7 @@ use App\Http\Traits\ApiResponse;
 use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\Rekap_Absen;
+use App\Models\Periode_Absen;
 
 class AbsenRekapController extends Controller
 {
@@ -21,13 +22,16 @@ class AbsenRekapController extends Controller
     }
     public function store(Request $request){
         $request->validate([
-            'nis'=>'required|exists:m_student,nis',
-            'sakit'=>'required',
-            'ijin'=>'required',
-            'alpa'=>'required',
-            'semester'=>'required',
-            'angkatan'=>'required|exists:m_batch,angkatan',
+            'awal'=>'required',
+            'akhir'=>'required',
         ]);
+        dd($request->all());
+        $del = Rekap_Absen::get()->delete();
+        $periode = Periode_Absen();
+        $murid = Student::get();
+        foreach ($murid as $key => $value) {
+
+        }
         $data = Rekap_Absen::create([
             'nis'=>$request->nis,
             'sakit'=>$request->sakit,

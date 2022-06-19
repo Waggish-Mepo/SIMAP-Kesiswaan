@@ -4,8 +4,7 @@
             <div class="inline-flex float-right py-3 px-6 hover:bg-[#347194]">
                 <button type="button" class="flex text-sm"
                     id="user-menu-button" aria-expanded="false" data-dropdown-toggle="dropdown">
-                    <img class="w-8 h-8 rounded-full" src="{{ asset('image/user.png') }}" alt="user photo">
-                    <span class="font-normal text-white px-2 pt-1">{{auth()->user()->username}}</span>
+                    <span class="font-normal text-white px-2 pb-2 pt-1">{{auth()->user()->username}}</span>
                 </button>
             </div>
             <div class="hidden z-50 my-4 text-base list-none bg-white rounded-md divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"

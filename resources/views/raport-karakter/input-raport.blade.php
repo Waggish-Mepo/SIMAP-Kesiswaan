@@ -1,96 +1,100 @@
 @extends('layout.app')
-@section('title', 'Rapot Karakter')
 
-@section('content')
-    <div class="content">
-        <div class="ml-10 mr-4 bg-white rounded-lg border shadow-md sm:p-2 dark:bg-gray-800 dark:border-gray-700">
-            <p class="pl-2 text-base text-gray-900 sm:text-base">Raport Karakter</p>
+@section('title', 'Data Murid')
+
+@Section('content')
+    @include('master-data.murid.modal.create')
+    <div class="flex flex-col ml-10 mr-12">
+        <div class="w-58 bg-white rounded-lg border shadow-md sm:p-2 dark:bg-gray-800 dark:border-gray-700">
+            <b class="pl-2 text-base text-gray-900 sm:text-base">Data Murid</b>
         </div>
-        <div class="mt-4 pb-8 ml-10 mr-4 bg-white rounded-lg border shadow-md dark:bg-gray-800 dark:border-gray-700">
-            <div class="flex flex-col">
-                <div class="overflow-x-auto shadow-md sm:rounded-lg">
-                    <div class="inline-block min-w-full align-middle dark:bg-gray-800 m-4">
-                        <div class="flex place-content-between">
-                            <div class="items-center flex float-right" data-modal-toggle="input-raport-modal">
-                                <button type="button"
-                                    class="float-right text-white bg-green-500 hover:bg-green-600 font-medium rounded-md text-base px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                    <i class='bx bxs-file-import'></i> Import
-                                </button>
-                            </div>
-                        </div>
-                        <table id="example" class="stripe hover text-sm"
-                            style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
-                            <thead>
-                                <tr>
-                                    <th data-priority="1">No</th>
-                                    <th data-priority="2">Nis</th>
-                                    <th data-priority="3">Nama</th>
-                                    <th data-priority="4">F</th>
-                                    <th data-priority="5">Pemilik</th>
-                                    <th data-priority="6">Keterangan</th>
-                                    <th data-priority="7">Status</th>
-                                    <th data-priority="8">Aksi</th>
+        <div class="overflow-x-auto shadow-md sm:rounded-lg mt-4">
+            <div class="inline-block min-w-full align-middle dark:bg-gray-800">
+                <!--Card-->
+                <div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white px-6">
+                    <button
+                        class="block mb-6 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                        type="button" data-modal-toggle="modal-create-murid"><i class="fa-solid fa-plus"></i> Tambah</button>
+                    <button
+                        class="block mb-6 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                        type="button" data-modal-toggle="import-file-modal"><i class='bx bxs-file-import text-white'></i>
+                        Import</button>
+                    <table id="example" class="stripe hover text-sm w-full rounded-3xl py-4">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>NIS</th>
+                                <th>Nama</th>
+                                <th>Rombel</th>
+                                <th>Rayon</th>
+                                <th>Jenis Kelamin</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($murid as $key => $v)
+                                <tr class="text-center">
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $v->nis }}</td>
+                                    <td>{{ $v->nama }}</td>
+                                    <td>{{ $v->Rombel->rombel }}</td>
+                                    <td>{{ $v->Rayon->rayon }}</td>
+                                    <td>
+                                        @if ($v->jenis_kelamin == 'l')
+                                            Laki-laki
+                                        @else
+                                            Perempuan
+                                        @endif
+                                    </td>
+                                    <td class="grid grid-cols-2">
+                                        <button type="button" data-modal-toggle="edit-murid-{{ $v->id }}"
+                                            class="focus:outline-none bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-4 py-2 mr-2 mb-2 dark:focus:ring-yellow-900"><i
+                                                class="fa-solid fa-pen-to-square"></i></button>
+                                        @include('master-data.murid.modal.edit')
+                                        <button type="button" data-modal-toggle="delete-murid-{{ $v->id }}"
+                                            class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"><i
+                                                class="fa-solid fa-trash-can"></i></button>
+                                        @include('master-data.murid.modal.delete')
+                                    </td>
                                 </tr>
-                            </thead>
-                            {{-- <tbody>
-                                @foreach ($data as $d)
-                                    <tr>
-                                        <td class="text-center">{{ $loop->iteration }}</td>
-                                        <td class="text-center">{{ $d->Penemu->nama }}</td>
-                                        <td class="text-center">{{ $d->tgl }}</td>
-                                        <td class="text-center">
-                                            <img style="width: 100px" src="{{ asset('images/barangTemuan/' . $d->foto_barang) }}"
-                                                alt="">
-                                        </td class="text-center">
-                                        <td>
-                                            @if ($d->pemilik == null)
-                                                <span
-                                                    class="bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-red-200 dark:text-red-900">Belum
-                                                    ditemukan</span>
-                                            @else
-                                                {{ $d->Pemilik->nama }}
-                                            @endif
-                                        </td>
-                                        <td class="text-center">{{ $d->ket }}</td>
-                                        <td class="text-center">
-                                            @if ($d->status == 0)
-                                                <span
-                                                    class="bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-red-200 dark:text-red-900">Belum
-                                                    diambil</span>
-                                            @else
-                                                <span
-                                                    class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-900">Sudah
-                                                    diambil</span>
-                                            @endif
-                                        </td>
-                                        <td class="grid grid-cols-2">
-                                            <button type="button" data-modal-toggle="modal-edit-temuan-{{ $d->id }}"
-                                                class="focus:outline-none bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-4 py-2 mr-2 mb-2 dark:focus:ring-yellow-900"><i
-                                                    class="fa-solid fa-pen-to-square"></i></button>
-                                            @include('rekap-barang.temuan.modal.edit')
-                                            <button type="button" data-modal-toggle="modal-delete-temuan-{{ $d->id }}"
-                                                class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"><i
-                                                    class="fa-solid fa-trash-can"></i></button>
-                                            @include('rekap-barang.temuan.modal.delete')
-                                            @if ($d->status == 0)
-                                                <form action="{{ route('temuan.ambil', $d->id) }}" method="POST"
-                                                    class="col-span-2">
-                                                    @csrf
-                                                    @method('PUT')
-                                                    <button type="submit"
-                                                        class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Ambil</button>
-                                                </form>
-                                            @endif
-                                        </td>
-                                    </tr>
-                                @endforeach
-                                <!-- Rest of your data (refer to https://datatables.net/examples/server_side/ for server side processing)-->
-                            </tbody> --}}
-                        </table>
-                    </div>
+                                {{-- @include('rekap-barang.razia.modal.edit') --}}
+                            @endforeach
+                            <!-- Rest of your data (refer to https://datatables.net/examples/server_side/ for server side processing)-->
+                        </tbody>
+                    </table>
                 </div>
+                <!--/Card-->
             </div>
         </div>
     </div>
-    </div>
+    {{-- @include('rekap-barang.razia.modal.edit') --}}
+
+@endsection
+
+@section('script')
+    <script>
+        $(document).ready(function() {
+            $('#nis').change(function() {
+                var nis = $(this).val();
+                var url = '{{ route('razia.getDetails', ':nis') }}';
+                url = url.replace(':nis', nis);
+
+                $.ajax({
+                    url: url,
+                    type: 'get',
+                    dataType: 'json',
+                    success: function(response) {
+                        if (response != null) {
+                            $('#nama').val(response.nama);
+                            $('#rombel').val(response.rombel.rombel);
+                        }
+
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    }
+                });
+            });
+        });
+    </script>
 @endsection

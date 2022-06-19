@@ -8,7 +8,7 @@
                     Edit Guru
                 </h3>
                 <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="edit-guru-{{ $d->id }}">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>  
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                 </button>
             </div>
             <!-- Modal body -->
@@ -38,21 +38,21 @@
                     <div class="mb-3">
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="user_avatar">Jenis Kelamin</label>
                         <select name="jk" class="form-select bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-500 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" id="">
-                            <option value="p" {{ $d->jk == 'p' ? 'selected':'' }}>Perempuan</option>    
-                            <option value="l" {{ $d->jk == 'l' ? 'selected':'' }}>Laki-laki</option>    
-                        </select>    
+                            <option value="p" {{ $d->jk == 'p' ? 'selected':'' }}>Perempuan</option>
+                            <option value="l" {{ $d->jk == 'l' ? 'selected':'' }}>Laki-laki</option>
+                        </select>
                     </div>
 
                     <div class="mb-3">
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="user_avatar">Mata Pelajaran</label>
                         <select name="mata_pelajaran" class="form-select bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-500 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" id="">
-                            <option value="MTK" {{ $d->mata_pelajaran == 'MTK' ? 'selected':'' }}>MTK</option>    
-                            <option value="Indonesia" {{ $d->mata_pelajaran == 'Indonesia' ? 'selected':'' }}>Indonesia</option>    
-                            <option value="Inggris" {{ $d->mata_pelajaran == 'Inggris' ? 'selected':'' }}>Inggris</option>    
-                            <option value="Produktif" {{ $d->mata_pelajaran == 'Produktif' ? 'selected':'' }}>Produktif</option>    
-                            <option value="Kimia" {{ $d->mata_pelajaran == 'Kimia' ? 'selected':'' }}>Kimia</option>    
-                            <option value="Fisika" {{ $d->mata_pelajaran == 'Fisika' ? 'selected':'' }}>Fisika</option>    
-                        </select>    
+                            <option value="MTK" {{ $d->mata_pelajaran == 'MTK' ? 'selected':'' }}>MTK</option>
+                            <option value="Indonesia" {{ $d->mata_pelajaran == 'Indonesia' ? 'selected':'' }}>Indonesia</option>
+                            <option value="Inggris" {{ $d->mata_pelajaran == 'Inggris' ? 'selected':'' }}>Inggris</option>
+                            <option value="Produktif" {{ $d->mata_pelajaran == 'Produktif' ? 'selected':'' }}>Produktif</option>
+                            <option value="Kimia" {{ $d->mata_pelajaran == 'Kimia' ? 'selected':'' }}>Kimia</option>
+                            <option value="Fisika" {{ $d->mata_pelajaran == 'Fisika' ? 'selected':'' }}>Fisika</option>
+                        </select>
                     </div>
 
                     <div class="mb-3">
