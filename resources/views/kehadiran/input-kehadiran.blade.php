@@ -31,12 +31,17 @@
                     <div class="tab-content tab-space">
 
                         <div class="block tabs" id="absen-periode">
-                            <div class="grid grid-cols-4">
+                            <div class="grid grid-cols-5">
                                 <button
                                     class="block mb-6 mr-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                                     type="button" data-modal-toggle="import-file-modal"><i class='bx bxs-file-import text-white'></i>
                                     Import
                                 </button>
+                                <a
+                                    class="block mb-6 mr-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                                    type="button" href="{{ route('kehadiran.download') }}"><i class='bx bx-download text-white'></i>
+                                    Download Excel
+                                </a>
 
                                 <form action="/absen/kehadiran?periode" method="get" class="grid grid-cols-4 gap-2 col-span-3">
                                     <input type="hidden" name="periode">
@@ -59,12 +64,15 @@
                                     <div>
                                         <select name="mapel" class="form-select bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-500 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" id="">
                                             <option selected disabled>Mata Pelajaran</option>
-                                            <option value="MTK" >MTK</option>
+                                            {{-- <option value="MTK" >MTK</option>
                                             <option value="Indonesia" >Indonesia</option>
                                             <option value="Inggris">Inggris</option>
                                             <option value="Produktif">Produktif</option>
                                             <option value="Kimia">Kimia</option>
-                                            <option value="Fisika">Fisika</option>
+                                            <option value="Fisika">Fisika</option> --}}
+                                            @foreach ($mapel as $m)
+                                                <option value="{{ $m->mapel }}">{{ $m->mapel }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div>

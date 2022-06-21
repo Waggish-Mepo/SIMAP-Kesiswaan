@@ -25,6 +25,11 @@ class Barang_Temuan extends Model
         return $this->hasOne('App\Models\Student', 'nis', 'pemilik');
     }
 
+    // public function Student()
+    // {
+    //     return $this->hasOne('App\Models\Student', 'nis', 'nis');
+    // }
+
     public function Penemu(){
         return $this->hasOne('App\Models\Student', 'nis', 'penemu');
     }

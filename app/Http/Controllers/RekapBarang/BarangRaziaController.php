@@ -19,7 +19,8 @@ class BarangRaziaController extends Controller
     {
         $data = Barang_Razia::with('Student', 'Student.Rayon', 'Student.Rombel')->get();
         $student_nis = Student::all();
-        return view('rekap-barang.razia.index', compact(['data', 'student_nis']));
+        $student_count = Student::count();
+        return view('rekap-barang.razia.index', compact(['data', 'student_nis', 'student_count']));
     }
     
     /**

@@ -5,6 +5,7 @@
 @Section('content')
     @include('master-data.modal-rayon.create')
     @include('master-data.modal-rombel.create')
+    @include('master-data.modal-angkatan.create')
     <div class="flex flex-col ml-10 mr-6">
         <div class="w-58 bg-white rounded-lg border shadow-md sm:p-2 dark:bg-gray-800 dark:border-gray-700">
             <b class="pl-2 text-base text-gray-900 sm:text-base">Data Sekolah</b>
@@ -55,7 +56,12 @@
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $d->rayon }}</td>
-                                                <td>{{ $d->Teacher->nama }}</td>
+                                                @if ($d->Teacher != null)
+                                                    <td>{{ $d->Teacher->nama }}</td>
+                                                @else
+                                                <td></td>
+                                                @endif
+                                                
                                                 <td>
                                                     <button type="button" data-modal-toggle="edit-rayon-{{ $d->id }}"
                                                         class="focus:outline-none bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-4 py-2 mr-2 mb-2 dark:focus:ring-yellow-900"><i
@@ -82,29 +88,80 @@
                                 type="button" data-modal-toggle="create-rombel"><i
                                     class='bx bx-plus text-white'></i>
                                 Tambah</button>
-                            <table id="rombel-tab" class="table table-striped text-sm" style="width:100%;">
+                            <table id="rombel-tab" class="table table-striped text-sm text-center" style="width:100%;">
                                 <thead>
                                     <tr>
                                         <th data-priority="1">No</th>
                                         <th data-priority="2">Rombel</th>
                                         <th data-priority="3">Angkatan</th>
+                                        <th data-priority="4">Aksi</th>
                                     </tr>
                                 </thead>
+                                <tbody>
+                                    @foreach ($rombel as $d)
+                                        <tr>
+                                            
+                                            
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $d->rombel }}</td>
+                                            @if ($d->Batch != null)
+                                                <td>{{ $d->Batch->angkatan }}</td>
+                                            @else
+                                                <td></td>
+                                            @endif
+                                            <td>
+                                                <button type="button" data-modal-toggle="edit-rombel-{{ $d->id }}"
+                                                    class="focus:outline-none bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-4 py-2 mr-2 mb-2 dark:focus:ring-yellow-900"><i
+                                                        class="fa-solid fa-pen-to-square"></i>
+                                                </button>
+                                                @include('master-data.modal-rombel.edit')
+                                                <button type="button" data-modal-toggle="delete-rombel-{{ $d->id }}"
+                                                    class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"><i
+                                                        class="fa-solid fa-trash-can"></i>
+                                                </button>
+                                                @include('master-data.modal-rombel.delete')
+                                                
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
                             </table>
                         </div>
                         <div class="hidden tabs" id="angkatan">
                             <button
                                 class="block mb-6 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                                type="button" data-modal-toggle="import-file-modal"><i
+                                type="button" data-modal-toggle="create-angkatan"><i
                                     class='bx bx-plus text-white'></i>
                                 Tambah</button>
-                            <table id="angkatan-tab" class="table table-striped text-sm" style="width:100%;">
+                            <table id="angkatan-tab" class="table table-striped text-sm text-center" style="width:100%;">
                                 <thead>
                                     <tr>
                                         <th data-priority="1">No</th>
                                         <th data-priority="2">Angkatan</th>
+                                        <th data-priority="3">Aksi</th>
                                     </tr>
                                 </thead>
+                                <tbody>
+                                    @foreach ($angkatan as $d)
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $d->angkatan }}</td>
+                                            <td>
+                                                <button type="button" data-modal-toggle="edit-angkatan-{{ $d->id }}"
+                                                    class="focus:outline-none bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-4 py-2 mr-2 mb-2 dark:focus:ring-yellow-900"><i
+                                                        class="fa-solid fa-pen-to-square"></i>
+                                                </button>
+                                                @include('master-data.modal-angkatan.edit')
+                                                <button type="button" data-modal-toggle="delete-angkatan-{{ $d->id }}"
+                                                    class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"><i
+                                                        class="fa-solid fa-trash-can"></i>
+                                                </button>
+                                                @include('master-data.modal-angkatan.delete')
+                                                
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
                             </table>
                         </div>
                     </div>

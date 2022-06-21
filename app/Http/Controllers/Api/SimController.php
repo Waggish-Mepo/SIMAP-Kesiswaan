@@ -51,33 +51,41 @@ class SimController extends Controller
         return redirect('sim/input-sim')->with('sim',$res)->with('msg','sim berhasil tersimpan');
     }
     public function update(Request $request,$id){
+        $data = Sim::find($id);
+        
         $request->validate([
-            'foto_selfie_sim'=>'image:jpeg,png,jpg',
-            'nis'=>'required|exists:m_student,nis',
+            'nis' => 'required',
+            'foto_selfie_sim' => 'image:jpeg,png,jpg',
         ]);
-        $sim = Sim::find($id);
-        if($sim->filename != null){
-            File::delete(public_path('image/sim/'.$sim->filename));
-        }
-        $image = $request->file('foto_selfie_sim');
-        $type = $image->extension();
-        $selfie_sim = $request->nis.'_selfie_sim.'.$type;
+    
+        //upload image
+        $path = public_path('image/sim');
         $file_endpoint = url('/api/sim/image/'.$request->nis);
-        $res = Sim::where('id',$id)->update([
-            'nis'=>$request->nis,
-            'foto_selfie_sim'=>$selfie_sim,
-            'file_endpoint'=>$file_endpoint,
+        if($request->hasFile('foto_selfie_sim') && $request->foto_selfie_sim != ''){
+            $uploadedImage = $request->foto_selfie_sim;
+            $imageName = $request->nis.Str::random(15). '_selfie_sim.'.$uploadedImage->getClientOriginalExtension();
+            $uploadedImage->move($path, $imageName);
+            // $uploadedImage->foto_barang = $imageName;
+        }else{
+            $imageName = $data['foto_selfie_sim'];
+        }
+        $data->update([
+            'nis' => $request['nis'],
+            'foto_selfie_sim'=> $imageName,
+            'file_endpoint'=> $file_endpoint,
         ]);
-        $request->file('foto_selfie_sim')->move(public_path('image/sim'),$selfie_sim);
+        
         // return $this->success(['sim'=>$res],'Data Sim Berhasil Di Update');
         alert()->success('Success', 'Laporan Sim Berhasil Disimpan');
-        return redirect('sim/input-sim')->with('sim',$res)->with('msg','sim berhasil tersimpan');
+        return redirect('sim/input-sim');
     }
+
     public function delete(Request $request,$id){
         $data = Sim::where('id',$id)->delete();
         alert()->success('Success', 'Laporan Sim Berhasil Dihapus');
         return redirect('sim/input-sim')->with('sim',$data);
     }
+
     public function getImage($nis){
         $sim = Sim::where('nis',$nis)->first();
         $image = $sim['foto_selfie_sim'];

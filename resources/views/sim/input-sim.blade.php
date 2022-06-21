@@ -42,10 +42,10 @@
                                             class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
                                             Rayon
                                         </th>
-                                        <th scope="col"
+                                        {{-- <th scope="col"
                                             class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
-                                            JK
-                                        </th>
+                                            Jenis Kelamin
+                                        </th> --}}
                                         <th scope="col"
                                             class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
                                             Foto dengan SIM
@@ -79,10 +79,10 @@
                                                 class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
                                                 {{ $v->Murid->Rayon->rayon }}
                                             </td>
-                                            <td
+                                            {{-- <td
                                                 class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
                                                 {{ $v->Murid->jenis_kelamin }}
-                                            </td>
+                                            </td> --}}
                                             <td
                                                 class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
                                                 <img src="{{ $v->file_endpoint }}" alt="" srcset="" width="100">

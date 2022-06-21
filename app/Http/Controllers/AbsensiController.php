@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+use App\Models\Mapel;
 use App\Models\Rayon;
 use App\Models\Rombel;
 use App\Models\Student;
@@ -62,8 +63,9 @@ class AbsensiController extends Controller
         $rekap_absen = $rekap_absen->get();
         $rombel = Rombel::all();
         $rayon = Rayon::all();
+        $mapel = Mapel::all();
         // dd($rombel);
-        return view('kehadiran.input-kehadiran', compact(['data', 'rekap_absen', 'rombel', 'rayon', 'selected_tabs']));
+        return view('kehadiran.input-kehadiran', compact(['data', 'rekap_absen', 'rombel', 'rayon', 'selected_tabs', 'mapel']));
     }
 
     public function importExcel(Request $request){
@@ -72,7 +74,7 @@ class AbsensiController extends Controller
         ]);
         $res = Excel::import(new AbsenImport(), request()->file('file'));
         alert()->success('Berhasil','Data Berhasil Disimpan');
-        return redirect('/absen/kehadiran');
+        return redirect('/absen/kehadiran?periode');
     }
     public function rekap(Request $request){
         $request->validate([
@@ -113,5 +115,11 @@ class AbsensiController extends Controller
         $data->delete();
         alert()->success('Berhasil','Data Berhasil Dihapus');
         return redirect('/absen/kehadiran');
+    }
+
+    public function download_excel()
+    {
+        $path = public_path('excel/import-absen.xlsx');
+        return response()->download($path);
     }
 }

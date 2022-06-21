@@ -22,16 +22,18 @@ class RombelController extends Controller
     public function store(Request $request){
         $request->validate([
             'rombel'=>'required|unique:m_rombel,rombel',
-            'angkatan'=>'required',
+            'angkatan_id'=>'required',
             'kompetensi'=>'required',
         ]);
-        $angkatan = Batch::where('angkatan',$request->angkatan)->FirstOrFail();
-        $data = Rombel::create([
+        // $angkatan = Batch::where('angkatan',$request->angkatan)->FirstOrFail();
+        Rombel::create([
             'rombel'=>$request->rombel,
-            'angkatan_id'=>$angkatan['angkatan'],
+            'angkatan_id'=>$request->angkatan_id,
             'kompetensi'=>$request->kompetensi,
         ]);
-        return $this->success(['rombel'=>$data],'Data rombel');
+        alert()->success('Berhasil','Data Berhasil Disimipan');
+
+        return redirect('/data-sekolah');
     }
     public function update(Request $request,$id){
         $request->validate([
@@ -45,10 +47,14 @@ class RombelController extends Controller
             'angkatan_id'=>$angkatan['angkatan'],
             'kompetensi'=>$request->kompetensi,
         ]);
-        return $this->success(['rombel'=>$data],'Data rombel');
+        alert()->success('Berhasil','Data Berhasil Diupdate');
+
+        return redirect('/data-sekolah');
     }
-    public function delete(Request $request,$id){
-        $data = Rombel::where('id',$id)->delete();
-        return $this->success(['rombel'=>$data],'Data rombel');
+    public function destroy(Request $request,$id){
+        Rombel::where('id',$id)->delete();
+        alert()->success('Berhasil','Data Berhasil Dihapus');
+        // return $this->success(['rombel'=>$data],'Data rombel');
+        return redirect()->back();
     }
 }

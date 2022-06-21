@@ -17,12 +17,18 @@
                     @csrf
                     <div class="mb-3">
                         <label for="nis" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Penemu</label>
-                        <input type="text" name="penemu" id="nis" list="Penemu" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                        <datalist id="Penemu">
-                            @foreach ($student_nis as $sn)
-                                <option value="{{$sn->nis}}">{{$sn->nama }}</option>
-                            @endforeach
-                          </datalist>
+                        
+                        @if ($student_count != null)
+                            <input type="text" name="penemu" id="nis" list="Penemu" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                            <datalist id="Penemu">
+                                @foreach ($student_nis as $sn)
+                                    <option value="{{$sn->nis}}">{{$sn->nama }}</option>
+                                @endforeach
+                            </datalist>
+                        @else
+                        <input type="text" readonly placeholder="Tidak Ada Data Murid" name="penemu" id="nis" list="Penemu" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                        @endif
+                        
                     </div>
 
                     <div class="grid grid-cols-2 gap-2 mb-3">

@@ -14,17 +14,21 @@
             </div>
             <!-- Modal body -->
             <div class="p-6 space-y-6">
-                <form action="{{ route('rayon.update', $d->id) }}" method="POST" enctype="multipart/form-data" autocomplete="off" >
+                <form action="{{ route('rayon.update', $d->id ) }}" method="POST" enctype="multipart/form-data" autocomplete="off" >
                     @csrf
-                    @method('PUT')
+                    @method('PATCH')
                     <div class="mb-3">
                         <label for="nama" class="block text-sm font-medium text-gray-900 dark:text-gray-300">Rayon</label>
                         <input type="text" name="rayon" value="{{ $d->rayon }}" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 z-10" placeholder="">
                     </div>
                     <div class="mb-3">
                         <label for="nama" class="block text-sm font-medium text-gray-900 dark:text-gray-300">Pembimbing siswa</label>
-                        <input type="text" list="guru" value="{{ $d->Teacher->no_induk_yayasan }}" name="no_induk_yayasan" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 z-10" placeholder="">
-                    </div>
+                        @if ($d->Teacher != null)
+                            <input type="text" name="teacher" value="{{ $d->Teacher->nama }}" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 z-10" placeholder="">
+                        @else
+                            <input type="text" list="guru" name="no_induk_yayasan" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 z-10" placeholder="">
+                        @endif
+                        </div>
                     <datalist id="guru">
                         @foreach ($guru as $sn)
                             <option value="{{ $sn->no_induk_yayasan }}">{{ $sn->nama }}</option>

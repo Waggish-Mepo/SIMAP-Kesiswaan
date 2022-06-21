@@ -14,7 +14,8 @@ class BarangTemuanController extends Controller
     {
         $data = Barang_Temuan::with('Penemu', 'Penemu.Rayon', 'Penemu.Rombel')->get();
         $student_nis = Student::all();
-        return view('rekap-barang.temuan.index', compact(['data', 'student_nis']));
+        $student_count = Student::count();
+        return view('rekap-barang.temuan.index', compact(['data', 'student_nis', 'student_count']));
     }
 
     public function store(Request $request)

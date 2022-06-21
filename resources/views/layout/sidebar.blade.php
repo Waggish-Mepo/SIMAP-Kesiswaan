@@ -20,7 +20,7 @@
                 </li>
 
                 <li class="nav-link pl-6 pr-4 py-2  relative hover:bg-black hover:pl-4 hover:border-l-blue-400 hover:border-l-4  m-2">
-                    <a href="/absen/kehadiran">
+                    <a href="/absen/kehadiran?periode">
                         <i class='bx bx-bar-chart-alt-2 text-yellow-300 w-5'></i>
                         <span class="text text-base opacity-70 hover:opacity-100">Absensi Siswa</span>
                     </a>
@@ -89,7 +89,7 @@
                 </li>
 
                 <li class="nav-link pl-6 pr-4 py-2 relative hover:bg-black hover:pl-4 hover:border-l-blue-400 hover:border-l-4  m-2">
-                    <a href="/raport-karakter/input-raport">
+                    <a href="/akun">
                         <i class='bx bxs-user-account text-yellow-300'></i>
                         <span class="text text-base opacity-70 hover:opacity-100">Buat Akun</span>
                     </a>

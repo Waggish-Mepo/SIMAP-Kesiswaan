@@ -22,22 +22,31 @@ class BatchController extends Controller
         $request->validate([
             'angkatan'=>'required|unique:m_batch,angkatan'
         ]);
-        $data = Batch::create([
+        Batch::create([
             'angkatan'=>$request->angkatan,
         ]);
-        return $this->success(['angkatan'=>$data],'Data Angkatan');
+        alert()->success('Berhasil','Data Berhasil Disimpan');
+
+        return redirect('/data-sekolah');
+        // return $this->success(['angkatan'=>$data],'Data Angkatan');
     }
     public function update(Request $request,$id){
         $request->validate([
-            'angkatan'=>'required|unique'
+            'angkatan'=>'required|unique:m_batch,angkatan'
         ]);
-        $data = Batch::where('id',$id)->update([
+        Batch::where('id',$id)->update([
             'angkatan'=>$request->angkatan,
         ]);
-        return $this->success(['angkatan'=>$data],'Data Angkatan');
+        alert()->success('Berhasil','Data Berhasil Diupdate');
+
+        return redirect('/data-sekolah');
+        // return $this->success(['angkatan'=>$data],'Data Angkatan');
     }
-    public function delete(Request $request,$id){
-        $data = Batch::where('id',$id)->delete();
-        return $this->success(['angkatan'=>$data],'Data Angkatan');
+    public function destroy($id){
+        Batch::where('id',$id)->delete();
+        alert()->success('Berhasil','Data Berhasil Dihapus');
+
+        return redirect('/data-sekolah');
+        // return $this->success(['angkatan'=>$data],'Data Angkatan');
     }
 }

@@ -2,6 +2,7 @@
 
 use Carbon\Carbon;
 use App\Models\Sim;
+use App\Models\Batch;
 use App\Models\Rayon;
 use App\Models\Rombel;
 use App\Models\Student;
@@ -12,9 +13,12 @@ use App\Models\Periode_Absen;
 use App\Models\Surat_Perigatan;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AbsensiController;
+use App\Http\Controllers\AkunController;
 use App\Http\Controllers\Api\SimController;
+use App\Http\Controllers\Api\BatchController;
 use App\Http\Controllers\Api\RayonController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Api\RombelController;
 use App\Http\Controllers\Api\StudentController;
 use App\Http\Controllers\Api\TeacherController;
 use App\Http\Controllers\RekapBarangController;
@@ -106,6 +110,7 @@ Route::middleware('authguard')->group(function () {
         Route::post('/kehadiran/input',[AbsensiController::class , 'importExcel']);
         Route::post('/kehadiran/rekap',[AbsensiController::class , 'rekap']);
         Route::delete('kehadiran/delete/{id}', [AbsensiController::class , 'delete'])->name('kehadiran.destroy');
+        Route::get('/kehadiran/download', [AbsensiController::class , 'download_excel'])->name('kehadiran.download');
 
         // Route::post('/submit', [SimController::class , 'store']);
         // Route::delete('/delete/{id}', [SimController::class , 'delete']);
@@ -125,15 +130,19 @@ Route::middleware('authguard')->group(function () {
         $guru = Teacher::all();
         $rayon = Rayon::with('Teacher')->get();
         $rombel = Rombel::with('Batch')->get();
+        $angkatan = Batch::all();
         $jumlah_guru = Teacher::count();
-        return view('master-data.data-sekolah',compact(['guru','rayon', 'jumlah_guru', 'rombel']));
+        return view('master-data.data-sekolah',compact(['guru','rayon', 'jumlah_guru', 'rombel','angkatan']));
     });
 
     Route::prefix('/data-sekolah')->group(function(){
         Route::resource('/rayon', RayonController::class);
+        Route::resource('/rombel', RombelController::class);
+        Route::resource('/angkatan', BatchController::class);
     });
 
-    Route::get('/raport-karakter/input-raport', function(){
-        return view('raport-karakter.input-raport');
-    });
+    Route::resource('/akun', AkunController::class);
+    // Route::get('/raport-karakter/input-raport', function(){
+    //     return view('raport-karakter.input-raport');
+    // });
 });

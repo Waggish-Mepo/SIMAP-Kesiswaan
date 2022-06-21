@@ -31,11 +31,11 @@ class RayonController extends Controller
         ]);
         alert()->success('Berhasil','Data Berhasil Disimipan');
 
-        return redirect()->back();
+        return redirect('/data-sekolah');
     }
     public function update(Request $request,$id){
         $request->validate([
-            'rayon'=>'required|unique:m_rayon,rayon',
+            'rayon'=>'required',
             'no_induk_yayasan'=>'required',
         ]);
         // dd($request->all());
@@ -46,12 +46,12 @@ class RayonController extends Controller
         ]);
         alert()->success('Berhasil','Data Berhasil Diupdate');
 
-        return redirect()->back();
+        return redirect('/data-sekolah');
     }
     public function destroy(Request $request,$id){
         $data = Rayon::where('id',$id)->delete();
         alert()->success('Berhasil','Data Berhasil Dihapus');
 
-        return redirect()->back();
+        return redirect('/data-sekolah');
     }
 }
