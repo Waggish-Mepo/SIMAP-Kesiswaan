@@ -37,12 +37,12 @@ class StudentProfileImport implements ToCollection, WithHeadingRow
                 'nik' => $row['nik'],
             ]);
 
-            User::create([
-                'userable_id' => $row['nis'],
-                'role' => 'murid',
-                'email' => $row['email'],
-                'password'=>Hash::make($row['nis']),
-            ]);
+            // User::create([
+            //     'userable_id' => $row['nis'],
+            //     'role' => 'murid',
+            //     'email' => $row['email'],
+            //     'password'=>Hash::make($row['nis']),
+            // ]);
         }
     }
 }

@@ -35,25 +35,35 @@
                         <input type="text" name="no_induk_yayasan"  class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400">
                     </div>
     
-                    <div class="mb-3">
+                    {{-- <div class="mb-3">
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="user_avatar">Jenis Kelamin</label>
                         <select name="jk" class="form-select bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-500 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" id="">
-                            <option selected disabled>Jenis Kelamin</option>    
+                            <option selected disabled>Jenis Kelamin</option>   
                             <option value="p" >Perempuan</option>    
                             <option value="l">Laki-laki</option>    
                         </select>    
+                    </div> --}}
+                    <div class="mb-3">
+                        <label for="">Jenis Kelamin</label>
+                        <div class="grid grid-cols-4">
+                            <div class="flex items-center">
+                                <input id="jk-1" type="radio" value="l" name="jk" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="jk-1" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Laki-laki</label>
+                            </div>
+                            <div class="flex items-center col-span-3">
+                                <input id="jk-1" type="radio" value="p" name="jk" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="jk-1" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Perempuan</label>
+                            </div>
+                        </div>
                     </div>
     
                     <div class="mb-3">
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="user_avatar">Mata Pelajaran</label>
                         <select name="mata_pelajaran" class="form-select bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-500 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" id="">
                             <option selected disabled>Mata Pelajaran</option>    
-                            <option value="MTK" >MTK</option>    
-                            <option value="Indonesia" >Indonesia</option>    
-                            <option value="Inggris">Inggris</option>    
-                            <option value="Produktif">Produktif</option>    
-                            <option value="Kimia">Kimia</option>    
-                            <option value="Fisika">Fisika</option>    
+                            @foreach ($mapel as $m)
+                                <option value="{{ $m->mapel }}">{{ $m->mapel }}</option>
+                            @endforeach   
                         </select>    
                     </div>
     

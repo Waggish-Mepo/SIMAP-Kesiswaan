@@ -3,12 +3,13 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\User;
+use App\Models\Mapel;
 use App\Models\Rayon;
 use App\Models\Student;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
-use App\Http\Traits\ApiResponse;
 // use App\Exports\BooksExport;
+use App\Http\Traits\ApiResponse;
 use App\Http\Controllers\Controller;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\StudentProfileImport;
@@ -18,8 +19,9 @@ class TeacherController extends Controller
     use ApiResponse;
 
     public function index(){
-        $res = Teacher::with('Rayon')->get();
-        return view('master-data.guru.guru')->with('data',$res);
+        $data = Teacher::with('Rayon')->get();
+        $mapel = Mapel::all();
+        return view('master-data.guru.guru', compact('data', 'mapel' ));
     }
     public function show($id){
         $res = Student::where('id',$id)->orWhere('no_induk_yayasan',$id)->orWhere('nama',$id)->orWhere('nik')->with('Rayon')->first();

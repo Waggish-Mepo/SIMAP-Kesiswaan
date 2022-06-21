@@ -50,26 +50,29 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($rayon as $d)
-                                        <tr>
-                                            <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $d->rayon }}</td>
-                                            <td>{{ $d->Teacher->nama }}</td>
-                                            <td>
-                                                <button type="button" data-modal-toggle="edit-rayon-{{ $d->id }}"
-                                                    class="focus:outline-none bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-4 py-2 mr-2 mb-2 dark:focus:ring-yellow-900"><i
-                                                        class="fa-solid fa-pen-to-square"></i>
-                                                </button>
-                                                @include('master-data.modal-rayon.edit')
-                                                <button type="button" data-modal-toggle="delete-rayon-{{ $d->id }}"
-                                                    class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"><i
-                                                        class="fa-solid fa-trash-can"></i>
-                                                </button>
-                                                @include('master-data.modal-rayon.delete')
-                                            </td>
-                                        </tr>
+                                    @if ($jumlah_guru != 0)
+                                        @foreach ($rayon as $d)
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $d->rayon }}</td>
+                                                <td>{{ $d->Teacher->nama }}</td>
+                                                <td>
+                                                    <button type="button" data-modal-toggle="edit-rayon-{{ $d->id }}"
+                                                        class="focus:outline-none bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-4 py-2 mr-2 mb-2 dark:focus:ring-yellow-900"><i
+                                                            class="fa-solid fa-pen-to-square"></i>
+                                                    </button>
+                                                    @include('master-data.modal-rayon.edit')
+                                                    <button type="button" data-modal-toggle="delete-rayon-{{ $d->id }}"
+                                                        class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"><i
+                                                            class="fa-solid fa-trash-can"></i>
+                                                    </button>
+                                                    @include('master-data.modal-rayon.delete')
+                                                </td>
+                                            </tr>
 
-                                    @endforeach
+                                        @endforeach
+                                    @endif
+
                                 </tbody>
                             </table>
                         </div>

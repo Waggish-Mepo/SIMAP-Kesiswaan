@@ -35,7 +35,7 @@ class DatabaseSeeder extends Seeder
                 'username' => 'pemray',
                 'role' => 'guru',
                 'sub_role' => 'pemray',
-                'email'=>'kesiswaan@wikrama.com',
+                'email'=>'pemray@wikrama.com',
                 'password' => Hash::make('pemray'),
             ]
         ]);
@@ -43,40 +43,61 @@ class DatabaseSeeder extends Seeder
         DB::table('m_teacher')->insert([
             [
                 'nama' => 'Budiono',
+                'no_induk_yayasan' => '00000001',
                 'email'=>'budiono@wikrama.com',
             ]
         ]);
 
         DB::table('m_rombel')->insert([
             [
-                'rombel' => 'RPL XII',
+                'rombel' => 'RPL XII-1',
                 'kompetensi'=>'RPL',
                 'angkatan_id' => '4',
             ],
             [
-                'rombel' => 'TKJ XII',
+                'rombel' => 'RPL XII-2',
+                'kompetensi'=>'RPL',
+                'angkatan_id' => '4',
+            ],
+            [
+                'rombel' => 'RPL XII-3',
+                'kompetensi'=>'RPL',
+                'angkatan_id' => '4',
+            ],
+            [
+                'rombel' => 'RPL XII-4',
+                'kompetensi'=>'RPL',
+                'angkatan_id' => '4',
+            ],
+            [
+                'rombel' => 'TKJ XII-1',
                 'kompetensi'=>'TKJ',
                 'angkatan_id' => '4',
             ],
             [
-                'rombel' => 'MMD XII',
+                'rombel' => 'TKJ XII-2',
+                'kompetensi'=>'TKJ',
+                'angkatan_id' => '4',
+            ],
+            [
+                'rombel' => 'TKJ XII-3',
+                'kompetensi'=>'TKJ',
+                'angkatan_id' => '4',
+            ],
+            [
+                'rombel' => 'TKJ XII-4',
+                'kompetensi'=>'TKJ',
+                'angkatan_id' => '4',
+            ],
+            [
+                'rombel' => 'MMD XII-1',
                 'kompetensi'=>'MMD',
                 'angkatan_id' => '4',
             ],
-        ]);
-
-        DB::table('m_rayon')->insert([
             [
-                'rayon' => 'Cicurug',
-                'teacher_id' => '1'
-            ],
-            [
-                'rayon' => 'Tajur',
-                'teacher_id' => '2'
-            ],
-            [
-                'rayon' => 'Cisarua',
-                'teacher_id' => '3'
+                'rombel' => 'MMD XII-2',
+                'kompetensi'=>'MMD',
+                'angkatan_id' => '4',
             ],
         ]);
 
@@ -93,6 +114,69 @@ class DatabaseSeeder extends Seeder
             [
                 'angkatan' => '2021-2022'
             ],
+        ]);
+
+        DB::table('m_rayon')->insert([
+            [
+                'rayon' => 'Cicurug 1'
+            ],
+            [
+                'rayon' => 'Cicurug 2'
+            ],
+            [
+                'rayon' => 'Cicurug 3'
+            ],
+            [
+                'rayon' => 'Cicurug 4'
+            ],
+            [
+                'rayon' => 'Cicurug 5'
+            ],
+            [
+                'rayon' => 'Cicurug 6'
+            ],
+            [
+                'rayon' => 'Cicurug 7'
+            ],
+        ]);
+
+        DB::table('m_mapel')->insert([
+            [
+                'mapel' => 'Bahasa Indonesia',
+            ],
+            [
+                'mapel' => 'Bahasa Inggris',
+            ],
+            [
+                'mapel' => 'Matematika',
+            ],
+            [
+                'mapel' => 'Kimia',
+            ],
+            [
+                'mapel' => 'Fisika',
+            ],
+            [
+                'mapel' => 'Pendidikan Pancasila dan Kewarganegaraan',
+            ],
+            [
+                'mapel' => 'Biologi',
+            ],
+            [
+                'mapel' => 'Geografi',
+            ],
+            [
+                'mapel' => 'Sejarah',
+            ],
+            [
+                'mapel' => 'PKK',
+            ],
+            [
+                'mapel' => 'Pemrograman',
+            ],
+            [
+                'mapel' => 'Pendidikan Jasmani, Olahraga dan Kesehatan'
+            ]
         ]);
     }
 }

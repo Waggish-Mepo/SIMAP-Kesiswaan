@@ -2,16 +2,18 @@
 
 use Carbon\Carbon;
 use App\Models\Sim;
+use App\Models\Rayon;
+use App\Models\Rombel;
 use App\Models\Student;
 use App\Models\Teacher;
 use App\Models\Barang_Razia;
 use App\Models\Barang_Temuan;
 use App\Models\Periode_Absen;
 use App\Models\Surat_Perigatan;
-use App\Models\Rayon;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AbsensiController;
 use App\Http\Controllers\Api\SimController;
+use App\Http\Controllers\Api\RayonController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Api\StudentController;
 use App\Http\Controllers\Api\TeacherController;
@@ -20,7 +22,6 @@ use App\Http\Controllers\Api\SuratPeringatanController;
 use App\Http\Controllers\Api\SuratPerjanjianController;
 use App\Http\Controllers\RekapBarang\BarangRaziaController;
 use App\Http\Controllers\RekapBarang\BarangTemuanController;
-use App\Http\Controllers\Api\RayonController;
 
 /*
 |--------------------------------------------------------------------------
@@ -123,7 +124,9 @@ Route::middleware('authguard')->group(function () {
     Route::get('/data-sekolah', function(){
         $guru = Teacher::all();
         $rayon = Rayon::with('Teacher')->get();
-        return view('master-data.data-sekolah',compact(['guru','rayon']));
+        $rombel = Rombel::with('Batch')->get();
+        $jumlah_guru = Teacher::count();
+        return view('master-data.data-sekolah',compact(['guru','rayon', 'jumlah_guru', 'rombel']));
     });
 
     Route::prefix('/data-sekolah')->group(function(){
