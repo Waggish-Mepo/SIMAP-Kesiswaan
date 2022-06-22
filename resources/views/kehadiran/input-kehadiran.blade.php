@@ -33,12 +33,12 @@
                         <div class="block tabs" id="absen-periode">
                             <div class="grid grid-cols-5">
                                 <button
-                                    class="block mb-6 mr-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                                    class="block mb-6 mr-4 text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm px-4 py-3 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                                     type="button" data-modal-toggle="import-file-modal"><i class='bx bxs-file-import text-white'></i>
                                     Import
                                 </button>
                                 <a
-                                    class="block mb-6 mr-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                                    class="block mb-6 mr-4 text-white bg-red-500 hover:bg-red-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm px-4 py-3 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                                     type="button" href="{{ route('kehadiran.download') }}"><i class='bx bx-download text-white'></i>
                                     Download Excel
                                 </a>
@@ -123,7 +123,7 @@
                         <div class="hidden tabs" id="absen-rekap">
                             <div class="grid grid-cols-4">
                                 <button
-                                    class="block mb-6 mr-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                                    class="block mb-6 mr-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm py-3 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                                     type="button" data-modal-toggle="rekap-absen-modal"><i class='bx bx-plus text-white'></i>
                                     Rekap
                                 </button>

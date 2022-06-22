@@ -76,17 +76,17 @@
                         <i class='bx bx-chevron-down ml-24'></i>
                     </button>
                     <ul id="suratDropdown" class="dropdown hidden ml-2 pl-5">
-                        <li><a href="{{ route('peringatan.index') }}" class="text-sm opacity-70 hover:opacity-100"><i class='bx bx-radio-circle'></i>Surat Peringatan</a></li>
+                        {{-- <li><a href="{{ route('peringatan.index') }}" class="text-sm opacity-70 hover:opacity-100"><i class='bx bx-radio-circle'></i>Surat Peringatan</a></li> --}}
                         <li><a href="{{ route('perjanjian.index') }}" class="text-sm opacity-70 hover:opacity-100"><i class='bx bx-radio-circle'></i>Surat Perjanjian</a></li>
                     </ul>
                 </li>
 
-                <li class="nav-link pl-6 pr-4 py-2 relative hover:bg-black hover:pl-4 hover:border-l-blue-400 hover:border-l-4  m-2">
+                {{-- <li class="nav-link pl-6 pr-4 py-2 relative hover:bg-black hover:pl-4 hover:border-l-blue-400 hover:border-l-4  m-2">
                     <a href="#">
                         <i class='bx bx-book icon w-5 text-green-500'></i>
                         <span class="text text-base opacity-70 hover:opacity-100">Rekap BKP</span>
                     </a>
-                </li>
+                </li> --}}
 
                 <li class="nav-link pl-6 pr-4 py-2 relative hover:bg-black hover:pl-4 hover:border-l-blue-400 hover:border-l-4  m-2">
                     <a href="/akun">

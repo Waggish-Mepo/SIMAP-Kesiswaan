@@ -1,4 +1,4 @@
-<nav class="z-40 fixed w-full bg-[#3c8dbc]">
+<nav class="z-40 fixed w-full shadow-md bg-[#3c8dbc]">
     <div class="container items-center ">
         <div class="items-center">
             <div class="inline-flex float-right py-3 px-6 hover:bg-[#347194]">

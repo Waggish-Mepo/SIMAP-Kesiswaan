@@ -43,7 +43,7 @@
                                     <td class="text-center">{{ $d->email }}</td>
                                     <td class="text-center">{{ $d->no_hp }}</td>
                                     <td class="text-center">{{ $d->no_induk_yayasan }}</td>
-                                    <td>
+                                    <td class="text-center">
                                         @if ($d->jk == 'l')
                                             <p>Laki-laki</p>
                                         @else

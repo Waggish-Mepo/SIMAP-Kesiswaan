@@ -125,6 +125,10 @@ Route::middleware('authguard')->group(function () {
     });
 
     Route::resource('/murid', StudentController::class);
+    // Route::put('/murid/{id}', [StudentController::class, 'update']);
+    // Route::get('/murid/{id}', [StudentController::class, 'show']);
+    // Route::get('/murid', [StudentController::class, 'index']);
+    // Route::delete('/murid/delete/{id}', [StudentController::class, 'destroy']);
     Route::resource('/guru', TeacherController::class);
     Route::get('/data-sekolah', function(){
         $guru = Teacher::all();

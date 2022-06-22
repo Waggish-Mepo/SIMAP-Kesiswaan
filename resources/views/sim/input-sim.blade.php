@@ -6,19 +6,16 @@
         <div class="w-58 bg-white rounded-lg border shadow-md sm:p-2 dark:bg-gray-800 dark:border-gray-700">
             <b class="pl-2 text-gray-900">Data Siswa Yang Memiliki SIM</b>
         </div>
-        <div class="pt-4 mt-4 pb-8 w-58 bg-white rounded-lg border shadow-md dark:bg-gray-800 dark:border-gray-700">
-            <div class="items-center flex p-4  mr-4" data-modal-toggle="input-raport-modal">
-                <button type="button"
-                    class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-2xl px-4 py-1 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                    <i class='bx bx-plus text-white'></i>
-                </button>
-            </div>
-
+        <div class="mt-4 pb-8 w-58 bg-white rounded-lg border shadow-md dark:bg-gray-800 dark:border-gray-700">
             <!-- TABLE -->
-            <div class="flex flex-col mt-16">
+            <div class="flex flex-col mt-6">
                 <div class="overflow-x-auto">
                     <div class="inline-block py-2 min-w-full sm:px-6 lg:px-8">
-                        <div class="overflow-hidden px-8 sm:rounded-lg">
+                        <button
+                            class="block mb-6 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                            type="button" data-modal-toggle="input-raport-modal"><i class="fa-solid fa-plus"></i>Tambah
+                        </button>
+                        <div class="overflow-hidden sm:rounded-lg">
                             <table class="table table-striped min-w-full" id='example'>
                                 <thead class="bg-gray-50 dark:bg-gray-700">
                                     <tr>
@@ -42,10 +39,10 @@
                                             class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
                                             Rayon
                                         </th>
-                                        {{-- <th scope="col"
+                                        <th scope="col"
                                             class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
-                                            Jenis Kelamin
-                                        </th> --}}
+                                            JK
+                                        </th>
                                         <th scope="col"
                                             class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
                                             Foto dengan SIM
@@ -79,13 +76,14 @@
                                                 class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
                                                 {{ $v->Murid->Rayon->rayon }}
                                             </td>
-                                            {{-- <td
-                                                class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                {{ $v->Murid->jenis_kelamin }}
-                                            </td> --}}
                                             <td
                                                 class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                <img src="{{ $v->file_endpoint }}" alt="" srcset="" width="100">
+                                                {{ $v->Murid->jenis_kelamin }}
+                                            </td>
+                                            <td
+                                                class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                <img src="{{ $v->file_endpoint }}" alt="" srcset=""
+                                                    width="100">
                                                 {{-- {{$v->file_endpoint}} --}}
                                             </td>
                                             <td class="py-4 px-2 flex">
@@ -101,7 +99,8 @@
                                                         class="relative px-4 w-full max-w-lg h-full md:h-auto overflow-x-hidden">
                                                         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                                                             <div class="flex justify-end p-2">
-                                                                <h3 class="text-xl p-2 font-medium text-gray-900 dark:text-white">
+                                                                <h3
+                                                                    class="text-xl p-2 font-medium text-gray-900 dark:text-white">
                                                                     Edit Data SIM</h3>
                                                                 <button type="button"
                                                                     class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
@@ -117,7 +116,8 @@
                                                             </div>
                                                             <form class="pb-4 space-y-6 px-6 "
                                                                 action="/sim/edit/{{ $v->id }}"
-                                                                enctype="multipart/form-data" method="POST" autocomplete="off">
+                                                                enctype="multipart/form-data" method="POST"
+                                                                autocomplete="off">
                                                                 @method('PATCH')
                                                                 @csrf
                                                                 <div class="flex">
@@ -127,14 +127,17 @@
                                                                         class="ml-16 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-500 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                                                                         placeholder="" required=""
                                                                         value="{{ $v->nis }}"> --}}
-                                                                        <input type="number" name="nis" id="nis" list="NIS"
-                                                                            class="ml-16 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-500 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                                                            placeholder="" required="" value="{{ $v->nis }}">
-                                                                        <datalist id="NIS">
-                                                                            @foreach ($student_nis as $sn)
-                                                                                <option value="{{ $sn->nis }}">{{ $sn->nama }}</option>
-                                                                            @endforeach
-                                                                        </datalist>
+                                                                    <input type="number" name="nis" id="nis"
+                                                                        list="NIS"
+                                                                        class="ml-16 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-500 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                                                        placeholder="" required=""
+                                                                        value="{{ $v->nis }}">
+                                                                    <datalist id="NIS">
+                                                                        @foreach ($student_nis as $sn)
+                                                                            <option value="{{ $sn->nis }}">
+                                                                                {{ $sn->nama }}</option>
+                                                                        @endforeach
+                                                                    </datalist>
                                                                 </div>
                                                                 <div class="flex">
                                                                     <label for="foto_selfie_sim"
@@ -202,12 +205,12 @@
     class="hidden overflow-y-auto overflow-x-hidden fixed right-0 left-0 top-2 z-50 pt-2 pb-4 justify-center items-center h-modal md:h-full md:inset-0">
     <div class="relative px-4 w-full max-w-lg h-full md:h-auto overflow-x-hidden">
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-            <div class="flex justify-end p-2">
+            <div class="grid grid-cols-2  justify-end p-6">
+                <h3 class="text-xl font-medium text-gray-900 dark:text-white">Tambah Data SIM</h3>
                 <button type="button"
                     class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
                     data-modal-toggle="input-raport-modal">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd"
                             d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
                             clip-rule="evenodd"></path>
@@ -217,7 +220,6 @@
             <form class="pb-4 space-y-6 lg:px-8 sm:p-6 xl:pb-8" action="/sim/submit" enctype="multipart/form-data"
                 method="POST" autocomplete="off">
                 @csrf
-                <h3 class="text-xl font-medium text-gray-900 dark:text-white">Tambah Data SIM</h3>
                 <div class="flex">
                     <label for="nis"
                         class="block mt-2 mr-2 text-sm font-medium text-gray-900 dark:text-gray-300">NIS</label>
@@ -231,7 +233,8 @@
                     </datalist>
                 </div>
                 <div class="flex">
-                    <label for="foto_selfie_sim" class="block text-sm font-medium text-gray-900 dark:text-gray-300">Foto
+                    <label for="foto_selfie_sim"
+                        class="block text-sm font-medium text-gray-900 dark:text-gray-300">Foto
                         dengan
                         SIM</label>
                     <input type="file" name="foto_selfie_sim" id="foto_selfie_sim"
@@ -244,3 +247,4 @@
         </div>
     </div>
 </div>
+

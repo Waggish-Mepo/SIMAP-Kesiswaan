@@ -23,13 +23,13 @@
                 <div class="flex">
                     <label for="foto_selfie_sim" class="block text-sm font-medium text-gray-900 dark:text-gray-300">Awal</label>
                     <input type="date" name="awal" id="foto_selfie_sim"
-                        class="ml-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full dark:bg-gray-500 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                        class="ml-9 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full dark:bg-gray-500 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                         placeholder="" required="">
                 </div>
                 <div class="flex">
                     <label for="foto_selfie_sim" class="block text-sm font-medium text-gray-900 dark:text-gray-300">Akhir</label>
                     <input type="date" name="akhir" id="foto_selfie_sim"
-                        class="ml-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full dark:bg-gray-500 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                        class="ml-8 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full dark:bg-gray-500 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                         placeholder="" required="">
                 </div>
                 <div class="flex">
