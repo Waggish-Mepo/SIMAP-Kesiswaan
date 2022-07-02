@@ -27,7 +27,7 @@ class AbsenRekapController extends Controller
         ]);
         dd($request->all());
         $del = Rekap_Absen::get()->delete();
-        $periode = Periode_Absen();
+        $periode = Periode_Absen::all();
         $murid = Student::get();
         foreach ($murid as $key => $value) {
 

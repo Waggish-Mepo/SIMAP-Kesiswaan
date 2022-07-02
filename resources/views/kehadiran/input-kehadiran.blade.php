@@ -176,7 +176,7 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $r->nis }}</td>
                                             <td>{{ $r->Murid->nama }}</td>
-                                            <td>{{ $r->Murid->Rombel->rombel.' | '.$r->Murid->Rombel->Batch->angkatan }}</td>
+                                            <td>{{ $r->Murid->Rombel->rombel}}</td>
                                             <td>{{ $r->izin}}</td>
                                             <td>{{ $r->sakit }}</td>
                                             <td>{{ $r->alpa}}</td>

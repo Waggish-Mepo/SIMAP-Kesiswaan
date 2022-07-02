@@ -15,9 +15,8 @@ class Rekap_Absen extends Model
         'alpa',
         'izin',
         'sakit',
-        // 'keterangan',
-        'angkatan',
         'semester',
+        // 'keterangan',
     ];
     public function Murid(){
         return $this->belongsTo('App\Models\Student','nis', 'nis');

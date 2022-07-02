@@ -70,10 +70,12 @@ class AuthController extends Controller
         if(auth()->attempt(array('username' => $input['username'], 'password' => $input['password'])))
         {
             if(auth()->user()->role == "admin"){
-                return redirect('/dashboard')->with('success','Berhasil Login, Selamat Datang '. auth()->user()->role . ' ' . auth()->user()->nama);
+                return redirect('/dashboard')->with('success','Berhasil Login, Selamat Datang '. auth()->user()->role . ' ' . auth()->user()->username);
             }
-            elseif (auth()->user()->role == "guru") {
-                return redirect('/dashboard')->with('success','Berhasil Login, Selamat Datang '. auth()->user()->role . ' ' . auth()->user()->nama);
+            elseif (auth()->user()->role == "guru" && auth()->user()->sub_role == null) {
+                return redirect('/dashboard')->with('success','Berhasil Login, Selamat Datang '. auth()->user()->role . ' ' . auth()->user()->username);
+            } elseif(auth()->user()->sub_role == "pemray"){
+                return redirect('/dashboard')->with('success','Berhasil Login, Selamat Datang Pembimbing ' . ' ' . auth()->user()->username);
             }
         }else{
             return redirect('/login')->with('errors','gagal login');

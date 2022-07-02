@@ -80,6 +80,7 @@ class AbsensiController extends Controller
         $request->validate([
             'awal'=>'required',
             'akhir'=>'required',
+            'semester'=>'required',
         ]);
         // dd($request->all());
         $del = Rekap_Absen::truncate();
@@ -88,6 +89,7 @@ class AbsensiController extends Controller
             $sakit = 0;
             $ijin = 0;
             $alpa = 0;
+            $hadir = 0;
             $dataAbsen = Periode_Absen::whereBetween('tanggal_absen', [$request->awal, $request->akhir])->where('nis',$value->nis)->where('ket','<>','hadir')->get();
             foreach ($dataAbsen as $key => $v) {
                 if($v->ket == "izin"){
@@ -96,10 +98,13 @@ class AbsensiController extends Controller
                     $sakit++;
                 }elseif($v->ket == "alpa"){
                     $alpa++;
+                } elseif($v->ket == "hadir"){
+                    $hadir++;
                 }
             }
             Rekap_Absen::create([
                 'nis'=>$value->nis,
+                'hadir'=>$hadir,
                 'sakit'=>$sakit,
                 'izin'=>$ijin,
                 'alpa'=>$alpa,

@@ -23,7 +23,7 @@ class CreateRekapAbsensTable extends Migration
             $table->integer('sakit');
             // $table->integer('tugas');
             // $table->text('keterangan');
-            $table->string('angkatan');
+            $table->string('angkatan')->nullable();
             $table->string('semester');
             $table->timestamps();
         });
