@@ -5,8 +5,10 @@
 @Section('content')
     @include('master-data.guru.modal.create')
     <div class="flex flex-col ml-10 mr-6">
-        <div class="w-58 bg-white rounded-lg border shadow-md sm:p-2 dark:bg-gray-800 dark:border-gray-700">
-            <b class="pl-2 text-base text-gray-900 sm:text-base">Guru</b>
+        <div class="font-mono flex mb-4">
+            <a href="/dashboard" class="text-lg pt-1 opacity-60">Dashboard</a>
+            <i class='bx bx-chevrons-right p-2'></i>
+            <p class="text-lg pt-1">Data Guru</p>
         </div>
         <div class="overflow-x-auto shadow-md sm:rounded-lg mt-4">
             <div class="inline-block min-w-full align-middle dark:bg-gray-800">
@@ -18,7 +20,7 @@
                             Tambah</button>
                         @include('master-data.guru.modal.import')
                         <button
-                            class="block mb-6 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                            class="block mb-6 text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                             type="button" data-modal-toggle="import-file-modal"><i class='bx bxs-file-import text-white'></i>
                             Import</button>
                     </div>

@@ -3,8 +3,10 @@
 
 @section('content')
     <div class="ml-8 mr-4">
-        <div class="w-58 bg-white rounded-lg border shadow-md sm:p-2 dark:bg-gray-800 dark:border-gray-700">
-            <b class="pl-2 text-gray-900">Data Siswa Yang Memiliki SIM</b>
+        <div class="font-mono flex mb-4">
+            <a href="/dashboard" class="text-lg pt-1 opacity-60">Dashboard</a>
+            <i class='bx bx-chevrons-right p-2'></i>
+            <p class="text-lg pt-1">Data SIM</p>
         </div>
         <div class="mt-4 pb-8 w-58 bg-white rounded-lg border shadow-md dark:bg-gray-800 dark:border-gray-700">
             <!-- TABLE -->
@@ -20,35 +22,35 @@
                                 <thead class="bg-gray-50 dark:bg-gray-700">
                                     <tr>
                                         <th scope="col"
-                                            class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                            class="py-3 px-6 text-xs font-medium tracking-wider text-center text-gray-700 uppercase dark:text-gray-400">
                                             No
                                         </th>
                                         <th scope="col"
-                                            class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                            class="py-3 px-6 text-xs font-medium tracking-wider text-center text-gray-700 uppercase dark:text-gray-400">
                                             NIS
                                         </th>
                                         <th scope="col"
-                                            class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                            class="py-3 px-6 text-xs font-medium tracking-wider text-center text-gray-700 uppercase dark:text-gray-400">
                                             Nama
                                         </th>
                                         <th scope="col"
-                                            class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                            class="py-3 px-6 text-xs font-medium tracking-wider text-center text-gray-700 uppercase dark:text-gray-400">
                                             Rombel
                                         </th>
                                         <th scope="col"
-                                            class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                            class="py-3 px-6 text-xs font-medium tracking-wider text-center text-gray-700 uppercase dark:text-gray-400">
                                             Rayon
                                         </th>
                                         <th scope="col"
-                                            class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                            class="py-3 px-6 text-xs font-medium tracking-wider text-center text-gray-700 uppercase dark:text-gray-400">
                                             JK
                                         </th>
                                         <th scope="col"
-                                            class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                            class="py-3 px-6 text-xs font-medium tracking-wider text-center text-gray-700 uppercase dark:text-gray-400">
                                             Foto dengan SIM
                                         </th>
                                         <th scope="col"
-                                            class="py-3 px-6 m-auto text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                            class="py-3 px-6 m-auto text-xs font-medium tracking-wider text-center text-gray-700 uppercase dark:text-gray-400">
                                             Aksi
                                         </th>
                                     </tr>
@@ -57,39 +59,39 @@
                                     @foreach ($sim as $key => $v)
                                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                             <td
-                                                class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                class="text-center text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                 {{ $loop->index + 1 }}
                                             </td>
                                             <td
-                                                class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                class="text-center text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
                                                 {{ $v->nis }}
                                             </td>
                                             <td
-                                                class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                class="text-center text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
                                                 {{ $v->Murid->nama }}
                                             </td>
                                             <td
-                                                class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                class="text-center text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
                                                 {{ $v->Murid->Rombel->rombel }}
                                             </td>
                                             <td
-                                                class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                class="text-center text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
                                                 {{ $v->Murid->Rayon->rayon }}
                                             </td>
                                             <td
-                                                class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                class="text-center text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
                                                 {{ $v->Murid->jenis_kelamin }}
                                             </td>
                                             <td
-                                                class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                <img src="{{ $v->file_endpoint }}" alt="" srcset=""
+                                                class="text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                <img class="m-auto" src="{{ $v->file_endpoint }}" alt="" srcset=""
                                                     width="100">
                                                 {{-- {{$v->file_endpoint}} --}}
                                             </td>
-                                            <td class="py-4 px-2 flex">
+                                            <td class="justify-center flex">
                                                 <form action="">
                                                     <button
-                                                        class="block text-white bg-yellow-300 hover:bg-yellow-400 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm ml-8 px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                                                        class="block text-white bg-yellow-300 hover:bg-yellow-400 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm mx-4 px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                                                         type="button" data-modal-toggle="edit-sim-{{ $v->id }}"><i
                                                             class='bx bx-edit'></i></button>
                                                 </form>
@@ -160,7 +162,7 @@
                                                     @method('DELETE')
                                                     @csrf
                                                     <button
-                                                        class="block text-white bg-red-600 hover:bg-red-700 focus:ring-blue-300 ml-4 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                                                        class="block text-white bg-red-600 hover:bg-red-700 focus:ring-blue-300 ml-4 font-medium rounded-lg text-sm mx-4 px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                                                         type="submit"
                                                         onClick="return confirm('Apakah anda yakin ingin menghapus data ini?')"><i
                                                             class='bx bx-trash'></i></button>

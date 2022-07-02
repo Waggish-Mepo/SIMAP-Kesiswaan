@@ -6,10 +6,12 @@
     @include('kehadiran.modal.import')
     @include('kehadiran.modal.rekap')
     <div class="flex flex-col ml-10 mr-6">
-        <div class="w-58 bg-white rounded-lg border shadow-md sm:p-2 dark:bg-gray-800 dark:border-gray-700">
-            <b class="pl-2 text-base text-gray-900 sm:text-base">Input Kehadiran</b>
+        <div class="font-mono flex mb-2">
+            <a href="/dashboard" class="text-lg pt-1 opacity-60">Dashboard</a>
+            <i class='bx bx-chevrons-right p-2'></i>
+            <p class="text-lg pt-1">Kehadiran</p>
         </div>
-        <div class="overflow-x-auto sm:rounded-lg mt-4">
+        <div class="overflow-x-auto sm:rounded-lg mt-2">
             <div
                 class="text-sm font-medium text-center text-gray-500 border-gray-200 dark:text-gray-400 dark:border-gray-700">
                 <ul class="flex flex-wrap -mb-px">
@@ -121,9 +123,9 @@
                             </table>
                         </div>
                         <div class="hidden tabs" id="absen-rekap">
-                            <div class="grid grid-cols-4">
+                            <div class="flex">
                                 <button
-                                    class="block mb-6 mr-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm py-3 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                                    class="block w-44 mb-6 mr-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm py-3 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                                     type="button" data-modal-toggle="rekap-absen-modal"><i class='bx bx-plus text-white'></i>
                                     Rekap
                                 </button>

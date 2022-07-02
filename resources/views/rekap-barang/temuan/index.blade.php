@@ -5,8 +5,10 @@
 @Section('content')
 @include('rekap-barang.temuan.modal.create')
     <div class="flex flex-col ml-10 mr-6">
-        <div class="w-58 bg-white rounded-lg border shadow-md sm:p-2 dark:bg-gray-800 dark:border-gray-700">
-            <b class="pl-2 text-base text-gray-900 sm:text-base">Data Barang Temuan</b>
+        <div class="font-mono flex mb-4">
+            <a href="/dashboard" class="text-lg pt-1 opacity-60">Dashboard</a>
+            <i class='bx bx-chevrons-right p-2'></i>
+            <p class="text-lg pt-1">Data Barang Temuan</p>
         </div>
         <div class="overflow-x-auto shadow-md sm:rounded-lg mt-4">
             <div class="inline-block min-w-full align-middle dark:bg-gray-800">
@@ -35,7 +37,7 @@
                                     <td class="text-center">{{ $d->Penemu->nama }}</td>
                                     <td class="text-center">{{ $d->tgl }}</td>
                                     <td class="text-center">
-                                        <img style="width: 100px"
+                                        <img class="m-auto" style="width: 100px"
                                             src="{{ asset('images/barangTemuan/' . $d->foto_barang) }}" alt="">
                                     </td class="text-center">
                                     <td>
@@ -95,7 +97,7 @@
             </div>
         </div>
     </div>
-    
+
 @endsection
 
 @section('script')
@@ -115,7 +117,7 @@
                         $('#nama').val(response.nama);
                         $('#rombel').val(response.rombel.rombel);
                     }
-                    
+
                 },
                 error: function (error) {
                 console.log(error);
@@ -123,6 +125,6 @@
             });
         });
         });
-        
+
     </script>
 @endsection

@@ -5,8 +5,10 @@
 @Section('content')
 @include('rekap-barang.razia.modal.create')
     <div class="flex flex-col ml-10 mr-12">
-        <div class="w-58 bg-white rounded-lg border shadow-md sm:p-2 dark:bg-gray-800 dark:border-gray-700">
-            <b class="pl-2 text-base text-gray-900 sm:text-base">Data Barang Razia</b>
+        <div class="font-mono flex mb-4">
+            <a href="/dashboard" class="text-lg pt-1 opacity-60">Dashboard</a>
+            <i class='bx bx-chevrons-right p-2'></i>
+            <p class="text-lg pt-1">Data Barang Razia</p>
         </div>
         <div class="overflow-x-auto shadow-md sm:rounded-lg mt-4">
             <div class="inline-block min-w-full align-middle dark:bg-gray-800">
@@ -33,18 +35,18 @@
                         <tbody>
                             @foreach ($data as $d)
                                 <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $d->Student->nama }}</td>
-                                    <td>{{ $d->nis }}</td>
-                                    <td>{{ $d->Student->Rombel->rombel }}</td>
-                                    <td>{{ $d->Student->Rayon->rayon }}</td>
-                                    <td>{{ $d->tgl }}</td>
-                                    <td>
-                                        <img style="width: 100px" src="{{ asset('images/barangRazia/' . $d->foto_barang) }}"
+                                    <td class="text-center">{{ $loop->iteration }}</td>
+                                    <td class="text-center">{{ $d->Student->nama }}</td>
+                                    <td class="text-center">{{ $d->nis }}</td>
+                                    <td class="text-center">{{ $d->Student->Rombel->rombel }}</td>
+                                    <td class="text-center">{{ $d->Student->Rayon->rayon }}</td>
+                                    <td class="text-center">{{ $d->tgl }}</td>
+                                    <td class="text-center">
+                                        <img class="m-auto" style="width: 100px" src="{{ asset('images/barangRazia/' . $d->foto_barang) }}"
                                             alt="">
                                     </td>
-                                    <td>{{ $d->ket }}</td>
-                                    <td>
+                                    <td class="text-center">{{ $d->ket }}</td>
+                                    <td class="text-center">
                                         @if ($d->status == 0)
                                             <span
                                                 class="bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-red-200 dark:text-red-900">Razia</span>
@@ -93,7 +95,7 @@
         </div>
     </div>
     {{-- @include('rekap-barang.razia.modal.edit') --}}
-    
+
 @endsection
 
 @section('script')
@@ -113,7 +115,7 @@
                         $('#nama').val(response.nama);
                         $('#rombel').val(response.rombel.rombel);
                     }
-                    
+
                 },
                 error: function (error) {
                 console.log(error);
@@ -121,6 +123,6 @@
             });
         });
         });
-        
+
     </script>
 @endsection

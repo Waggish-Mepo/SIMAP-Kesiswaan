@@ -7,8 +7,10 @@
     @include('master-data.modal-rombel.create')
     @include('master-data.modal-angkatan.create')
     <div class="flex flex-col ml-10 mr-6">
-        <div class="w-58 bg-white rounded-lg border shadow-md sm:p-2 dark:bg-gray-800 dark:border-gray-700">
-            <b class="pl-2 text-base text-gray-900 sm:text-base">Data Sekolah</b>
+        <div class="font-mono flex mb-4">
+            <a href="/dashboard" class="text-lg pt-1 opacity-60">Dashboard</a>
+            <i class='bx bx-chevrons-right p-2'></i>
+            <p class="text-lg pt-1">Data Sekolah</p>
         </div>
         <div class="overflow-x-auto sm:rounded-lg mt-4">
             <div
@@ -61,7 +63,7 @@
                                                 @else
                                                 <td></td>
                                                 @endif
-                                                
+
                                                 <td>
                                                     <button type="button" data-modal-toggle="edit-rayon-{{ $d->id }}"
                                                         class="focus:outline-none bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-4 py-2 mr-2 mb-2 dark:focus:ring-yellow-900"><i
@@ -100,8 +102,8 @@
                                 <tbody>
                                     @foreach ($rombel as $d)
                                         <tr>
-                                            
-                                            
+
+
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $d->rombel }}</td>
                                             @if ($d->Batch != null)
@@ -120,7 +122,7 @@
                                                         class="fa-solid fa-trash-can"></i>
                                                 </button>
                                                 @include('master-data.modal-rombel.delete')
-                                                
+
                                             </td>
                                         </tr>
                                     @endforeach
@@ -157,7 +159,7 @@
                                                         class="fa-solid fa-trash-can"></i>
                                                 </button>
                                                 @include('master-data.modal-angkatan.delete')
-                                                
+
                                             </td>
                                         </tr>
                                     @endforeach
